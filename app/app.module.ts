@@ -1,5 +1,5 @@
 import { NgModule }       from '@angular/core';
-import { BrowserModule }  from '@angular/platform-browser';
+import { BrowserModule, Title }  from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 import { RouterModule }   from '@angular/router';
 import { HttpModule } from '@angular/http';
@@ -23,6 +23,7 @@ import { BASE_PATH }                        from './api/variables';
         ProblemsApi,
         TeamsApi,
         UsersApi,
+        Title,
         { provide: BASE_PATH, useValue: 'http://localhost:8000' }
     ],
     bootstrap: [ AppComponent ]

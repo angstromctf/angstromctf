@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { TeamsApi } from './api/api/api';
 import 'rxjs/add/operator/toPromise';
 
@@ -10,9 +11,10 @@ import 'rxjs/add/operator/toPromise';
 export class ScoreboardComponent implements OnInit {
     teams: any;
 
-    constructor(private teamsApi: TeamsApi) { }
+    constructor(private teamsApi: TeamsApi, private title: Title) { }
 
     ngOnInit(): void {
-        this.teamsApi.teamsList().toPromise().then(data => {this.teams = data; console.log(data);});
+        this.title.setTitle("Scoreboard | ångstromCTF");
+        this.teamsApi.teamsList().toPromise().then(data => this.teams = data);
     }
 }
