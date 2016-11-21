@@ -5,7 +5,9 @@ import { RouterModule }   from '@angular/router';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent }                     from './app.component';
+import { IndexComponent }                   from './index.component';
 import { ScoreboardComponent }              from './scoreboard.component';
+
 import { ProblemsApi, TeamsApi, UsersApi }  from './api/api/api';
 import { BASE_PATH }                        from './api/variables';
 
@@ -13,10 +15,26 @@ import { BASE_PATH }                        from './api/variables';
     imports: [
         BrowserModule,
         FormsModule,
-        HttpModule
+        HttpModule,
+        RouterModule.forRoot([
+            {
+                path: 'index',
+                component: IndexComponent
+            },
+            {
+                path: 'scoreboard',
+                component: ScoreboardComponent
+            },
+            {
+                path: '',
+                redirectTo: '/index',
+                pathMatch: 'full'
+            }
+        ])
     ],
     declarations: [
         AppComponent,
+        IndexComponent,
         ScoreboardComponent
     ],
     providers: [
