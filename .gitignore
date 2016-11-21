@@ -4,3 +4,7 @@ app/**/*.js.map
 .idea/
 
 node_modules/
+npm-debug.log
+
+swagger-codegen-cli.jar
+app/api/
