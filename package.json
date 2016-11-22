@@ -2,11 +2,12 @@
   "name": "angstromctf",
   "version": "1.0.0",
   "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" \"node-sass -w app/scss/ -o static/css/\"",
+    "start": "tsc && npm run build-css && concurrently \"tsc -w\" \"lite-server\" \"node-sass -w app/scss/ -o static/css/\"",
     "lite": "lite-server",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
-    "build-css": "node-sass -w app/scss/ -o static/css/"
+    "build-css": "node-sass app/scss/ -o static/css/",
+    "watch-css": "node-sass -w app/scss/ -o static/css/"
   },
   "licenses": [
     {
@@ -30,7 +31,8 @@
     "rxjs": "5.0.0-beta.12",
     "systemjs": "0.19.39",
     "zone.js": "^0.6.25",
-    "bootstrap" :"4.0.0-alpha.5"
+    "bootstrap" :"4.0.0-alpha.5",
+    "@ng-bootstrap/ng-bootstrap": "1.0.0-alpha.13"
   },
   "devDependencies": {
     "@types/core-js": "^0.9.34",

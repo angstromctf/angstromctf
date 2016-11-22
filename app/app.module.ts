@@ -8,6 +8,7 @@ import { AppComponent }                     from './app.component';
 import { IndexComponent }                   from './index.component';
 import { ScoreboardComponent }              from './scoreboard.component';
 import { ProblemsComponent }                from './problems.component';
+import { AboutComponent }                   from './about.component';
 
 import { ProblemsApi, TeamsApi, UsersApi }  from './api/api/api';
 import { BASE_PATH }                        from './api/variables';
@@ -27,6 +28,10 @@ import { BASE_PATH }                        from './api/variables';
                 component: ProblemsComponent
             },
             {
+                path: 'about',
+                component: AboutComponent
+            },
+            {
                 path: '',
                 component: IndexComponent
             }
@@ -36,7 +41,8 @@ import { BASE_PATH }                        from './api/variables';
         AppComponent,
         IndexComponent,
         ScoreboardComponent,
-        ProblemsComponent
+        ProblemsComponent,
+        AboutComponent
     ],
     providers: [
         ProblemsApi,
