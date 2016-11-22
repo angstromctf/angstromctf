@@ -3,6 +3,7 @@ import { BrowserModule, Title }  from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 import { RouterModule }   from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { NgbModule }                        from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent }                     from './app.component';
 import { IndexComponent }                   from './index.component';
@@ -19,23 +20,12 @@ import { BASE_PATH }                        from './api/variables';
         FormsModule,
         HttpModule,
         RouterModule.forRoot([
-            {
-                path: 'scoreboard',
-                component: ScoreboardComponent
-            },
-            {
-                path: 'problems',
-                component: ProblemsComponent
-            },
-            {
-                path: 'about',
-                component: AboutComponent
-            },
-            {
-                path: '',
-                component: IndexComponent
-            }
-        ])
+            { path: 'scoreboard', component: ScoreboardComponent },
+            { path: 'problems', component: ProblemsComponent },
+            { path: 'about', component: AboutComponent },
+            { path: '', component: IndexComponent }
+        ]),
+        NgbModule.forRoot()
     ],
     declarations: [
         AppComponent,

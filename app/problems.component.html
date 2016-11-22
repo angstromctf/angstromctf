@@ -1,11 +1,31 @@
+<link rel="stylesheet" href="/static/css/problems.css">
+
 <h1>Problems</h1>
 <br/>
 
+{{ account }}
+
 <div class="card" *ngFor="let problem of problems">
     <div class="card-header" style="display: flex; ">
-        <div style="flex: 1;" class="text-xs-left" [innerHtml]="problem.title"></div>
-        <div style="flex: 1;" class="text-xs-right" [innerHtml]="'(' + problem.category + ', ' + problem.value + ')'"></div>
+        <div class="problem-info text-xs-left" [innerHtml]="problem.title"></div>
+        <div class="problem.info text-xs-right" [innerHtml]="'(' + problem.category + ', ' + problem.value + ')'"></div>
     </div>
-    <div class="card-block" [innerHtml]="problem.text">
+
+    <div class="card-block">
+        <ngb-tabset>
+            <ngb-tab title="Problem">
+                <template ngbTabContent>
+                    <br/>
+                    <div [innerHtml]="problem.text"></div>
+                </template>
+            </ngb-tab>
+
+            <ngb-tab title="Hint">
+                <template ngbTabContent>
+                    <br/>
+                    <div [innerHtml]="problem.hint"></div>
+                </template>
+            </ngb-tab>
+        </ngb-tabset>
     </div>
 </div>

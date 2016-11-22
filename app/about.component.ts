@@ -10,7 +10,7 @@ import 'rxjs/add/operator/toPromise';
 export class AboutComponent implements OnInit {
     people: any = [
         {name: 'Noah Singer', role: 'Coordinator, lead platform developer, learning materials', year: 'Junior'},
-        {name: 'Thea Tosini', role: 'Deployment and infrastructure', year: 'Junior', site: 'https://artemis.re/'},
+        {name: 'Artemis Tosini', role: 'Deployment and infrastructure', year: 'Junior', site: 'https://artemis.re/'},
         {name: 'Andrew Komo', role: 'Crypto problems', year: 'Junior'},
         {name: 'George Klees', role: 'Binary and reverse engineering problems', year: 'Junior'},
         {name: 'Daniel Chen', role: 'Outreach and sponsors', year: 'Senior'},
