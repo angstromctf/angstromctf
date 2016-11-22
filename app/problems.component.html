@@ -1,0 +1,8 @@
+<div class="card" *ngFor="let problem of problems">
+    <div class="card-header" style="display: flex; ">
+        <div style="flex: 1;" class="text-xs-left" [innerHtml]="problem.title"></div>
+        <div style="flex: 1;" class="text-xs-right" [innerHtml]="'(' + problem.category + ', ' + problem.value + ')'"></div>
+    </div>
+    <div class="card-block" [innerHtml]="problem.text">
+    </div>
+</div>

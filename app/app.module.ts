@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent }                     from './app.component';
 import { IndexComponent }                   from './index.component';
 import { ScoreboardComponent }              from './scoreboard.component';
+import { ProblemsComponent }                from './problems.component';
 
 import { ProblemsApi, TeamsApi, UsersApi }  from './api/api/api';
 import { BASE_PATH }                        from './api/variables';
@@ -22,6 +23,10 @@ import { BASE_PATH }                        from './api/variables';
                 component: ScoreboardComponent
             },
             {
+                path: 'problems',
+                component: ProblemsComponent
+            },
+            {
                 path: '',
                 component: IndexComponent
             }
@@ -30,7 +35,8 @@ import { BASE_PATH }                        from './api/variables';
     declarations: [
         AppComponent,
         IndexComponent,
-        ScoreboardComponent
+        ScoreboardComponent,
+        ProblemsComponent
     ],
     providers: [
         ProblemsApi,
