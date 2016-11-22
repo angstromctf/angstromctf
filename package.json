@@ -2,15 +2,16 @@
   "name": "angstromctf",
   "version": "1.0.0",
   "scripts": {
-    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
+    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" \"node-sass -w app/scss/ -o static/css/\"",
     "lite": "lite-server",
     "tsc": "tsc",
-    "tsc:w": "tsc -w"
+    "tsc:w": "tsc -w",
+    "build-css": "node-sass -w app/scss/ -o static/css/"
   },
   "licenses": [
     {
-      "type": "MIT",
-      "url": "https://github.com/angular/angular.io/blob/master/LICENSE"
+      "type": "GNU GPLv3",
+      "url": "https://github.com/angstromctf/djangoctf/blob/master/LICENSE.txt"
     }
   ],
   "dependencies": {
@@ -28,13 +29,15 @@
     "reflect-metadata": "^0.1.8",
     "rxjs": "5.0.0-beta.12",
     "systemjs": "0.19.39",
-    "zone.js": "^0.6.25"
+    "zone.js": "^0.6.25",
+    "bootstrap" :"4.0.0-alpha.5"
   },
   "devDependencies": {
     "@types/core-js": "^0.9.34",
     "@types/node": "^6.0.45",
     "concurrently": "^3.0.0",
     "lite-server": "^2.2.2",
-    "typescript": "^2.0.3"
+    "typescript": "^2.0.3",
+    "node-sass": "^3.13.0"
   }
 }

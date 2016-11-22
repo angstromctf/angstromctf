@@ -11,10 +11,10 @@ import 'rxjs/add/operator/toPromise';
 export class ScoreboardComponent implements OnInit {
     teams: any;
 
-    constructor(private teamsApi: TeamsApi, private title: Title) { }
+    constructor(private teamsApi: TeamsApi, private titleService: Title) { }
 
     ngOnInit(): void {
-        this.title.setTitle("Scoreboard | ångstromCTF");
+        this.titleService.setTitle("Scoreboard | ångstromCTF");
         this.teamsApi.teamsList().toPromise().then(data => this.teams = data);
     }
 }

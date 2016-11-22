@@ -1,0 +1,45 @@
+body {
+    line-height: 155%;
+}
+
+angstrom-app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    flex: 0 0 auto;
+    background-color: #dcdcdc;
+}
+
+div#content {
+    flex: 1 1 auto;
+    position: relative;
+    overflow-y: auto;
+
+    padding: 1em 0;
+}
+
+footer {
+    flex: 0 0 auto;
+    background-color: #dcdcdc;
+
+    padding: 1em 0;
+    text-align: center;
+    line-spacing: 300%;
+}
+
+img.logo {
+    height: 2em;
+}
+
+a.logo-link {
+    margin-right: .5em;
+}
+
+span#heart {
+    color: red;
+    font-size: 2em;
+    vertical-align: -15%;
+}

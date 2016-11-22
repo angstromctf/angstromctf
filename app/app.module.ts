@@ -18,17 +18,12 @@ import { BASE_PATH }                        from './api/variables';
         HttpModule,
         RouterModule.forRoot([
             {
-                path: 'index',
-                component: IndexComponent
-            },
-            {
                 path: 'scoreboard',
                 component: ScoreboardComponent
             },
             {
                 path: '',
-                redirectTo: '/index',
-                pathMatch: 'full'
+                component: IndexComponent
             }
         ])
     ],
