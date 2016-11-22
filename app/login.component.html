@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="/static/css/about.css">
+
+<h1>Login</h1>
+<br/>
+
+
+<form [formGroup]="form" (ngSubmit)="submit(form.value)">
+    <div class="form-group" [ngClass]="{'has-danger': !form.controls['username'].valid && form.controls['username'].touched}">
+        <label>Username</label>
+        <input class="form-control" type="text" placeholder="my_username" [formControl]="form.controls['username']">
+    </div>
+
+    <div class="form-group" [ngClass]="{'has-danger': !form.controls['password'].valid && form.controls['password'].touched}">
+        <label>Password</label>
+        <input class="form-control" type="password" placeholder="my_password" [formControl]="form.controls['password']">
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Login</button>
+    </div>
+</form>
