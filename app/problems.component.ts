@@ -16,7 +16,15 @@ export class ProblemsComponent implements OnInit {
 
     ngOnInit(): void {
         this.titleService.setTitle("Problems | ångstromCTF");
-        this.problemsApi.problemsList().toPromise().then(problems => this.problems = problems);
+
+        this.problemsApi.problemsList().toPromise().then(problems => {
+            this.problems = problems;
+
+            for (let problem of this.problems) {
+                problem.collapsed = problem.solved;
+            }
+        });
+
         this.usersApi.usersAccount().toPromise().then(account => this.account = account);
     }
 }

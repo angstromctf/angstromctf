@@ -7,12 +7,14 @@
 <form [formGroup]="form" (ngSubmit)="submit(form.value)">
     <div class="form-group" [ngClass]="{'has-danger': !form.controls['username'].valid && form.controls['username'].touched}">
         <label>Username</label>
-        <input class="form-control" type="text" placeholder="my_username" [formControl]="form.controls['username']">
+        <input class="form-control" [ngClass]="{'form-control-danger': !form.controls['username'].valid && form.controls['username'].touched}"
+               type="text" placeholder="my_username" [formControl]="form.controls['username']">
     </div>
 
     <div class="form-group" [ngClass]="{'has-danger': !form.controls['password'].valid && form.controls['password'].touched}">
         <label>Password</label>
-        <input class="form-control" type="password" placeholder="my_password" [formControl]="form.controls['password']">
+        <input class="form-control" [ngClass]="{'form-control-danger': !form.controls['password'].valid && form.controls['password'].touched}"
+               type="password" placeholder="my_password" [formControl]="form.controls['password']">
     </div>
 
     <div class="form-group">

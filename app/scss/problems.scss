@@ -7,3 +7,12 @@
   display: block;
   margin-bottom: 1em;
 }
+
+@import 'theme';
+
+@each $category, $color in $categories {
+  .card-#{$category} {
+    background-color: $color;
+    display: flex;
+  }
+}

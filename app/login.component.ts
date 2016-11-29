@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UsersApi } from './api/api/api';
 import 'rxjs/add/operator/toPromise';
 
 @Component({
@@ -11,7 +12,7 @@ import 'rxjs/add/operator/toPromise';
 export class LoginComponent implements OnInit {
     form: FormGroup;
 
-    constructor(private titleService: Title, private fb: FormBuilder) {
+    constructor(private titleService: Title, private usersApi: UsersApi, private fb: FormBuilder) {
         this.form = fb.group({
             'username': [null, Validators.required],
             'password': [null, Validators.required],
@@ -19,10 +20,10 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        // this.titleService.setTitle("Login | ångstromCTF");
+        this.titleService.setTitle("Login | ångstromCTF");
     }
 
     submit(value: any){
-        console.log(value);
+        this.usersApi.usersAccount().toPromise().then(data => console.log(data), data => console.log(data));
     }
 }

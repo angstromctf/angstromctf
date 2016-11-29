@@ -1,49 +1,12 @@
-html {
-    overflow-y: scroll;
-}
+$gray-dark:                 #373a3c !default;
+$gray:                      #55595c !default;
+$gray-light:                #818a91 !default;
+$gray-lighter:              #eceeef !default;
+$gray-lightest:             #f7f7f9 !default;
 
-body {
-    line-height: 155%;
-}
+$body-bg: #020210;
+$card-bg: #040404;
+$nav-tabs-active-link-hover-bg: $card-bg;
+$card-border-color: $gray-dark;
 
-angstrom-app {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-header {
-    flex: 0 0 auto;
-    background-color: #dcdcdc;
-}
-
-div#content {
-    flex: 1 1 auto;
-    position: relative;
-    overflow-y: auto;
-
-    padding: 1em;
-}
-
-footer {
-    flex: 0 0 auto;
-    background-color: #dcdcdc;
-
-    padding: 1em 0;
-    text-align: center;
-    line-spacing: 300%;
-}
-
-img.logo {
-    height: 2em;
-}
-
-a.logo-link {
-    margin-right: .5em;
-}
-
-span#heart {
-    color: red;
-    font-size: 2em;
-    vertical-align: -15%;
-}
+$categories: (crypto: blue, forensics: green, binary: orange, re: red, misc: brown, web: purple, master: magenta);

@@ -2,13 +2,14 @@
   "name": "angstromctf",
   "version": "1.0.0",
   "scripts": {
-    "start": "tsc && npm run build-css && concurrently \"tsc -w\" \"lite-server\" \"node-sass -w app/scss/ -o static/css/\"",
+    "start": "tsc && npm run build-css && concurrently \"tsc -w\" \"lite-server\" \"npm run watch-css\"",
     "lite": "lite-server",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "build-css": "node-sass app/scss/ -o static/css/",
     "watch-css": "node-sass -w app/scss/ -o static/css/"
   },
+
   "licenses": [
     {
       "type": "GNU GPLv3",

@@ -4,6 +4,4 @@ import { Component } from '@angular/core';
     selector: 'angstrom-app',
     templateUrl: 'app/app.component.html'
 })
-export class AppComponent {
-    title = "Welcome to &aring;gstromCTF!";
-}
+export class AppComponent { }
