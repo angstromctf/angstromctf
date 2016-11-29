@@ -1,12 +1,9 @@
-$gray-dark:                 #373a3c !default;
-$gray:                      #55595c !default;
-$gray-light:                #818a91 !default;
-$gray-lighter:              #eceeef !default;
-$gray-lightest:             #f7f7f9 !default;
+@import '../../node_modules/bootstrap/scss/_variables';
 
 $body-bg: #020210;
 $card-bg: #040404;
 $nav-tabs-active-link-hover-bg: $card-bg;
 $card-border-color: $gray-dark;
+$font-family-base: $font-family-monospace;
 
 $categories: (crypto: blue, forensics: green, binary: orange, re: red, misc: brown, web: purple, master: magenta);
