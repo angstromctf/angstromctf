@@ -9,10 +9,3 @@
 }
 
 @import 'theme';
-
-@each $category, $color in $categories {
-  .card-#{$category} {
-    background-color: $color;
-    display: flex;
-  }
-}

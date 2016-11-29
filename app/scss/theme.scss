@@ -7,3 +7,10 @@ $card-border-color: $gray-dark;
 $font-family-base: $font-family-monospace;
 
 $categories: (crypto: blue, forensics: green, binary: orange, re: red, misc: brown, web: purple, master: magenta);
+
+@each $category, $color in $categories {
+  .card-#{$category} {
+    background-color: $color;
+    display: flex;
+  }
+}
