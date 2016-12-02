@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UsersApi } from './api/api/api';
+import { StatusService } from './status.service';
 import 'rxjs/add/operator/toPromise';
 
 @Component({
@@ -11,8 +13,9 @@ import 'rxjs/add/operator/toPromise';
 })
 export class LoginComponent implements OnInit {
     form: FormGroup;
+    failed: boolean = false;
 
-    constructor(private titleService: Title, private usersApi: UsersApi, private fb: FormBuilder) {
+    constructor(private titleService: Title, private router: Router, private usersApi: UsersApi, private status: StatusService, private fb: FormBuilder) {
         this.form = fb.group({
             'username': [null, Validators.required],
             'password': [null, Validators.required],
@@ -24,6 +27,9 @@ export class LoginComponent implements OnInit {
     }
 
     submit(value: any){
-        this.usersApi.usersAccount().toPromise().then(data => console.log(data), data => console.log(data));
+        this.status.login(value.username, value.password).then(data => {
+            if (data) this.router.navigateByUrl('/');
+            else this.failed = true;
+        });
     }
 }

@@ -24,7 +24,5 @@ export class ProblemsComponent implements OnInit {
                 problem.collapsed = problem.solved;
             }
         });
-
-        this.usersApi.usersAccount().toPromise().then(account => this.account = account);
     }
 }

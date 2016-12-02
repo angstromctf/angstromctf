@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="/static/css/about.css">
+
+<h1>Signup</h1>
+<br/>
+
+<form [formGroup]="form" (ngSubmit)="submit(form.value)">
+    <div class="form-group" [ngClass]="{'has-danger': !form.controls['username'].valid && form.controls['username'].touched}">
+        <label>Username</label>
+        <input class="form-control" [ngClass]="{'form-control-danger': !form.controls['username'].valid && form.controls['username'].touched}"
+               type="text" placeholder="my_username" [formControl]="form.controls['username']">
+    </div>
+
+    <div class="form-group" [ngClass]="{'has-danger': !form.controls['password'].valid && form.controls['password'].touched}">
+        <label>Password</label>
+        <input class="form-control" [ngClass]="{'form-control-danger': !form.controls['password'].valid && form.controls['password'].touched}"
+               type="password" placeholder="my_password" [formControl]="form.controls['password']">
+    </div>
+
+    <div class="form-group" [ngClass]="{'has-danger': !form.controls['confirm_password'].valid && form.controls['confirm_password'].touched}">
+        <label>Confirm Password</label>
+        <input class="form-control" [ngClass]="{'form-control-danger': !form.controls['confirm_password'].valid && form.controls['confirm_password'].touched}"
+               type="password" placeholder="confirm_password" [formControl]="form.controls['confirm_password']">
+    </div>
+
+    <div class="form-group" [ngClass]="{'has-danger': !form.controls['first_name'].valid && form.controls['first_name'].touched}">
+        <label>First Name</label>
+        <input class="form-control" [ngClass]="{'form-control-danger': !form.controls['first_name'].valid && form.controls['first_name'].touched}"
+               type="password" placeholder="first_name" [formControl]="form.controls['first_name']">
+    </div>
+
+    <div class="form-group" [ngClass]="{'has-danger': !form.controls['last_name'].valid && form.controls['last_name'].touched}">
+        <label>Last Name</label>
+        <input class="form-control" [ngClass]="{'form-control-danger': !form.controls['last_name'].valid && form.controls['last_name'].touched}"
+               type="password" placeholder="last_name" [formControl]="form.controls['last_name']">
+    </div>
+
+    <div class="form-check">
+        <label>Prize Eligibility</label>
+
+        <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" [formControl]="form.controls['eligible']">
+            I hereby certify that I am a high-school or middle-school student living in the United States of America and am therefore eligible for prizes.
+        </label>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Signup!</button>
+    </div>
+</form>
