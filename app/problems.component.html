@@ -3,8 +3,6 @@
 <h1>Problems</h1>
 <br/>
 
-{{ account }}
-
 <div class="card card-inverse" *ngFor="let problem of problems">
     <div class="card-header card-{{ problem.category }}" (click)="problem.collapsed = !problem.collapsed">
         <div class="problem-info text-xs-left" [innerHtml]="problem.title"></div>
@@ -19,12 +17,15 @@
                     <div [innerHtml]="problem.text"></div>
                     <br/>
 
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="problem_submission">
-                        <span class="input-group-btn">
-                            <button class="btn btn-primary" type="button">Submit</button>
-                        </span>
-                    </div>
+                    <form (ngSubmit)="submit(problem)">
+                        <div class="input-group">
+                            <input type="text" name="guess" class="form-control" placeholder="problem_submission" [(ngModel)]="problem.guess">
+
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="submit">Submit</button>
+                            </span>
+                        </div>
+                    </form>
                 </template>
             </ngb-tab>
 

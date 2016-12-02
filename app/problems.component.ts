@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ProblemsApi, UsersApi } from './api/api/api';
+import { StatusService } from './status.service';
 import 'rxjs/add/operator/toPromise';
 
 @Component({
@@ -23,6 +24,15 @@ export class ProblemsComponent implements OnInit {
             for (let problem of this.problems) {
                 problem.collapsed = problem.solved;
             }
+        });
+    }
+
+    submit(problem: any) : void {
+        this.problemsApi.problemsSubmit(String(problem.id), {
+            flag: problem.guess
+        }).toPromise().then(data => {
+            problem.solved = true;
+            problem.collapsed = true;
         });
     }
 }

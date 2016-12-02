@@ -3,7 +3,6 @@
 <h1>Login</h1>
 <br/>
 
-
 <form [formGroup]="form" (ngSubmit)="submit(form.value)">
     <div class="form-group" [ngClass]="{'has-danger': !form.controls['username'].valid && form.controls['username'].touched}">
         <label>Username</label>

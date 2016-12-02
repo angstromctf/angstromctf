@@ -1,8 +1,8 @@
-import { Injectable, OnInit } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { UsersApi } from './api/api/api';
 
 @Injectable()
-export class StatusService implements OnInit {
+export class StatusService {
     auth: boolean = false;
 
     constructor (private usersApi: UsersApi) {
@@ -11,7 +11,7 @@ export class StatusService implements OnInit {
         });
     }
 
-    login(username: string, password: string) : Promise {
+    login(username: string, password: string) : Promise<any> {
         return this.usersApi.usersLogin({
             username: username,
             password: password
@@ -24,7 +24,7 @@ export class StatusService implements OnInit {
         });
     }
 
-    logout() : Promise {
+    logout() : Promise<any> {
         return this.usersApi.usersLogout().toPromise().then(data => {
             this.auth = false;
             this.update(data);

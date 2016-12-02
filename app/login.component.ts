@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
 
     submit(value: any){
         this.status.login(value.username, value.password).then(data => {
+            console.log(data);
             if (data) this.router.navigateByUrl('/');
             else this.failed = true;
         });
