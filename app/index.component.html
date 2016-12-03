@@ -1,8 +1,23 @@
+<link rel="stylesheet" href="/static/css/index.css">
+
 <h1>Welcome to &aring;ngstromCTF!</h1>
 
 <p>Welcome to &aring;ngstromCTF, a capture-the-flag (CTF) competition hosted and written by entirely by students at Montgomery Blair High School!
     CTF cybersecurity competitions have become an increasingly popular way for students to learn more about cybersecurity and develop and refine
     their hacking skills. These competitions are designed to <strong>educate and inspire high school students through interactive hacking challenges</strong>.</p>
+
+<div id="countdowns">
+    <div class="countdown-box" *ngFor="let n of time; let i = index">
+        <div class="countdown-images">
+            <img src="/static/images/countdown/{{ (n - n % 10) / 10 }}.svg" class="countdown-image">
+            <img src="/static/images/countdown/{{ n % 10 }}.svg" class="countdown-image">
+        </div>
+
+        {{ UNITS[i] }}
+    </div>
+</div>
+
+<br/>
 
 <p>The first &aring;ngstromCTF took place April 8-17, 2016. It was a phenomenal success, with almost 500 teams participating and submitting thousands of problem solutions.
     This year, we're following up with exciting new problems and prizes. One of our chief goals this year to make our competition

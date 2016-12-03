@@ -1,0 +1,26 @@
+#countdowns {
+  padding: 0 10%;
+  display: flex;
+}
+
+.countdown-box {
+  flex: 1;
+  text-align: center;
+  flex-flow: wrap row;
+}
+
+.countdown-images {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.countdown-image:first-child {
+  width: 50%;
+  margin-right: -10%;
+}
+
+.countdown-image:last-child {
+  width: 50%;
+  margin-left: -10%;
+}
