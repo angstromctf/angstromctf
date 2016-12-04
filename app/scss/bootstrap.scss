@@ -1,7 +1,6 @@
 $enable-flex: true;
 
 @import 'theme';
-
 @import '../../node_modules/bootstrap/scss/bootstrap';
 
 html {
@@ -44,10 +43,4 @@ img.logo {
 
 a.logo-link {
   margin-right: .5em;
-}
-
-span#heart {
-  color: red;
-  font-size: 2em;
-  vertical-align: -15%;
 }

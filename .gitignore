@@ -7,7 +7,6 @@ node_modules/
 npm-debug.log
 
 swagger-codegen-cli.jar
-app/api/
 
 static/css/
 static/images/people/
