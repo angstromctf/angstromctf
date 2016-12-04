@@ -21,7 +21,7 @@
     <filter
        inkscape:collect="always"
        style="color-interpolation-filters:sRGB"
-       id="filter13491"
+       id="filter13491-3"
        x="-0.54961091"
        width="2.0992217"
        y="-0.33985448"
@@ -29,7 +29,7 @@
       <feGaussianBlur
          inkscape:collect="always"
          stdDeviation="28.30402"
-         id="feGaussianBlur13493" />
+         id="feGaussianBlur13493-6" />
     </filter>
   </defs>
   <sodipodi:namedview
@@ -39,8 +39,8 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.9778242"
-     inkscape:cx="91.472659"
+     inkscape:zoom="1.8259844"
+     inkscape:cx="-67.071958"
      inkscape:cy="110.4457"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -69,12 +69,12 @@
      id="layer1"
      transform="translate(0,-852.36216)">
     <g
-       id="g9387-43"
-       style="stroke:#f60000;stroke-width:40;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter13491)"
-       transform="matrix(0.59570275,0,0,0.59570275,86.063751,343.29991)">
+       id="g9387-43-8"
+       style="stroke:#f60000;stroke-width:40;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter13491-3)"
+       transform="matrix(0.58900413,0,0,0.58900413,85.995565,350.14876)">
       <path
          inkscape:connector-curvature="0"
-         id="path9383-1"
+         id="path9383-1-7"
          d="m 34.625,922.48714 -86.5,0 -10.625,97.24996"
          style="fill:none;fill-rule:evenodd;stroke:#f60000;stroke-width:40;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <path
@@ -87,16 +87,16 @@
          sodipodi:cy="1061.3778"
          sodipodi:cx="-13.965359"
          sodipodi:type="arc"
-         id="path9385-4"
+         id="path9385-4-9"
          style="opacity:1;fill:none;fill-opacity:1;stroke:#f60000;stroke-width:40;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     </g>
     <g
-       id="g9387"
+       id="g9387-0"
        style="stroke:#f8dd0b;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       transform="matrix(0.59570275,0,0,0.59570275,86.079776,343.29815)">
+       transform="matrix(0.58900413,0,0,0.58900413,86.01141,350.14702)">
       <path
          inkscape:connector-curvature="0"
-         id="path9383"
+         id="path9383-3"
          d="m 34.625,922.48714 -86.5,0 -10.625,97.24996"
          style="fill:none;fill-rule:evenodd;stroke:#f8dd0b;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <path
@@ -109,7 +109,7 @@
          sodipodi:cy="1061.3778"
          sodipodi:cx="-13.965359"
          sodipodi:type="arc"
-         id="path9385"
+         id="path9385-3"
          style="opacity:1;fill:none;fill-opacity:1;stroke:#f8dd0b;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     </g>
   </g>

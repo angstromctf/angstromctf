@@ -21,7 +21,7 @@
     <filter
        inkscape:collect="always"
        style="color-interpolation-filters:sRGB"
-       id="filter13495"
+       id="filter13495-6"
        x="-0.52738923"
        width="2.0547783"
        y="-0.34894612"
@@ -29,7 +29,7 @@
       <feGaussianBlur
          inkscape:collect="always"
          stdDeviation="29.076937"
-         id="feGaussianBlur13497" />
+         id="feGaussianBlur13497-2" />
     </filter>
   </defs>
   <sodipodi:namedview
@@ -39,8 +39,8 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.9778242"
-     inkscape:cx="91.472659"
+     inkscape:zoom="1.8259844"
+     inkscape:cx="78.739801"
      inkscape:cy="110.4457"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -69,15 +69,15 @@
      id="layer1"
      transform="translate(0,-852.36216)">
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#f60000;stroke-width:40;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter13495)"
+       style="fill:none;fill-rule:evenodd;stroke:#f60000;stroke-width:40;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter13495-6)"
        d="m 51.581768,1102.3556 0,-199.9869 -87.74224,132.6266 132.32096,0"
-       id="path9365-2"
+       id="path9365-2-6"
        inkscape:connector-curvature="0"
        transform="matrix(0.58900413,0,0,0.58900413,62.329876,361.96672)" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#f8dd0b;stroke-width:8.78125572;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 92.68029,1011.2269 0,-117.79305 -51.680542,78.11763 77.937592,0"
-       id="path9365"
+       d="m 92.680294,1011.2269 0,-117.79304 -51.68054,78.11763 77.937576,0"
+       id="path9365-89"
        inkscape:connector-curvature="0" />
   </g>
 </svg>

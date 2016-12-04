@@ -21,7 +21,7 @@
     <filter
        inkscape:collect="always"
        style="color-interpolation-filters:sRGB"
-       id="filter10967"
+       id="filter10967-0"
        x="-0.59985656"
        width="2.1997132"
        y="-0.32311851"
@@ -29,7 +29,7 @@
       <feGaussianBlur
          inkscape:collect="always"
          stdDeviation="27.609148"
-         id="feGaussianBlur10969" />
+         id="feGaussianBlur10969-6" />
     </filter>
   </defs>
   <sodipodi:namedview
@@ -39,8 +39,8 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.9778242"
-     inkscape:cx="91.472659"
+     inkscape:zoom="1.8259844"
+     inkscape:cx="-67.071958"
      inkscape:cy="110.4457"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -69,41 +69,41 @@
      id="layer1"
      transform="translate(0,-852.36216)">
     <g
-       id="g9341-9"
-       transform="matrix(0.59242754,0,0,0.59242754,79.999997,192.30631)"
-       style="stroke:#f60000;stroke-width:40.95836258;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter10967)">
+       id="g9341-9-4"
+       transform="matrix(0.57522235,0,0,0.57522235,79.999996,214.37973)"
+       style="stroke:#f60000;stroke-width:40.95836258;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter10967-0)">
       <ellipse
          ry="46.304417"
          rx="46.304432"
          cy="1226.7209"
          cx="0"
-         id="path9324-3"
+         id="path9324-3-6"
          style="opacity:1;fill:none;fill-opacity:1;stroke:#f60000;stroke-width:40.95836258;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <ellipse
          ry="55.231529"
          rx="55.231499"
          cy="1330.2551"
          cx="-7.1054274e-15"
-         id="path9324-2-6"
+         id="path9324-2-6-9"
          style="opacity:1;fill:none;fill-opacity:1;stroke:#f60000;stroke-width:40.95836258;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     </g>
     <g
-       id="g9341"
-       transform="matrix(0.59242754,0,0,0.59242754,80,192.30631)"
+       id="g9341-2"
+       transform="matrix(0.57522235,0,0,0.57522235,80,214.37973)"
        style="stroke:#f8dd0b;stroke-width:15.35938549;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
       <ellipse
          ry="46.304417"
          rx="46.304432"
          cy="1226.7209"
          cx="0"
-         id="path9324"
+         id="path9324-24"
          style="opacity:1;fill:none;fill-opacity:1;stroke:#f8dd0b;stroke-width:15.35938549;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <ellipse
          ry="55.231529"
          rx="55.231499"
          cy="1330.2551"
          cx="-7.1054274e-15"
-         id="path9324-2"
+         id="path9324-2-7"
          style="opacity:1;fill:none;fill-opacity:1;stroke:#f8dd0b;stroke-width:15.35938549;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     </g>
   </g>

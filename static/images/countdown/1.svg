@@ -21,15 +21,15 @@
     <filter
        inkscape:collect="always"
        style="color-interpolation-filters:sRGB"
-       id="filter21910"
-       x="-1.1126343"
-       width="3.2252686"
-       y="-0.078859091"
-       height="1.1577182">
+       id="filter16430"
+       x="-1.3870841"
+       width="3.7741683"
+       y="-0.098311"
+       height="1.196622">
       <feGaussianBlur
          inkscape:collect="always"
-         stdDeviation="7.0468904"
-         id="feGaussianBlur21912" />
+         stdDeviation="8.7851235"
+         id="feGaussianBlur16432" />
     </filter>
   </defs>
   <sodipodi:namedview
@@ -39,9 +39,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.2620855"
-     inkscape:cx="-124.41894"
-     inkscape:cy="-27.142843"
+     inkscape:zoom="1.0944648"
+     inkscape:cx="-156.65793"
+     inkscape:cy="-19.899013"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -69,17 +69,17 @@
      id="layer1"
      transform="translate(0,-852.36216)">
     <rect
-       style="opacity:1;fill:#ff0000;fill-opacity:1;stroke:#f70000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter21910)"
-       id="rect21482"
+       style="opacity:1;fill:#ff0000;fill-opacity:1;stroke:#f70000;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter16430)"
+       id="rect21482-5"
        width="15.200445"
        height="214.46529"
        x="-913.09375"
        y="837.79962"
-       transform="matrix(1.1618186,0,0,0.71784743,1132.0192,273.97317)" />
+       transform="matrix(1.1393256,0,0,0.70394982,1111.652,287.10687)" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#f8dd0b;stroke-width:9.10679531;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 80,892.46228 80,1012.262"
-       id="path9322"
+       style="fill:none;fill-rule:evenodd;stroke:#f8dd0b;stroke-width:8.93048668;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 80,893.62199 0,117.48031"
+       id="path9322-6"
        inkscape:connector-curvature="0" />
   </g>
 </svg>

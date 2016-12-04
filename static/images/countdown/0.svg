@@ -21,7 +21,7 @@
     <filter
        inkscape:collect="always"
        style="color-interpolation-filters:sRGB"
-       id="filter13511"
+       id="filter13511-7"
        x="-0.54519254"
        width="2.0903852"
        y="-0.34156618"
@@ -29,7 +29,7 @@
       <feGaussianBlur
          inkscape:collect="always"
          stdDeviation="28.578585"
-         id="feGaussianBlur13513" />
+         id="feGaussianBlur13513-5" />
     </filter>
   </defs>
   <sodipodi:namedview
@@ -39,8 +39,8 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.60703125"
-     inkscape:cx="210.85936"
+     inkscape:zoom="2.1056396"
+     inkscape:cx="73.371447"
      inkscape:cy="142.05722"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -68,23 +68,20 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-852.36216)">
-    <g
-       transform="matrix(0.59174504,0,0,0.59174504,165.79057,359.21935)"
-       id="g8480">
-      <ellipse
-         ry="100.4031"
-         rx="62.903103"
-         cy="1002.3621"
-         cx="-144.97894"
-         id="path9297-4"
-         style="opacity:1;fill:none;fill-opacity:1;stroke:#f60000;stroke-width:40;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter13511)" />
-      <ellipse
-         ry="100.4031"
-         rx="62.903103"
-         cy="1002.3621"
-         cx="-144.97893"
-         id="path9297"
-         style="opacity:1;fill:none;fill-opacity:1;stroke:#f8dd0b;stroke-width:14.19379711;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    </g>
+    <ellipse
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#f60000;stroke-width:40;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter13511-7)"
+       id="path9297-4-3"
+       cx="89.722031"
+       cy="492.33356"
+       rx="62.903103"
+       ry="100.4031"
+       transform="matrix(0.58900413,0,0,0.58900413,27.153349,662.37567)" />
+    <ellipse
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#f8dd0b;stroke-width:8.3602047;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path9297-59"
+       cx="80"
+       cy="952.36218"
+       rx="37.050186"
+       ry="59.13784" />
   </g>
 </svg>

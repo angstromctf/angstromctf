@@ -21,7 +21,7 @@
     <filter
        inkscape:collect="always"
        style="color-interpolation-filters:sRGB"
-       id="filter10575"
+       id="filter10575-2"
        x="-0.55916977"
        width="2.1183395"
        y="-0.33642522"
@@ -29,7 +29,7 @@
       <feGaussianBlur
          inkscape:collect="always"
          stdDeviation="28.51921"
-         id="feGaussianBlur10577" />
+         id="feGaussianBlur10577-6" />
     </filter>
   </defs>
   <sodipodi:namedview
@@ -39,8 +39,8 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.8259844"
-     inkscape:cx="-18.993075"
+     inkscape:zoom="1.5834708"
+     inkscape:cx="-201.8193"
      inkscape:cy="28.700649"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -69,36 +69,36 @@
      id="layer1"
      transform="translate(0,-852.36216)">
     <g
-       id="g5772-0-5-6"
-       style="stroke:#f60000;stroke-width:40.74671555;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter10575)"
-       transform="matrix(-0.58654281,0,0,-0.58764185,178.13463,1551.186)">
+       id="g5772-0-5-6-8"
+       style="stroke:#f60000;stroke-width:40.74671555;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;filter:url(#filter10575-2)"
+       transform="matrix(-0.5776692,0,0,-0.57875162,176.64999,1542.1266)">
       <ellipse
          ry="61.203323"
          rx="61.203331"
          cy="1059.5508"
          cx="167.31027"
-         id="path5751-9-62-9"
+         id="path5751-9-62-9-7"
          style="opacity:1;fill:none;fill-opacity:1;stroke:#f60000;stroke-width:40.74671555;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <path
          inkscape:connector-curvature="0"
-         id="path5759-3-9-4"
+         id="path5759-3-9-4-9"
          d="M 109.4005,1039.1144 173.02538,917.30294"
          style="fill:none;fill-rule:evenodd;stroke:#f60000;stroke-width:40.74671555;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     </g>
     <g
-       id="g5772-0-5"
+       id="g5772-0-5-2"
        style="stroke:#f8dd0b;stroke-width:15.26111603;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       transform="matrix(-0.58654281,0,0,-0.58764185,178.13463,1551.1577)">
+       transform="matrix(-0.5776692,0,0,-0.57875162,176.64999,1542.0987)">
       <ellipse
          ry="61.203323"
          rx="61.203331"
          cy="1059.5508"
          cx="167.31027"
-         id="path5751-9-62"
+         id="path5751-9-62-0"
          style="opacity:1;fill:none;fill-opacity:1;stroke:#f8dd0b;stroke-width:15.26111603;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <path
          inkscape:connector-curvature="0"
-         id="path5759-3-9"
+         id="path5759-3-9-2"
          d="M 109.4005,1039.1144 173.02538,917.30294"
          style="fill:none;fill-rule:evenodd;stroke:#f8dd0b;stroke-width:15.26111603;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     </g>
