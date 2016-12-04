@@ -1,31 +1,35 @@
 <header>
     <nav class="navbar navbar-dark bg-inverse">
-        <a class="navbar-brand nav-link" routerLink="/">angstromCTF</a>
+        <button class="navbar-toggler hidden-lg-up" type="button" (click)="navbarCollapsed = !navbarCollapsed"></button>
 
-        <ul class="nav navbar-nav float-md-left">
-            <li class="nav-item"><a class="nav-link" routerLink="/about">About</a></li>
-            <li class="nav-item"><a class="nav-link" routerLink="/scoreboard">Scoreboard</a></li>
-            <li class="nav-item"><a class="nav-link" routerLink="/problems">Problems</a></li>
+        <div class="navbar-toggleable-md" [ngbCollapse]="navbarCollapsed">
+            <a class="navbar-brand nav-link" routerLink="/">angstromCTF</a>
 
-            <li class="nav-item dropdown" ngbDropdown>
-                <a class="nav-link dropdown-toggle" ngbDropdownToggle>Archives</a>
+            <ul class="nav navbar-nav float-md-left">
+                <li class="nav-item"><a class="nav-link" routerLink="/about">About</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/scoreboard">Scoreboard</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/problems">Problems</a></li>
 
-                <div class="dropdown-menu">
-                    <a class="dropdown-item">2016</a>
+                <li class="nav-item dropdown" ngbDropdown>
+                    <a class="nav-link dropdown-toggle" ngbDropdownToggle>Archives</a>
+
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item">2016</a>
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="nav navbar-nav float-md-right">
+                <div *ngIf="status.auth">
+                    <li class="nav-item"><a class="nav-link" routerLink="/logout">Logout</a></li>
                 </div>
-            </li>
-        </ul>
 
-        <ul class="nav navbar-nav float-md-right">
-            <div *ngIf="status.auth">
-                <li class="nav-item"><a class="nav-link" routerLink="/logout">Logout</a></li>
-            </div>
-
-            <div *ngIf="!status.auth">
-                <li class="nav-item"><a class="nav-link" routerLink="/login">Login</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/signup">Signup</a></li>
-            </div>
-        </ul>
+                <div *ngIf="!status.auth">
+                    <li class="nav-item"><a class="nav-link" routerLink="/login">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/signup">Signup</a></li>
+                </div>
+            </ul>
+        </div>
     </nav>
 </header>
 

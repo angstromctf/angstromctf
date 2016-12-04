@@ -6,5 +6,7 @@ import { StatusService } from './status.service';
     templateUrl: 'app/app.component.html'
 })
 export class AppComponent {
+    navbarCollapsed: boolean = true;
+
     constructor(private status: StatusService) { }
 }
