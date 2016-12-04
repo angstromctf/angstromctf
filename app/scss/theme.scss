@@ -14,7 +14,7 @@ $table-bg-accent: lighten($body-bg, 3);
 $table-bg-hover: lighten($body-bg, 6);
 
 /* Problem category colors */
-$categories: (crypto: blue, forensics: green, binary: orange, re: red, misc: brown, web: purple, master: magenta);
+$categories: (crypto: #46E4BC, forensics: #27CD83, binary: #0069FF, re: #FF3B2F, misc: #FFFF00, web: #9D00FF, master: #FF24A4);
 
 @each $category, $color in $categories {
   .card-#{$category} {
