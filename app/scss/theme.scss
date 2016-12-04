@@ -1,11 +1,19 @@
 @import '../../node_modules/bootstrap/scss/_variables';
 
+/* Some global configuration */
 $body-bg: #020210;
 $card-bg: #040404;
-$nav-tabs-active-link-hover-bg: $card-bg;
-$card-border-color: $gray-dark;
 $font-family-base: 'Titillium Web', sans-serif;
 
+/* Configuration for specific components */
+$nav-tabs-active-link-hover-bg: $card-bg;
+
+$card-border-color: $gray-dark;
+
+$table-bg-accent: lighten($body-bg, 3);
+$table-bg-hover: lighten($body-bg, 6);
+
+/* Problem category colors */
 $categories: (crypto: blue, forensics: green, binary: orange, re: red, misc: brown, web: purple, master: magenta);
 
 @each $category, $color in $categories {
