@@ -9,8 +9,12 @@
 <div id="countdowns">
     <div class="countdown-box" *ngFor="let n of time; let i = index">
         <div class="countdown-images">
-            <img src="/static/images/countdown/{{ (n - n % 10) / 10 }}.svg" class="countdown-image">
-            <img src="/static/images/countdown/{{ n % 10 }}.svg" class="countdown-image">
+            <div class="countdown-wrapper">
+                <img src="/static/images/countdown/{{ (n - n % 10) / 10 }}.svg" class="countdown-image">
+            </div>
+            <div class="countdown-wrapper">
+                <img src="/static/images/countdown/{{ n % 10 }}.svg" class="countdown-image">
+            </div>
         </div>
 
         {{ UNITS[i] }}
@@ -29,74 +33,74 @@
     difficult in various categories.</p>
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header card-crypto"><div>Cryptography</div></div>
-                <div class="card-block">
-                    <small>Crack codes and ciphers, ranging from the simple (Caesar cipher, Vigenère cipher) to the complex
-                        (RSA, elliptic curves). Do cryptanalysis, use deduction, and get the flags!</small>
-                </div>
-            </div>
-        </div>
+    <!--<div class="row">-->
+        <!--<div class="col-md-4">-->
+            <!--<div class="card">-->
+                <!--<div class="card-header card-crypto"><div>Cryptography</div></div>-->
+                <!--<div class="card-block">-->
+                    <!--<small>Crack codes and ciphers, ranging from the simple (Caesar cipher, Vigenère cipher) to the complex-->
+                        <!--(RSA, elliptic curves). Do cryptanalysis, use deduction, and get the flags!</small>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
 
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header card-binary"><div>Binary Exploitation</div></div>
-                <div class="card-block">
-                    <small>Apply a range of skills to exploit security vulnerabilities in programs, including buffer overflows, arithmetic overflows,
-                        format string bugs, and use-after-frees. Force these binaries to run your own code and read the flag!</small>
-                </div>
-            </div>
-        </div>
+        <!--<div class="col-md-4">-->
+            <!--<div class="card">-->
+                <!--<div class="card-header card-binary"><div>Binary Exploitation</div></div>-->
+                <!--<div class="card-block">-->
+                    <!--<small>Apply a range of skills to exploit security vulnerabilities in programs, including buffer overflows, arithmetic overflows,-->
+                        <!--format string bugs, and use-after-frees. Force these binaries to run your own code and read the flag!</small>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
 
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header card-web">Web Exploitation</div>
-                <div class="card-block">
-                    <small>Find various vulnerabilities in web pages, and use them to get access to areas you shouldn't. This topic covers a wide
-                        range of vulnerabilities, including SQL injection and mistakes in using scripting languages. Use your new-found access to recover the flag!</small>
-                </div>
-            </div>
-        </div>
+        <!--<div class="col-md-4">-->
+            <!--<div class="card">-->
+                <!--<div class="card-header card-web">Web Exploitation</div>-->
+                <!--<div class="card-block">-->
+                    <!--<small>Find various vulnerabilities in web pages, and use them to get access to areas you shouldn't. This topic covers a wide-->
+                        <!--range of vulnerabilities, including SQL injection and mistakes in using scripting languages. Use your new-found access to recover the flag!</small>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
 
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header card-re">Reverse Engineering</div>
-                <div class="card-block">
-                    <small>Examine programs given to you and find out their code, from simple Java apps to more difficult ELF binaries.
-                        Figure out their inner workings and use the information you gather to find the flag!</small>
-                </div>
-            </div>
-        </div>
+        <!--<div class="col-md-4">-->
+            <!--<div class="card">-->
+                <!--<div class="card-header card-re">Reverse Engineering</div>-->
+                <!--<div class="card-block">-->
+                    <!--<small>Examine programs given to you and find out their code, from simple Java apps to more difficult ELF binaries.-->
+                        <!--Figure out their inner workings and use the information you gather to find the flag!</small>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
 
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header card-forensics">Forensics</div>
-                <div class="card-block">
-                    <small>Explore the art of digital forensics, which is all about uncovering hidden data within a large swath of
-                    information. Solve challenging puzzles in areas such as stenography, memory forensics, data recovery, and
-                        system examination. You can find the flag if you look carefully enough!</small>
-                </div>
-            </div>
-        </div>
+        <!--<div class="col-md-4">-->
+            <!--<div class="card">-->
+                <!--<div class="card-header card-forensics">Forensics</div>-->
+                <!--<div class="card-block">-->
+                    <!--<small>Explore the art of digital forensics, which is all about uncovering hidden data within a large swath of-->
+                    <!--information. Solve challenging puzzles in areas such as stenography, memory forensics, data recovery, and-->
+                        <!--system examination. You can find the flag if you look carefully enough!</small>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
 
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header card-misc">Miscellaneous</div>
-                <div class="card-block">
-                    <small>Apply math, computer science, and logic to problems that don't fit into a rigorous category.</small>
-                </div>
-            </div>
-        </div>
+        <!--<div class="col-md-4">-->
+            <!--<div class="card">-->
+                <!--<div class="card-header card-misc">Miscellaneous</div>-->
+                <!--<div class="card-block">-->
+                    <!--<small>Apply math, computer science, and logic to problems that don't fit into a rigorous category.</small>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
 
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-header card-master">Master Challenge</div>
-                <div class="card-block">
-                    <small>Use your most advanced skills from each individual subject area in complex combinations to find flags truly worthy of an elite hacker!</small>
-                </div>
-            </div>
-        </div>
-    </div>
+        <!--<div class="col-md-4">-->
+            <!--<div class="card">-->
+                <!--<div class="card-header card-master">Master Challenge</div>-->
+                <!--<div class="card-block">-->
+                    <!--<small>Use your most advanced skills from each individual subject area in complex combinations to find flags truly worthy of an elite hacker!</small>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
 </div>
