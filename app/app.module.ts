@@ -7,13 +7,14 @@ import { NgbModule }                        from '@ng-bootstrap/ng-bootstrap';
 import { BrowserXhr }                       from '@angular/http';
 
 import { AppComponent }                     from './app.component';
-import { IndexComponent }                   from './index.component';
-import { ScoreboardComponent }              from './scoreboard.component';
-import { ProblemsComponent }                from './problems.component';
 import { AboutComponent }                   from './about.component';
+import { AccountComponent }                 from './account.component';
+import { IndexComponent }                   from './index.component';
 import { LoginComponent }                   from './login.component';
-import { SignupComponent }                  from './signup.component';
 import { LogoutComponent }                  from './logout.component';
+import { ProblemsComponent }                from './problems.component';
+import { ScoreboardComponent }              from './scoreboard.component';
+import { SignupComponent }                  from './signup.component';
 
 import { ProblemsApi, TeamsApi, UsersApi }  from './api/api/api';
 import { StatusService }                    from './status.service';
@@ -39,25 +40,27 @@ export class CookieXhr extends BrowserXhr {
         ReactiveFormsModule,
         HttpModule,
         RouterModule.forRoot([
-            { path: 'scoreboard', component: ScoreboardComponent },
-            { path: 'problems', component: ProblemsComponent },
+            { path: '', component: IndexComponent },
+            { path: 'account', component: AccountComponent },
             { path: 'about', component: AboutComponent },
             { path: 'login', component: LoginComponent },
             { path: 'logout', component: LogoutComponent },
+            { path: 'problems', component: ProblemsComponent },
             { path: 'signup', component: SignupComponent },
-            { path: '', component: IndexComponent }
+            { path: 'scoreboard', component: ScoreboardComponent }
         ]),
         NgbModule.forRoot()
     ],
     declarations: [
         AppComponent,
-        IndexComponent,
-        ScoreboardComponent,
-        ProblemsComponent,
         AboutComponent,
+        AccountComponent,
+        IndexComponent,
         LoginComponent,
         LogoutComponent,
-        SignupComponent
+        ProblemsComponent,
+        SignupComponent,
+        ScoreboardComponent,
     ],
     providers: [
         ProblemsApi,

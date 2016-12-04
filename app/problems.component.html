@@ -5,8 +5,11 @@
 
 <div class="card card-inverse" *ngFor="let problem of problems">
     <div class="card-header card-{{ problem.category }}" (click)="problem.collapsed = !problem.collapsed">
-        <div class="problem-info text-xs-left" [innerHtml]="problem.title"></div>
-        <div class="problem.info text-xs-right" [innerHtml]="'(' + problem.category + ', ' + problem.value + ')'"></div>
+        <div class="problem-info text-xs-left">
+            <span class="fa icon-{{ problem.category }}"></span> &nbsp;
+            <span [innerHtml]="problem.title"></span>
+        </div>
+        <div class="problem-info text-xs-right" [innerHtml]="'(' + problem.category + ', ' + problem.value + ')'"></div>
     </div>
 
     <div class="card-block" [ngbCollapse]="problem.collapsed">

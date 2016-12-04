@@ -3,7 +3,7 @@ import { UsersApi } from './api/api/api';
 
 @Injectable()
 export class StatusService {
-    auth: boolean = false;
+    user: any;
 
     constructor (private usersApi: UsersApi) {
         this.usersApi.usersStatus().toPromise().then(data => {
@@ -16,7 +16,6 @@ export class StatusService {
             username: username,
             password: password
         }).toPromise().then(data => {
-            this.auth = true;
             this.update(data);
             return true;
         }, data => {
@@ -26,13 +25,13 @@ export class StatusService {
 
     logout() : Promise<any> {
         return this.usersApi.usersLogout().toPromise().then(data => {
-            this.auth = false;
+            this.user = null;
             this.update(data);
             return true;
         });
     }
 
     update(status: any) : void {
-        this.auth = status.logged_in;
+        this.user = status.user;
     }
 }

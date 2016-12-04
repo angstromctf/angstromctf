@@ -1,3 +1,5 @@
+@import 'theme.scss';
+
 #countdowns {
   padding: 0 1%;
   display: flex;
@@ -42,4 +44,27 @@
 
 .countdown-image {
   width: 100%;
+}
+
+@each $category, $color in $colors {
+  .logo-#{$category} {
+    display: block;
+    //width: 4em;
+    //height: 4em;
+    //margin: auto auto;
+    //border-radius: 2em;
+    color: $color;
+    text-align: center;
+  }
+}
+
+.category-row {
+  padding-bottom: .5em;
+}
+
+.logo-container {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
