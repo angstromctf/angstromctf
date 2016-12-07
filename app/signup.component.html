@@ -4,35 +4,25 @@
 <br/>
 
 <form [formGroup]="form" (ngSubmit)="submit(form.value)">
-    <div class="form-group" [ngClass]="{'has-danger': !form.controls['username'].valid && form.controls['username'].touched}">
-        <label>Username</label>
-        <input class="form-control" [ngClass]="{'form-control-danger': !form.controls['username'].valid && form.controls['username'].touched}"
-               type="text" placeholder="my_username" [formControl]="form.controls['username']">
-    </div>
+    <extended-input [label]="'Username'" [errors]="form.controls['username'].errors" [touched]="form.controls['username'].touched">
+        <input class="form-control" placeholder="my_username" [formControl]="form.controls['username']">
+    </extended-input>
 
-    <div class="form-group" [ngClass]="{'has-danger': !form.controls['password'].valid && form.controls['password'].touched}">
-        <label>Password</label>
-        <input class="form-control" [ngClass]="{'form-control-danger': !form.controls['password'].valid && form.controls['password'].touched}"
-               type="password" placeholder="my_password" [formControl]="form.controls['password']">
-    </div>
+    <extended-input [label]="'Password'" [errors]="form.controls['password'].errors" [touched]="form.controls['password'].touched">
+        <input type="password" class="form-control" placeholder="my_password" [formControl]="form.controls['password']">
+    </extended-input>
 
-    <div class="form-group" [ngClass]="{'has-danger': !form.controls['confirm_password'].valid && form.controls['confirm_password'].touched}">
-        <label>Confirm Password</label>
-        <input class="form-control" [ngClass]="{'form-control-danger': !form.controls['confirm_password'].valid && form.controls['confirm_password'].touched}"
-               type="password" placeholder="confirm_password" [formControl]="form.controls['confirm_password']">
-    </div>
+    <extended-input [label]="'Confirm Password'" [errors]="form.controls['confirm_password'].errors" [touched]="form.controls['confirm_password'].touched">
+        <input type="password" class="form-control" placeholder="my_password" [formControl]="form.controls['confirm_password']">
+    </extended-input>
 
-    <div class="form-group" [ngClass]="{'has-danger': !form.controls['first_name'].valid && form.controls['first_name'].touched}">
-        <label>First Name</label>
-        <input class="form-control" [ngClass]="{'form-control-danger': !form.controls['first_name'].valid && form.controls['first_name'].touched}"
-               type="password" placeholder="first_name" [formControl]="form.controls['first_name']">
-    </div>
+    <extended-input [label]="'First Name'" [errors]="form.controls['first_name'].errors" [touched]="form.controls['first_name'].touched">
+        <input class="form-control" placeholder="my_first_name" [formControl]="form.controls['first_name']">
+    </extended-input>
 
-    <div class="form-group" [ngClass]="{'has-danger': !form.controls['last_name'].valid && form.controls['last_name'].touched}">
-        <label>Last Name</label>
-        <input class="form-control" [ngClass]="{'form-control-danger': !form.controls['last_name'].valid && form.controls['last_name'].touched}"
-               type="password" placeholder="last_name" [formControl]="form.controls['last_name']">
-    </div>
+    <extended-input [label]="'Last Name'" [errors]="form.controls['last_name'].errors" [touched]="form.controls['last_name'].touched">
+        <input class="form-control" placeholder="my_last_name" [formControl]="form.controls['last_name']">
+    </extended-input>
 
     <div class="form-check">
         <label class="form-check-label">

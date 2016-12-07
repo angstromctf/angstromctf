@@ -17,8 +17,8 @@ export class LoginComponent implements OnInit {
 
     constructor(private titleService: Title, private router: Router, private usersApi: UsersApi, private status: StatusService, private fb: FormBuilder) {
         this.form = fb.group({
-            'username': [null, Validators.required],
-            'password': [null, Validators.required],
+            username: ['', Validators.required],
+            password: ['', Validators.required]
         });
     }
 
@@ -28,7 +28,6 @@ export class LoginComponent implements OnInit {
 
     submit(value: any){
         this.status.login(value.username, value.password).then(data => {
-            console.log(data);
             if (data) this.router.navigateByUrl('/');
             else this.failed = true;
         });

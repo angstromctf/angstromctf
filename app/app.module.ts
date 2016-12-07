@@ -7,6 +7,7 @@ import { NgbModule }                        from '@ng-bootstrap/ng-bootstrap';
 import { BrowserXhr }                       from '@angular/http';
 
 import { AppComponent }                     from './app.component';
+import { ExtendedInputComponent }           from './extended-input.component';
 import { AboutComponent }                   from './about.component';
 import { AccountComponent }                 from './account.component';
 import { IndexComponent }                   from './index.component';
@@ -53,6 +54,7 @@ export class CookieXhr extends BrowserXhr {
     ],
     declarations: [
         AppComponent,
+        ExtendedInputComponent,
         AboutComponent,
         AccountComponent,
         IndexComponent,

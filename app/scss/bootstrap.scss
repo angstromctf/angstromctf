@@ -44,3 +44,11 @@ img.logo {
 a.logo-link {
   margin-right: .5em;
 }
+
+.form-group.has-success input {
+  @extend .form-control-success;
+}
+
+.form-group.has-danger input {
+  @extend .form-control-danger;
+}

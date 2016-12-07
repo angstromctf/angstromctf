@@ -16,13 +16,13 @@ export class SignupComponent implements OnInit {
 
     constructor(private titleService: Title, private fb: FormBuilder) {
         this.form = fb.group({
-            'username': [null, Validators.required],
-            'password': [null, Validators.required],
-            'confirm_password': [null, Validators.required],
-            'first_name': [null, Validators.required],
-            'last_name': [null, Validators.required],
+            username: [null, Validators.required],
+            password: [null, Validators.required],
+            confirm_password: [null, Validators.required],
+            first_name: [null, Validators.required],
+            last_name: [null, Validators.required],
 
-            'eligible': [null, Validators.required]
+            eligible: [null, Validators.required]
         });
     }
 

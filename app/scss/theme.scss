@@ -15,7 +15,7 @@ $table-bg-accent: lighten($body-bg, 3);
 $table-bg-hover: lighten($body-bg, 6);
 
 /* Problem category themes */
-$colors: (crypto: #46E4BC, forensics: #27F65A, binary: #0069FF, re: #FF3B2F, misc: #E8C600, web: #9D00FF, master: #FF24A4);
+$colors: (crypto: #46E4BC, forensics: #20c849, binary: #0069FF, re: #FF3B2F, misc: #E8C600, web: #9D00FF, master: #FF24A4);
 $icons: (crypto: 'lock', forensics: 'search', binary: 'wrench', re: 'cogs', misc: 'star', web: 'globe', master: 'flag');
 
 @each $category, $color in $colors {
