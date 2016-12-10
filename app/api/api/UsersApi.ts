@@ -39,8 +39,8 @@ export class UsersApi {
             this.configuration = configuration;
         }
     }
-	
-	/**
+
+    /**
      * 
      * Extends object by coping non-existing properties.
      * @param objA object to be extended
@@ -49,7 +49,7 @@ export class UsersApi {
     private extendObj<T1,T2>(objA: T1, objB: T2) {
         for(let key in objB){
             if(objB.hasOwnProperty(key)){
-                objA[key] = objB[key];
+                (objA as any)[key] = (objB as any)[key];
             }
         }
         return <T1&T2>objA;
@@ -73,10 +73,10 @@ export class UsersApi {
     /**
      * Logs in a user.
      * Logs in a user.
-     * @param usersLoginData 
+     * @param data 
      */
-    public usersLogin(usersLoginData?: models.UsersLoginData, extraHttpRequestParams?: any): Observable<{}> {
-        return this.usersLoginWithHttpInfo(usersLoginData, extraHttpRequestParams)
+    public usersLogin(data?: models.Data3, extraHttpRequestParams?: any): Observable<{}> {
+        return this.usersLoginWithHttpInfo(data, extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
                     return undefined;
@@ -157,9 +157,9 @@ export class UsersApi {
     /**
      * Logs in a user.
      * Logs in a user.
-     * @param usersLoginData 
+     * @param data 
      */
-    public usersLoginWithHttpInfo(usersLoginData?: models.UsersLoginData, extraHttpRequestParams?: any): Observable<Response> {
+    public usersLoginWithHttpInfo(data?: models.Data3, extraHttpRequestParams?: any): Observable<Response> {
         const path = this.basePath + `/users/login/`;
 
         let queryParameters = new URLSearchParams();
@@ -183,7 +183,7 @@ export class UsersApi {
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Post,
             headers: headers,
-            body: usersLoginData == null ? '' : JSON.stringify(usersLoginData), // https://github.com/angular/angular/issues/10612
+            body: data == null ? '' : JSON.stringify(data), // https://github.com/angular/angular/issues/10612
             search: queryParameters
         });
         

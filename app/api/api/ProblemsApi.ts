@@ -39,8 +39,8 @@ export class ProblemsApi {
             this.configuration = configuration;
         }
     }
-	
-	/**
+
+    /**
      * 
      * Extends object by coping non-existing properties.
      * @param objA object to be extended
@@ -49,7 +49,7 @@ export class ProblemsApi {
     private extendObj<T1,T2>(objA: T1, objB: T2) {
         for(let key in objB){
             if(objB.hasOwnProperty(key)){
-                objA[key] = objB[key];
+                (objA as any)[key] = (objB as any)[key];
             }
         }
         return <T1&T2>objA;
@@ -88,13 +88,13 @@ export class ProblemsApi {
     }
 
     /**
-     * Handles submissions for specific problems and returns success _status.
-     * Handles submissions for specific problems and returns success _status.
+     * Handles submissions for specific problems and returns success status.
+     * Handles submissions for specific problems and returns success status.
      * @param id 
-     * @param problemsSubmitData 
+     * @param data 
      */
-    public problemsSubmit(id: string, problemsSubmitData?: models.ProblemsSubmitData, extraHttpRequestParams?: any): Observable<{}> {
-        return this.problemsSubmitWithHttpInfo(id, problemsSubmitData, extraHttpRequestParams)
+    public problemsSubmit(id: string, data?: models.Data, extraHttpRequestParams?: any): Observable<{}> {
+        return this.problemsSubmitWithHttpInfo(id, data, extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
                     return undefined;
@@ -189,12 +189,12 @@ export class ProblemsApi {
     }
 
     /**
-     * Handles submissions for specific problems and returns success _status.
-     * Handles submissions for specific problems and returns success _status.
+     * Handles submissions for specific problems and returns success status.
+     * Handles submissions for specific problems and returns success status.
      * @param id 
-     * @param problemsSubmitData 
+     * @param data 
      */
-    public problemsSubmitWithHttpInfo(id: string, problemsSubmitData?: models.ProblemsSubmitData, extraHttpRequestParams?: any): Observable<Response> {
+    public problemsSubmitWithHttpInfo(id: string, data?: models.Data, extraHttpRequestParams?: any): Observable<Response> {
         const path = this.basePath + `/problems/${id}/submit/`;
 
         let queryParameters = new URLSearchParams();
@@ -222,7 +222,7 @@ export class ProblemsApi {
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Post,
             headers: headers,
-            body: problemsSubmitData == null ? '' : JSON.stringify(problemsSubmitData), // https://github.com/angular/angular/issues/10612
+            body: data == null ? '' : JSON.stringify(data), // https://github.com/angular/angular/issues/10612
             search: queryParameters
         });
         
