@@ -13,7 +13,7 @@ export class ProblemsComponent implements OnInit {
     problems: any;
     account: any;
 
-    constructor(private problemsApi: ProblemsApi, private usersApi: UsersApi, private titleService: Title) { }
+    constructor(private problemsApi: ProblemsApi, private usersApi: UsersApi, private titleService: Title, private status: StatusService) { }
 
     ngOnInit(): void {
         this.titleService.setTitle("Problems | ångstromCTF");

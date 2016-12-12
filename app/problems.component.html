@@ -9,7 +9,11 @@
             <span class="fa icon-{{ problem.category }}"></span> &nbsp;
             <span [innerHtml]="problem.title"></span>
         </div>
-        <div class="problem-info text-xs-right" [innerHtml]="'(' + problem.category + ', ' + problem.value + ')'"></div>
+        <div class="problem-info text-xs-right">
+            ({{ problem.category }}, {{ problem.value }})
+            <span *ngIf="problem.solved"><i class="fa fa-check"></i></span>
+            <span *ngIf="status.user && !problem.solved"><i class="fa fa-times"></i></span>
+        </div>
     </div>
 
     <div class="card-block" [ngbCollapse]="problem.collapsed">
@@ -18,9 +22,9 @@
                 <template ngbTabContent>
                     <br/>
                     <div [innerHtml]="problem.text"></div>
-                    <br/>
 
-                    <form (ngSubmit)="submit(problem)">
+                    <form *ngIf="status.user && !problem.solved" (ngSubmit)="submit(problem)">
+                        <br/>
                         <div class="input-group">
                             <input type="text" name="guess" class="form-control" placeholder="problem_submission" [(ngModel)]="problem.guess">
 

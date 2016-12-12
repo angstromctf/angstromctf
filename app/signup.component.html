@@ -31,6 +31,46 @@
         </label>
     </div>
 
+    <h4>Demographic Information</h4>
+
+    <p class="text-muted">All information here is completely optional, but we'd greatly appreciate it if you filled this section out.
+        It will be used only for statistical purposes after the CTF is over and will not be disclosed to any other parties for any reason.</p>
+
+    <div class="form-group">
+        <label class="control-label">Country</label><br/>
+        <select class="custom-select" [formControl]="form.controls['country']">
+            <option *ngFor="let country of COUNTRIES" [value]="country">{{ country }}</option>
+        </select>
+    </div>
+
+    <div class="form-group" *ngIf="form.controls['country'].value == 'United States of America'">
+        <label class="control-label" [formControl]="form.controls['state']">State</label><br/>
+        <select class="custom-select">
+            <option *ngFor="let state of STATES" [value]="state">{{ state }}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Gender</label><br/>
+        <select class="custom-select" [formControl]="form.controls['gender']">
+            <option *ngFor="let gender of GENDERS" [value]="gender">{{ gender }}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Race</label><br/>
+        <select class="custom-select" [formControl]="form.controls['race']">
+            <option *ngFor="let race of RACES" [value]="race">{{ race }}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Age</label>
+        <input type="number" class="form-control" [formControl]="form.controls['age']">
+    </div>
+
+    <br/>
+
     <div class="form-group">
         <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Signup!</button>
     </div>

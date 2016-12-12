@@ -3,7 +3,8 @@
 import { Component, OnChanges, Input } from "@angular/core";
 
 export const MESSAGES: any = {
-    required: "This field is required."
+    required: "This field is required.",
+    other: "An error occurred processing this field."
 };
 
 @Component({
@@ -16,26 +17,30 @@ export const MESSAGES: any = {
 })
 export class ExtendedInputComponent implements OnChanges {
     @Input()
-    label: string = '';
+    label: string;
 
     @Input()
     errors: boolean[];
 
     @Input()
-    touched: boolean = true;
+    touched: boolean;
 
     message: string = '';
 
     ngOnChanges(changes: any) : void {
-        if (changes.errors && changes.errors.currentValue) {
+        if (changes.errors) {
             this.message = '';
 
-            Object.keys(changes.errors.currentValue).some(key => {
-                if (changes.errors.currentValue[key] && MESSAGES[key]) {
-                    this.message = MESSAGES[key];
-                    return true;
-                }
-            });
+            if (changes.errors.currentValue) {
+                Object.keys(changes.errors.currentValue).some(key => {
+                    console.log(key);
+                    if (changes.errors.currentValue[key]) {
+                        if (MESSAGES[key]) this.message = MESSAGES[key];
+                        else this.message = MESSAGES['other'];
+                        return true;
+                    }
+                });
+            }
         }
     }
 }
