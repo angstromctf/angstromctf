@@ -20,6 +20,7 @@ import { SignupComponent }                  from './signup.component';
 import { ProblemsApi, TeamsApi, UsersApi }  from './api/api/api';
 import { StatusService }                    from './status.service';
 import { BASE_PATH }                        from './api/variables';
+import { API_LOCATION }                     from './config';
 
 @Injectable()
 export class CookieXhr extends BrowserXhr {
@@ -70,7 +71,7 @@ export class CookieXhr extends BrowserXhr {
         UsersApi,
         Title,
         StatusService,
-        { provide: BASE_PATH, useValue: 'http://localhost:8000' },
+        { provide: BASE_PATH, useValue: API_LOCATION },
         { provide: BrowserXhr, useClass: CookieXhr },
         { provide: XSRFStrategy, useValue: new CookieXSRFStrategy('csrftoken', 'X-CSRFToken') }
     ],

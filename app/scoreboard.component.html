@@ -1,13 +1,13 @@
 <h1>Scoreboard</h1>
 <br/>
 
-<table class="table table-striped table-hover">
+<table class="table table-striped table-hover table-sm">
     <thead>
         <tr>
             <th>#</th>
             <th>Team</th>
             <th>Affiliation</th>
-            <th>Points</th>
+            <th *ngIf="status.started">Points</th>
         </tr>
     </thead>
     <tbody>
@@ -15,7 +15,7 @@
             <th scope="row">{{ i+1 }}</th>
             <td>{{ team.name }}</td>
             <td>{{ team.school }}</td>
-            <td>{{ team.score }}</td>
+            <td *ngIf="status.started">{{ team.score }}</td>
         </tr>
     </tbody>
 </table>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { START_TIME } from './config';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class IndexComponent implements OnInit {
     ngOnInit(): void {
         this.title.setTitle("ångstromCTF");
 
-        var secs = Math.floor((Date.parse("Mar 11, 2017") - Date.now()) / 1000);
+        var secs = Math.floor((START_TIME - Date.now()) / 1000);
 
         for (var i = 3; i >= 0; i--) {
             this.time[i] = secs % this.DURATIONS[i];

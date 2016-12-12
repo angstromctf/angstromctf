@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { UsersApi } from './api/api/api';
+import { START_TIME } from './config';
 
 @Injectable()
 export class StatusService {
@@ -31,7 +32,13 @@ export class StatusService {
         });
     }
 
-    update(status: any) : void {
-        this.user = status.user;
+    update(data: any) : void {
+        this.user = data.user;
+    }
+
+    get started(): boolean {
+        console.log(Date.now());
+        console.log(START_TIME);
+        return Date.now() > START_TIME;
     }
 }

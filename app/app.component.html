@@ -3,12 +3,12 @@
         <button class="navbar-toggler hidden-lg-up" type="button" (click)="navbarCollapsed = !navbarCollapsed"></button>
 
         <div class="navbar-toggleable-md" [ngbCollapse]="navbarCollapsed">
-            <a class="navbar-brand nav-link" routerLink="/">angstromCTF</a>
-
             <ul class="nav navbar-nav float-md-left">
+                <a class="navbar-brand" routerLink="/"><img id="angstrom-logo" src="static/images/logo.svg"></a>
+
                 <li class="nav-item"><a class="nav-link" routerLink="/about">About</a></li>
                 <li class="nav-item"><a class="nav-link" routerLink="/scoreboard">Scoreboard</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/problems">Problems</a></li>
+                <li class="nav-item" *ngIf="status.started"><a class="nav-link" routerLink="/problems">Problems</a></li>
 
                 <li class="nav-item dropdown" ngbDropdown>
                     <a class="nav-link dropdown-toggle" ngbDropdownToggle>Archives</a>
