@@ -65,11 +65,19 @@ a.logo-link {
   line-height: 2.5em;
 }
 
+* {
+  color: #ddd;
+}
+
+strong {
+  color: white;
+}
+
 /* Some global configuration */
 $body-bg: #020210;
 $card-bg: #040404;
 $font-family-base: 'Titillium Web', sans-serif;
-$font-size-root: 20px;
+$font-size-root: 18px;
 
 /* Configuration for specific components */
 $nav-tabs-active-link-hover-bg: $card-bg;
@@ -93,6 +101,7 @@ $icons: (crypto: 'lock', forensics: 'search', binary: 'wrench', re: 'cogs', misc
 @each $category, $icon in $icons {
   .icon-#{$category} {
     @extend .fa-#{$icon};
+    color: white;
   }
 }
 
