@@ -8,8 +8,55 @@
     </div>
 
     <div class="col-md-6">
-        <h3>Create Team</h3>
-        <h3>Join Team</h3>
+        <div *ngIf="status.team">
+            <h3>Team Information</h3>
+
+            <p>You're a member of team "{{ status.team.name }}".  Your team code is
+                <samp style='color: blue;'>{{ account?.code }}</samp>.  Don't give it
+                out to anyone you don't want joining your team.</p>
+
+            <p>Your team has {{ status.team.members.length }} out of 5 possible members:</p>
+            <ul>
+                <li *ngFor="let member of status.team.members">{{ member.user.username }}</li>
+            </ul>
+
+            <p>Your shell account username and default password are below:</p>
+            Username: <samp style='color: blue;'>{{ account?.shell_username }}</samp><br>
+            Password: <samp style='color: blue;'>{{ account?.shell_password }}</samp>
+        </div>
+
+        <div *ngIf="!status.team">
+            <h3>Create Team</h3>
+
+            <form [formGroup]="create" (ngSubmit)="create_submit(create.value)">
+                <extended-input [label]="'Team Name'" [errors]="create.controls['name'].errors" [touched]="create.controls['name'].touched">
+                    <input class="form-control" placeholder="my_team_name" [formControl]="create.controls['name']">
+                </extended-input>
+
+                <extended-input [label]="'School or Affiliation'" [errors]="create.controls['school'].errors" [touched]="create.controls['school'].touched">
+                    <input class="form-control" placeholder="my_school" [formControl]="create.controls['name']">
+                </extended-input>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" [disabled]="!create.valid">Create!</button>
+                </div>
+            </form>
+
+
+            <h3>Join Team</h3>
+
+            <form [formGroup]="join" (ngSubmit)="join_submit(join.value)">
+                <extended-input [label]="'Code'" [errors]="join.controls['code'].errors" [touched]="join.controls['code'].touched">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="team_code" [formControl]="join.controls['code']">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="button">Join!</button>
+                        </span>
+                    </div>
+                </extended-input>
+            </form>
+        </div>
+
         <h3>Change Password</h3>
     </div>
 </div>

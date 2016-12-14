@@ -5,6 +5,7 @@ import { START_TIME } from './config';
 @Injectable()
 export class StatusService {
     user: any;
+    team: any;
 
     constructor (private usersApi: UsersApi) {
         this.usersApi.usersStatus().toPromise().then(data => {
@@ -34,11 +35,10 @@ export class StatusService {
 
     update(data: any) : void {
         this.user = data.user;
+        this.team = data.team;
     }
 
     get started(): boolean {
-        console.log(Date.now());
-        console.log(START_TIME);
         return Date.now() > START_TIME;
     }
 }

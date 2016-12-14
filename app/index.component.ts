@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { START_TIME } from './config';
-
+import { START_TIME, END_TIME } from './config';
 
 @Component({
     moduleId: module.id,
@@ -18,7 +17,8 @@ export class IndexComponent implements OnInit {
     ngOnInit(): void {
         this.title.setTitle("ångstromCTF");
 
-        var secs = Math.floor((START_TIME - Date.now()) / 1000);
+        if (Date.now() > START_TIME) var secs = Math.floor((END_TIME - Date.now()) / 1000);
+        else var secs = Math.floor((START_TIME - Date.now()) / 1000);
 
         for (var i = 3; i >= 0; i--) {
             this.time[i] = secs % this.DURATIONS[i];

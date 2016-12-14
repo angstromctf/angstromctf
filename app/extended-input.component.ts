@@ -33,7 +33,6 @@ export class ExtendedInputComponent implements OnChanges {
 
             if (changes.errors.currentValue) {
                 Object.keys(changes.errors.currentValue).some(key => {
-                    console.log(key);
                     if (changes.errors.currentValue[key]) {
                         if (MESSAGES[key]) this.message = MESSAGES[key];
                         else this.message = MESSAGES['other'];
