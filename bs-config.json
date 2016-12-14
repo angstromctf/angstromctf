@@ -1,8 +1,0 @@
-{
-  "watchOptions": {
-    "ignored": [
-      ".git",
-      "node_modules"
-    ]
-  }
-}

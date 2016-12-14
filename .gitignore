@@ -1,12 +1,35 @@
-app/**/*.js
-app/**/*.js.map
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-.idea/
+# compiled output
+/dist
+/tmp
 
-node_modules/
+# dependencies
+/node_modules
+/bower_components
+
+# IDEs and editors
+/.idea
+/.vscode
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage/*
+/libpeerconnection.log
 npm-debug.log
+testem.log
+/typings
 
-swagger-codegen-cli.jar
+# e2e
+/e2e/*.js
+/e2e/*.map
 
-static/css/
-static/images/people/
+#System Files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,137 @@
+<h1>Welcome to &aring;ngstromCTF!</h1>
+
+<p>Welcome to &aring;ngstromCTF, a capture-the-flag (CTF) competition hosted and written by entirely by students at Montgomery Blair High School!
+    CTF cybersecurity competitions have become an increasingly popular way for students to learn more about cybersecurity and develop and refine
+    their hacking skills. These competitions are designed to <strong>educate and inspire high school students through interactive hacking challenges</strong>.</p>
+
+<div id="countdowns">
+    <div class="countdown-box" *ngFor="let n of time; let i = index">
+        <div class="countdown-images">
+            <div class="countdown-wrapper">
+                <img src="/assets/images/countdown/{{ (n - n % 10) / 10 }}.svg" class="countdown-image">
+            </div>
+            <div class="countdown-wrapper">
+                <img src="/assets/images/countdown/{{ n % 10 }}.svg" class="countdown-image">
+            </div>
+        </div>
+
+        {{ UNITS[i] }}
+    </div>
+</div>
+
+<br/>
+
+<p>The first &aring;ngstromCTF took place April 8-17, 2016. It was a phenomenal success, with almost 500 teams participating and submitting thousands of problem solutions.
+    This year, we're following up with exciting new problems and prizes. One of our chief goals this year is to make our competition
+    <strong>as accessible as possible</strong> to students with <strong>little to no background knowledge in hacking and cybersecurity</strong>.</p>
+
+<p>Students will compete in <strong>teams of up to five members</strong>. Points are given for answering each question
+    (entering the flag). Prizes will be awarded to the top-scoring US high-school teams.  is meant for
+    <strong>both beginners and experienced CTFers</strong> and consists of questions ranging from simple to extremely
+    difficult in various categories.</p>
+
+<div class="container">
+    <div class="row category-row">
+        <div class="col-sm-2 logo-container">
+            <span class="fa-stack fa-2x">
+              <i class="fa fa-square fa-stack-2x logo-crypto"></i>
+              <i class="fa icon-crypto fa-stack-1x"></i>
+            </span>
+        </div>
+
+        <div class="col-sm-10">
+            <h4>Cryptography</h4>
+            Crack codes and ciphers, ranging from the simple (Caesar cipher, Vigenère cipher) to the complex
+            (RSA, elliptic curves). Do cryptanalysis, use deduction, and get the flags!
+        </div>
+    </div>
+
+    <div class="row category-row">
+        <div class="col-sm-2 logo-container">
+            <span class="fa-stack fa-2x">
+              <i class="fa fa-square fa-stack-2x logo-binary"></i>
+              <i class="fa icon-binary fa-stack-1x"></i>
+            </span>
+        </div>
+
+        <div class="col-sm-10">
+            <h4>Binary Exploitation</h4>
+            Apply a range of skills to exploit security vulnerabilities in programs, including buffer overflows, arithmetic overflows,
+            format string bugs, and use-after-frees. Force these binaries to run your own code and read the flag!
+        </div>
+    </div>
+
+    <div class="row category-row">
+        <div class="col-sm-2 logo-container">
+            <span class="fa-stack fa-2x">
+              <i class="fa fa-square fa-stack-2x logo-web"></i>
+              <i class="fa icon-web fa-stack-1x"></i>
+            </span>
+        </div>
+
+        <div class="col-sm-10">
+            <h4>Web Exploitation</h4>
+            Find various vulnerabilities in web pages, and use them to get access to areas you shouldn't. This topic covers a wide
+            range of vulnerabilities, including SQL injection and mistakes in using scripting languages. Use your new-found access to recover the flag!
+        </div>
+    </div>
+
+    <div class="row category-row">
+        <div class="col-sm-2 logo-container">
+            <span class="fa-stack fa-2x">
+              <i class="fa fa-square fa-stack-2x logo-re"></i>
+              <i class="fa icon-re fa-stack-1x"></i>
+            </span>
+        </div>
+
+        <div class="col-sm-10">
+            <h4>Reverse Engineering</h4>
+            Examine programs given to you and find out their code, from simple Java apps to more difficult ELF binaries.
+            Figure out their inner workings and use the information you gather to find the flag!
+        </div>
+    </div>
+
+    <div class="row category-row">
+        <div class="col-sm-2 logo-container">
+            <span class="fa-stack fa-2x">
+              <i class="fa fa-square fa-stack-2x logo-forensics"></i>
+              <i class="fa icon-forensics fa-stack-1x"></i>
+            </span>
+        </div>
+
+        <div class="col-sm-10">
+            <h4>Forensics</h4>
+            Explore the art of digital forensics, which is all about uncovering hidden data within a large swath of
+            information. Solve challenging puzzles in areas such as stenography, memory forensics, data recovery, and
+            system examination. You can find the flag if you look carefully enough!
+        </div>
+    </div>
+
+    <div class="row category-row">
+        <div class="col-sm-2 logo-container">
+            <span class="fa-stack fa-2x">
+              <i class="fa fa-square fa-stack-2x logo-misc"></i>
+              <i class="fa icon-misc fa-stack-1x"></i>
+            </span>
+        </div>
+
+        <div class="col-sm-10">
+            <h4>Miscellaneous</h4>
+            Apply math, computer science, and logic to problems that don't fit into a rigorous category.
+        </div>
+    </div>
+
+    <div class="row category-row">
+        <div class="col-sm-2 logo-container">
+            <span class="fa-stack fa-2x">
+              <i class="fa fa-square fa-stack-2x logo-master"></i>
+              <i class="fa icon-master fa-stack-1x"></i>
+            </span>
+        </div>
+
+        <div class="col-sm-10">
+            <h4>Master Challenge</h4>
+            Use your most advanced skills from each individual subject area in complex combinations to find flags truly worthy of an elite hacker!
+        </div>
+    </div>
+</div>

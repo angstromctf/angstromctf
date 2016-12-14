@@ -1,47 +1,50 @@
 {
   "name": "angstromctf",
-  "version": "1.0.0",
+  "version": "0.0.0",
+  "license": "MIT",
+  "angular-cli": {},
   "scripts": {
-    "start": "tsc && npm run build-css && concurrently \"tsc -w\" \"lite-server\" \"npm run watch-css\"",
-    "lite": "lite-server",
-    "tsc": "tsc",
-    "tsc:w": "tsc -w",
-    "build-css": "node-sass app/scss/ -o static/css/",
-    "watch-css": "node-sass -w app/scss/ -o static/css/"
+    "start": "ng serve",
+    "lint": "tslint \"src/**/*.ts\"",
+    "test": "ng test",
+    "pree2e": "webdriver-manager update",
+    "e2e": "protractor"
   },
-  "licenses": [
-    {
-      "type": "GNU GPLv3",
-      "url": "https://github.com/angstromctf/djangoctf/blob/master/LICENSE.txt"
-    }
-  ],
+  "private": true,
   "dependencies": {
-    "@angular/common": "~2.2.0",
-    "@angular/compiler": "~2.2.0",
-    "@angular/core": "~2.2.0",
-    "@angular/forms": "~2.2.0",
-    "@angular/http": "~2.2.0",
-    "@angular/platform-browser": "~2.2.0",
-    "@angular/platform-browser-dynamic": "~2.2.0",
-    "@angular/router": "~3.2.0",
-    "@angular/upgrade": "~2.2.0",
-    "@ng-bootstrap/ng-bootstrap": "1.0.0-alpha.13",
-
+    "@angular/common": "2.2.3",
+    "@angular/compiler": "2.2.3",
+    "@angular/core": "2.2.3",
+    "@angular/forms": "2.2.3",
+    "@angular/http": "2.2.3",
+    "@angular/platform-browser": "2.2.3",
+    "@angular/platform-browser-dynamic": "2.2.3",
+    "@angular/router": "3.2.3",
+    "@ng-bootstrap/ng-bootstrap": "1.0.0-alpha.14",
     "core-js": "^2.4.1",
-    "reflect-metadata": "^0.1.8",
     "rxjs": "5.0.0-beta.12",
-    "systemjs": "0.19.39",
-    "zone.js": "^0.6.25",
-
+    "ts-helpers": "^1.1.1",
+    "zone.js": "^0.6.23",
     "bootstrap" :"4.0.0-alpha.5",
     "font-awesome": "^4.7.0"
   },
   "devDependencies": {
-    "@types/core-js": "^0.9.34",
-    "@types/node": "^6.0.45",
-    "concurrently": "^3.0.0",
-    "lite-server": "^2.2.2",
-    "typescript": "^2.0.3",
-    "node-sass": "^3.13.0"
+    "@angular/compiler-cli": "2.2.3",
+    "@types/jasmine": "2.5.38",
+    "@types/node": "^6.0.42",
+    "angular-cli": "1.0.0-beta.22-1",
+    "codelyzer": "~2.0.0-beta.1",
+    "jasmine-core": "2.5.2",
+    "jasmine-spec-reporter": "2.5.0",
+    "karma": "1.2.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-cli": "^1.0.1",
+    "karma-jasmine": "^1.0.2",
+    "karma-remap-istanbul": "^0.2.1",
+    "protractor": "4.0.9",
+    "ts-node": "1.2.1",
+    "tslint": "^4.0.2",
+    "typescript": "~2.0.3",
+    "webdriver-manager": "10.2.5"
   }
 }

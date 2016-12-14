@@ -1,0 +1,99 @@
+$enable-flex: true;
+
+@import '../../node_modules/bootstrap/scss/_variables';
+
+$fa-font-path: '../../node_modules/font-awesome/fonts';
+@import '../../node_modules/font-awesome/scss/font-awesome';
+
+/* Overrides on Bootstrap styles */
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  line-height: 155%;
+}
+
+angstrom-app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  flex: 0 0 auto;
+  margin-bottom: 3em;
+}
+
+#content {
+  flex: 1 1 auto;
+  position: relative;
+  overflow-y: auto;
+
+  padding: 1em;
+}
+
+footer {
+  flex: 0 0 auto;
+
+  padding: 1em 0;
+  text-align: center;
+}
+
+img.logo {
+  height: 2em;
+}
+
+a.logo-link {
+  margin-right: .5em;
+}
+//
+//.form-group.has-success input {
+//  @extend .form-control-success;
+//}
+//
+//.form-group.has-danger input {
+//  @extend .form-control-danger;
+//}
+
+#angstrom-logo {
+  height: 2.5em;
+}
+
+.nav {
+  line-height: 2.5em;
+}
+
+/* Some global configuration */
+$body-bg: #020210;
+$card-bg: #040404;
+$font-family-base: 'Titillium Web', sans-serif;
+$font-size-root: 20px;
+
+/* Configuration for specific components */
+$nav-tabs-active-link-hover-bg: $card-bg;
+
+$card-border-color: $gray-dark;
+
+$table-bg-accent: lighten($body-bg, 3);
+$table-bg-hover: lighten($body-bg, 6);
+
+/* Problem category themes */
+$colors: (crypto: #46E4BC, forensics: #20c849, binary: #0069FF, re: #FF3B2F, misc: #E8C600, web: #9D00FF, master: #FF24A4);
+$icons: (crypto: 'lock', forensics: 'search', binary: 'wrench', re: 'cogs', misc: 'star', web: 'globe', master: 'flag');
+
+@each $category, $color in $colors {
+  .card-#{$category} {
+    background-color: $color;
+    display: flex;
+  }
+}
+
+@each $category, $icon in $icons {
+  .icon-#{$category} {
+    @extend .fa-#{$icon};
+  }
+}
+
+@import '../../node_modules/bootstrap/scss/bootstrap';
