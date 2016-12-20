@@ -73,10 +73,10 @@ export class UsersApi {
     /**
      * Logs in a user.
      * Logs in a user.
-     * @param data 
+     * @param usersLoginData 
      */
-    public usersLogin(data?: models.Data3, extraHttpRequestParams?: any): Observable<{}> {
-        return this.usersLoginWithHttpInfo(data, extraHttpRequestParams)
+    public usersLogin(usersLoginData?: models.UsersLoginData, extraHttpRequestParams?: any): Observable<{}> {
+        return this.usersLoginWithHttpInfo(usersLoginData, extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
                     return undefined;
@@ -92,6 +92,22 @@ export class UsersApi {
      */
     public usersLogout(extraHttpRequestParams?: any): Observable<{}> {
         return this.usersLogoutWithHttpInfo(extraHttpRequestParams)
+            .map((response: Response) => {
+                if (response.status === 204) {
+                    return undefined;
+                } else {
+                    return response.json();
+                }
+            });
+    }
+
+    /**
+     * Signs the user up for an account.
+     * Signs the user up for an account.
+     * @param usersSignupData 
+     */
+    public usersSignup(usersSignupData?: models.UsersSignupData, extraHttpRequestParams?: any): Observable<{}> {
+        return this.usersSignupWithHttpInfo(usersSignupData, extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
                     return undefined;
@@ -157,9 +173,9 @@ export class UsersApi {
     /**
      * Logs in a user.
      * Logs in a user.
-     * @param data 
+     * @param usersLoginData 
      */
-    public usersLoginWithHttpInfo(data?: models.Data3, extraHttpRequestParams?: any): Observable<Response> {
+    public usersLoginWithHttpInfo(usersLoginData?: models.UsersLoginData, extraHttpRequestParams?: any): Observable<Response> {
         const path = this.basePath + `/users/login/`;
 
         let queryParameters = new URLSearchParams();
@@ -183,7 +199,7 @@ export class UsersApi {
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Post,
             headers: headers,
-            body: data == null ? '' : JSON.stringify(data), // https://github.com/angular/angular/issues/10612
+            body: usersLoginData == null ? '' : JSON.stringify(usersLoginData), // https://github.com/angular/angular/issues/10612
             search: queryParameters
         });
         
@@ -221,6 +237,47 @@ export class UsersApi {
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Post,
             headers: headers,
+            search: queryParameters
+        });
+        
+        // https://github.com/swagger-api/swagger-codegen/issues/4037
+        if (extraHttpRequestParams) {
+            requestOptions = this.extendObj(requestOptions, extraHttpRequestParams);
+        }
+
+        return this.http.request(path, requestOptions);
+    }
+
+    /**
+     * Signs the user up for an account.
+     * Signs the user up for an account.
+     * @param usersSignupData 
+     */
+    public usersSignupWithHttpInfo(usersSignupData?: models.UsersSignupData, extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + `/users/signup/`;
+
+        let queryParameters = new URLSearchParams();
+        let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+
+
+        // to determine the Content-Type header
+        let consumes: string[] = [
+            'application/json'
+        ];
+
+        // to determine the Accept header
+        let produces: string[] = [
+        ];
+        
+            
+
+        headers.set('Content-Type', 'application/json');
+
+
+        let requestOptions: RequestOptionsArgs = new RequestOptions({
+            method: RequestMethod.Post,
+            headers: headers,
+            body: usersSignupData == null ? '' : JSON.stringify(usersSignupData), // https://github.com/angular/angular/issues/10612
             search: queryParameters
         });
         

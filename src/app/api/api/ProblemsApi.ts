@@ -91,10 +91,10 @@ export class ProblemsApi {
      * Handles submissions for specific problems and returns success status.
      * Handles submissions for specific problems and returns success status.
      * @param id 
-     * @param data 
+     * @param problemsSubmitData 
      */
-    public problemsSubmit(id: string, data?: models.Data, extraHttpRequestParams?: any): Observable<{}> {
-        return this.problemsSubmitWithHttpInfo(id, data, extraHttpRequestParams)
+    public problemsSubmit(id: string, problemsSubmitData?: models.ProblemsSubmitData, extraHttpRequestParams?: any): Observable<{}> {
+        return this.problemsSubmitWithHttpInfo(id, problemsSubmitData, extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
                     return undefined;
@@ -192,9 +192,9 @@ export class ProblemsApi {
      * Handles submissions for specific problems and returns success status.
      * Handles submissions for specific problems and returns success status.
      * @param id 
-     * @param data 
+     * @param problemsSubmitData 
      */
-    public problemsSubmitWithHttpInfo(id: string, data?: models.Data, extraHttpRequestParams?: any): Observable<Response> {
+    public problemsSubmitWithHttpInfo(id: string, problemsSubmitData?: models.ProblemsSubmitData, extraHttpRequestParams?: any): Observable<Response> {
         const path = this.basePath + `/problems/${id}/submit/`;
 
         let queryParameters = new URLSearchParams();
@@ -222,7 +222,7 @@ export class ProblemsApi {
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Post,
             headers: headers,
-            body: data == null ? '' : JSON.stringify(data), // https://github.com/angular/angular/issues/10612
+            body: problemsSubmitData == null ? '' : JSON.stringify(problemsSubmitData), // https://github.com/angular/angular/issues/10612
             search: queryParameters
         });
         

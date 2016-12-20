@@ -28,18 +28,18 @@ import { StatusService }                    from './status.service';
 import { BASE_PATH }                        from './api/variables';
 import { API_LOCATION }                     from './config';
 
-// @Injectable()
-// export class CookieXhr extends BrowserXhr {
-//     constructor() {
-//         super();
-//     }
-//
-//     build(): any {
-//         let xhr = super.build();
-//         xhr.withCredentials = true;
-//         return <any>(xhr);
-//     }
-// }
+@Injectable()
+export class CookieXhr extends BrowserXhr {
+    constructor() {
+        super();
+    }
+
+    build(): any {
+        let xhr = super.build();
+        xhr.withCredentials = true;
+        return <any>(xhr);
+    }
+}
 //
 // @Injectable()
 // export class ConnectionRefusedBackend extends XHRBackend {
@@ -98,10 +98,10 @@ import { API_LOCATION }                     from './config';
     UsersApi,
     Title,
     StatusService,
-    // { provide: BASE_PATH, useValue: API_LOCATION },
-    // { provide: BrowserXhr, useClass: CookieXhr },
+    { provide: BASE_PATH, useValue: API_LOCATION },
+    { provide: BrowserXhr, useClass: CookieXhr },
     // { provide: XHRBackend, useClass: ConnectionRefusedBackend },
-    // { provide: XSRFStrategy, useValue: new CookieXSRFStrategy('csrftoken', 'X-CSRFToken') }
+    { provide: XSRFStrategy, useValue: new CookieXSRFStrategy('csrftoken', 'X-CSRFToken') }
   ],
   bootstrap: [ AppComponent ]
 })

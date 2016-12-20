@@ -12,10 +12,35 @@
 
 import * as models from './models';
 
-export interface Data1 {
+export interface UsersSignupData {
     /**
      * 
      */
-    code: string;
+    email?: string;
+
+    /**
+     * 
+     */
+    password: string;
+
+    /**
+     * 
+     */
+    firstName?: string;
+
+    /**
+     * 
+     */
+    profile: any;
+
+    /**
+     * 
+     */
+    lastName?: string;
+
+    /**
+     * Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.
+     */
+    username: string;
 
 }

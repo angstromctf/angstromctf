@@ -19,9 +19,6 @@ export class StatusService {
             password: password
         }).toPromise().then(data => {
             this.update(data);
-            return true;
-        }, data => {
-            return false;
         });
     }
 

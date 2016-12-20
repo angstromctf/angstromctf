@@ -58,10 +58,10 @@ export class TeamsApi {
     /**
      * Adds the user to a pre-existing team.
      * Adds the user to a pre-existing team.
-     * @param data 
+     * @param teamsJoinData 
      */
-    public teamsJoin(data?: models.Data1, extraHttpRequestParams?: any): Observable<{}> {
-        return this.teamsJoinWithHttpInfo(data, extraHttpRequestParams)
+    public teamsJoin(teamsJoinData?: models.TeamsJoinData, extraHttpRequestParams?: any): Observable<{}> {
+        return this.teamsJoinWithHttpInfo(teamsJoinData, extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
                     return undefined;
@@ -90,10 +90,10 @@ export class TeamsApi {
     /**
      * Creates new teams for the competition.
      * Creates new teams for the competition.
-     * @param data 
+     * @param teamsNewData 
      */
-    public teamsNew(data?: models.Data2, extraHttpRequestParams?: any): Observable<{}> {
-        return this.teamsNewWithHttpInfo(data, extraHttpRequestParams)
+    public teamsNew(teamsNewData?: models.TeamsNewData, extraHttpRequestParams?: any): Observable<{}> {
+        return this.teamsNewWithHttpInfo(teamsNewData, extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
                     return undefined;
@@ -139,9 +139,9 @@ export class TeamsApi {
     /**
      * Adds the user to a pre-existing team.
      * Adds the user to a pre-existing team.
-     * @param data 
+     * @param teamsJoinData 
      */
-    public teamsJoinWithHttpInfo(data?: models.Data1, extraHttpRequestParams?: any): Observable<Response> {
+    public teamsJoinWithHttpInfo(teamsJoinData?: models.TeamsJoinData, extraHttpRequestParams?: any): Observable<Response> {
         const path = this.basePath + `/teams/join/`;
 
         let queryParameters = new URLSearchParams();
@@ -165,7 +165,7 @@ export class TeamsApi {
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Post,
             headers: headers,
-            body: data == null ? '' : JSON.stringify(data), // https://github.com/angular/angular/issues/10612
+            body: teamsJoinData == null ? '' : JSON.stringify(teamsJoinData), // https://github.com/angular/angular/issues/10612
             search: queryParameters
         });
         
@@ -221,9 +221,9 @@ export class TeamsApi {
     /**
      * Creates new teams for the competition.
      * Creates new teams for the competition.
-     * @param data 
+     * @param teamsNewData 
      */
-    public teamsNewWithHttpInfo(data?: models.Data2, extraHttpRequestParams?: any): Observable<Response> {
+    public teamsNewWithHttpInfo(teamsNewData?: models.TeamsNewData, extraHttpRequestParams?: any): Observable<Response> {
         const path = this.basePath + `/teams/new/`;
 
         let queryParameters = new URLSearchParams();
@@ -247,7 +247,7 @@ export class TeamsApi {
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Post,
             headers: headers,
-            body: data == null ? '' : JSON.stringify(data), // https://github.com/angular/angular/issues/10612
+            body: teamsNewData == null ? '' : JSON.stringify(teamsNewData), // https://github.com/angular/angular/issues/10612
             search: queryParameters
         });
         
