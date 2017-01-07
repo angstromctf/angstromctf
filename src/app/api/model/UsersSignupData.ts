@@ -16,7 +16,7 @@ export interface UsersSignupData {
     /**
      * 
      */
-    email?: string;
+    last_name?: string;
 
     /**
      * 
@@ -26,7 +26,7 @@ export interface UsersSignupData {
     /**
      * 
      */
-    firstName?: string;
+    email?: string;
 
     /**
      * 
@@ -34,13 +34,13 @@ export interface UsersSignupData {
     profile: any;
 
     /**
-     * 
-     */
-    lastName?: string;
-
-    /**
      * Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.
      */
     username: string;
+
+    /**
+     * 
+     */
+    first_name?: string;
 
 }

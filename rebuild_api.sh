@@ -9,7 +9,9 @@ cd swagger-codegen
 
 mvn clean package
 
-java -jar modules/swagger-codegen-cli/target/swagger-codegen-cli.jar generate -i http://localhost:8000/api -l typescript-angular2 -o ../../src/app/api
+echo "{\"modelPropertyNaming\": \"original\"}" >> config.json
+
+java -jar modules/swagger-codegen-cli/target/swagger-codegen-cli.jar generate -i http://localhost:8000/api -l typescript-angular2 -o ../../src/app/api -c config.json
 
 cd ../..
 rm -rf api_build

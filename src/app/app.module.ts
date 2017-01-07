@@ -1,4 +1,4 @@
-import { NgModule, Injectable, enableProdMode } from '@angular/core';
+import { NgModule, Injectable } from '@angular/core';
 import { BrowserModule, Title }             from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule }                     from '@angular/router';
@@ -101,7 +101,7 @@ export class CookieXhr extends BrowserXhr {
     { provide: BASE_PATH, useValue: API_LOCATION },
     { provide: BrowserXhr, useClass: CookieXhr },
     // { provide: XHRBackend, useClass: ConnectionRefusedBackend },
-    { provide: XSRFStrategy, useValue: new CookieXSRFStrategy('csrftoken', 'X-CSRFToken') }
+    // { provide: XSRFStrategy, useValue: new CookieXSRFStrategy('csrftoken', 'X-CSRFToken') }
   ],
   bootstrap: [ AppComponent ]
 })
