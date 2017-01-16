@@ -4,6 +4,15 @@ $text-color: #ffffff;
 $heading-color: darken(#7df9ff, 30);
 $background-color: rgba(.2, .2, .25, .5);
 
+@mixin glow($size, $color) {
+  $all: ();
+  @for $i from 1 through 8 {
+    $all: append($all, 0 0 ($i*$i*$size) + px $color, comma);
+  }
+  @warn $all;
+  text-shadow: $all;
+}
+
 body {
   font-family: 'Titillium Web';
   color: white;
@@ -66,6 +75,8 @@ div#modal {
   transition: top 1s;
 
   z-index: 1;
+  overflow-y: scroll;
+  max-height: 60vh;
 }
 
 div#modal.active {
@@ -75,6 +86,7 @@ div#modal.active {
 
 div#modal.active + div#wrapper {
   filter: blur(4px) brightness(50%);
+  pointer-events: none;
 }
 
 nav, div#content {
@@ -98,7 +110,8 @@ div#content {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Orbitron';
-  animation: title-glow 1.5s ease-in-out infinite alternate;
+  //animation: title-glow 1.5s ease-in-out infinite alternate;
+  @include glow(.7, $heading-color);
   transition: all 0.5s;
   text-transform: uppercase;
 }
@@ -114,20 +127,12 @@ a:visited, a:active, a:hover {
   color: inherit;
 }
 
-@mixin glow($size, $color) {
-  $all: ();
-  @for $i from 1 through 8 {
-    $all: append($all, 0 0 ($i*$i*$size) + px $color, comma);
-  }
-  @warn $all;
-  text-shadow: $all;
-}
 
-@keyframes title-glow {
-  from {
-    @include glow(1.0, $heading-color);
-  }
-  to {
-    @include glow(.7, $heading-color);
-  }
-}
+//@keyframes title-glow {
+//  from {
+//    @include glow(1.0, $heading-color);
+//  }
+//  to {
+//    @include glow(.7, $heading-color);
+//  }
+//}
