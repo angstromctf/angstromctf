@@ -1,49 +1,30 @@
-<header>
-    <nav class="navbar navbar-dark bg-inverse">
-        <button class="navbar-toggler hidden-lg-up" type="button" (click)="navbarCollapsed = !navbarCollapsed"></button>
-
-        <div class="navbar-toggleable-md" [ngbCollapse]="navbarCollapsed">
-            <ul class="nav navbar-nav float-md-left">
-                <a class="navbar-brand" routerLink="/"><img id="angstrom-logo" src="/assets/images/logo.svg"></a>
-
-                <li class="nav-item"><a class="nav-link" routerLink="/about">About</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/scoreboard">Scoreboard</a></li>
-                <li class="nav-item" *ngIf="status.started"><a class="nav-link" routerLink="/problems">Problems</a></li>
-
-                <li class="nav-item dropdown" ngbDropdown>
-                    <a class="nav-link dropdown-toggle" ngbDropdownToggle>Archives</a>
-
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item">2016</a>
-                    </div>
-                </li>
-            </ul>
-
-            <ul class="nav navbar-nav float-md-right">
-                <div *ngIf="status.user">
-                    <li class="nav-item"><a class="nav-link" routerLink="/account">Account</a></li>
-                    <li class="nav-item"><a class="nav-link" routerLink="/logout">Logout</a></li>
-                </div>
-
-                <div *ngIf="!status.user">
-                    <li class="nav-item"><a class="nav-link" routerLink="/login">Login</a></li>
-                    <li class="nav-item"><a class="nav-link" routerLink="/signup">Signup</a></li>
-                </div>
-            </ul>
-        </div>
-    </nav>
-</header>
-
-<div id="content" class="container">
-    <router-outlet></router-outlet>
+<div id="modal">
+  Hey!
 </div>
 
-<footer class="footer bg-inverse text-muted">
-    Copyright &copy; 2015-17 &aring;ngstromCTF. <br/>
+<div id="wrapper">
+  <div id="background"></div>
 
-    Powered by:
-    <a target="_blank" class="logo-link" href="https://angular.io/"><img class="logo" src="/assets/images/angular.svg"/></a>
-    <a target="_blank" class="logo-link" href="https://v4-alpha.getbootstrap.com/"><img class="logo" src="/assets/images/bootstrap.svg"/></a>
-    <a target="_blank" class="logo-link" href="https://www.djangoproject.com/"><img class="logo" src="/assets/images/django.svg"/></a>
-    <a target="_blank" class="logo-link" href="https://www.digitalocean.com/"><img class="logo" src="/assets/images/digitalocean.svg"/></a>
-</footer>
+  <div id="main">
+    <nav>
+      <h2><a routerLink="/">Home</a></h2>
+      <h2><a routerLink="/about">About</a></h2>
+      <h2><a routerLink="/scoreboard">Scoreboard</a></h2>
+      <h2><a routerLink="/problems" *ngIf="status.started">Problems</a></h2>
+
+      <div *ngIf="status.user">
+        <h2><a routerLink="/account">Account</a></h2>
+        <h2><a routerLink="/logout">Logout</a></h2>
+      </div>
+
+      <div *ngIf="!status.user">
+        <h2><a class="nav-link" routerLink="/login">Login</a></h2>
+        <h2><a class="nav-link" routerLink="/signup">Signup</a></h2>
+      </div>
+    </nav>
+
+    <div id="content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

@@ -46,8 +46,8 @@ export class SignupComponent implements OnInit {
       username: value.username,
       password: value.password,
       email: value.email,
-      firstName: value.firstName,
-      lastName: value.lastName,
+      first_name: value.firstName,
+      last_name: value.lastName,
       profile: {
         eligible: value.eligible,
         country: value.country,

@@ -73,10 +73,10 @@ export class UsersApi {
     /**
      * Logs in a user.
      * Logs in a user.
-     * @param usersLoginData 
+     * @param data 
      */
-    public usersLogin(usersLoginData?: models.UsersLoginData, extraHttpRequestParams?: any): Observable<{}> {
-        return this.usersLoginWithHttpInfo(usersLoginData, extraHttpRequestParams)
+    public usersLogin(data?: models.Data3, extraHttpRequestParams?: any): Observable<{}> {
+        return this.usersLoginWithHttpInfo(data, extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
                     return undefined;
@@ -104,10 +104,10 @@ export class UsersApi {
     /**
      * Signs the user up for an account.
      * Signs the user up for an account.
-     * @param usersSignupData 
+     * @param data 
      */
-    public usersSignup(usersSignupData?: models.UsersSignupData, extraHttpRequestParams?: any): Observable<{}> {
-        return this.usersSignupWithHttpInfo(usersSignupData, extraHttpRequestParams)
+    public usersSignup(data?: models.Data4, extraHttpRequestParams?: any): Observable<{}> {
+        return this.usersSignupWithHttpInfo(data, extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
                     return undefined;
@@ -173,9 +173,9 @@ export class UsersApi {
     /**
      * Logs in a user.
      * Logs in a user.
-     * @param usersLoginData 
+     * @param data 
      */
-    public usersLoginWithHttpInfo(usersLoginData?: models.UsersLoginData, extraHttpRequestParams?: any): Observable<Response> {
+    public usersLoginWithHttpInfo(data?: models.Data3, extraHttpRequestParams?: any): Observable<Response> {
         const path = this.basePath + `/users/login/`;
 
         let queryParameters = new URLSearchParams();
@@ -199,7 +199,7 @@ export class UsersApi {
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Post,
             headers: headers,
-            body: usersLoginData == null ? '' : JSON.stringify(usersLoginData), // https://github.com/angular/angular/issues/10612
+            body: data == null ? '' : JSON.stringify(data), // https://github.com/angular/angular/issues/10612
             search: queryParameters
         });
         
@@ -251,9 +251,9 @@ export class UsersApi {
     /**
      * Signs the user up for an account.
      * Signs the user up for an account.
-     * @param usersSignupData 
+     * @param data 
      */
-    public usersSignupWithHttpInfo(usersSignupData?: models.UsersSignupData, extraHttpRequestParams?: any): Observable<Response> {
+    public usersSignupWithHttpInfo(data?: models.Data4, extraHttpRequestParams?: any): Observable<Response> {
         const path = this.basePath + `/users/signup/`;
 
         let queryParameters = new URLSearchParams();
@@ -277,7 +277,7 @@ export class UsersApi {
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Post,
             headers: headers,
-            body: usersSignupData == null ? '' : JSON.stringify(usersSignupData), // https://github.com/angular/angular/issues/10612
+            body: data == null ? '' : JSON.stringify(data), // https://github.com/angular/angular/issues/10612
             search: queryParameters
         });
         

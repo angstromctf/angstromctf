@@ -1,108 +1,133 @@
-$enable-flex: true;
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web|Orbitron);
 
-@import '../../node_modules/bootstrap/scss/_variables';
+$text-color: #ffffff;
+$heading-color: darken(#7df9ff, 30);
+$background-color: rgba(.2, .2, .25, .5);
 
-$fa-font-path: '../../node_modules/font-awesome/fonts';
-@import '../../node_modules/font-awesome/scss/font-awesome';
+body {
+  font-family: 'Titillium Web';
+  color: white;
+  font-size: 18px;
 
-/* Overrides on Bootstrap styles */
+  margin: 0;
+  padding: 3em;
 
-html {
+  overflow: hidden;
+}
+
+div#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+
+  background-image: url('/assets/images/background.jpg');
+  background-size: cover;
+
+  filter: blur(3px);
+}
+
+div#wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+
+  padding: 2em;
+  box-sizing: border-box;
+  transition: filter 1s;
+}
+
+div#main {
+  width: 100%;
+  height: 100%;
+
+  box-sizing: border-box;
+  margin: 0;
+
+  display: flex;
+}
+
+div#modal {
+  position: absolute;
+  left: 0;
+  top: 80vh;
+
+  background-color: $background-color;
+  width: 60vw;
+  margin: 20vh 20vw 0 20vw;
+  padding: 2em;
+
+  visibility: hidden;
+  transition: top 1s;
+
+  z-index: 1;
+}
+
+div#modal.active {
+  visibility: visible;
+  top: 0;
+}
+
+div#modal.active + div#wrapper {
+  filter: blur(4px) brightness(50%);
+}
+
+nav, div#content {
+  background-color: $background-color;
+  padding: 2em;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+
+nav {
+  margin-right: 2em;
+  text-align: right;
+  display: block;
+  flex: 0;
+}
+
+div#content {
+  flex: 1;
   overflow-y: scroll;
 }
 
-body {
-  line-height: 155%;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron';
+  animation: title-glow 1.5s ease-in-out infinite alternate;
+  transition: all 0.5s;
+  text-transform: uppercase;
 }
 
-angstrom-app {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+h1 { font-size: 3.5em; }
+h2 { font-size: 2em; }
+
+nav a {
+  text-decoration: none;
 }
 
-header {
-  flex: 0 0 auto;
-  margin-bottom: 3em;
+a:visited, a:active, a:hover {
+  color: inherit;
 }
 
-#content {
-  flex: 1 1 auto;
-  position: relative;
-  overflow-y: auto;
-
-  padding: 1em;
+@mixin glow($size, $color) {
+  $all: ();
+  @for $i from 1 through 8 {
+    $all: append($all, 0 0 ($i*$i*$size) + px $color, comma);
+  }
+  @warn $all;
+  text-shadow: $all;
 }
 
-footer {
-  flex: 0 0 auto;
-
-  padding: 1em 0;
-  text-align: center;
-}
-
-img.logo {
-  height: 2em;
-}
-
-a.logo-link {
-  margin-right: .5em;
-}
-//
-//.form-group.has-success input {
-//  @extend .form-control-success;
-//}
-//
-//.form-group.has-danger input {
-//  @extend .form-control-danger;
-//}
-
-#angstrom-logo {
-  height: 2.5em;
-}
-
-.nav {
-  line-height: 2.5em;
-}
-
-* {
-  color: #ddd;
-}
-
-strong {
-  color: white;
-}
-
-/* Some global configuration */
-$body-bg: #020210;
-$card-bg: #040404;
-$font-family-base: 'Titillium Web', sans-serif;
-$font-size-root: 18px;
-
-/* Configuration for specific components */
-$nav-tabs-active-link-hover-bg: $card-bg;
-
-$card-border-color: $gray-dark;
-
-$table-bg-accent: lighten($body-bg, 3);
-$table-bg-hover: lighten($body-bg, 6);
-
-/* Problem category themes */
-$colors: (crypto: #46E4BC, forensics: #20c849, binary: #0069FF, re: #FF3B2F, misc: #E8C600, web: #9D00FF, master: #FF24A4);
-$icons: (crypto: 'lock', forensics: 'search', binary: 'wrench', re: 'cogs', misc: 'star', web: 'globe', master: 'flag');
-
-@each $category, $color in $colors {
-  .card-#{$category} {
-    background-color: $color;
-    display: flex;
+@keyframes title-glow {
+  from {
+    @include glow(1.0, $heading-color);
+  }
+  to {
+    @include glow(.7, $heading-color);
   }
 }
-
-@each $category, $icon in $icons {
-  .icon-#{$category} {
-    @extend .fa-#{$icon};
-    color: white;
-  }
-}
-
-@import '../../node_modules/bootstrap/scss/bootstrap';
