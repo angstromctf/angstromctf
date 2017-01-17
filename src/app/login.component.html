@@ -1,8 +1,3 @@
-<link rel="stylesheet" href="/static/css/about.css">
-
-<h1>Login</h1>
-<br/>
-
 <form [formGroup]="form" (ngSubmit)="submit(form.value)">
     <extended-input [label]="'Username'" [errors]="form.controls['username'].errors" [touched]="form.controls['username'].touched">
         <input class="form-control" placeholder="my_username" [formControl]="form.controls['username']">

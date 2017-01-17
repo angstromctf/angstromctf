@@ -4,6 +4,8 @@ $text-color: #ffffff;
 $heading-color: darken(#7df9ff, 30);
 $background-color: rgba(.2, .2, .25, .5);
 
+$modal-duration: 1.0s;
+
 @mixin glow($size, $color) {
   $all: ();
   @for $i from 1 through 8 {
@@ -48,7 +50,7 @@ div#wrapper {
 
   padding: 2em;
   box-sizing: border-box;
-  transition: filter 1s;
+  transition: filter $modal-duration;
 }
 
 div#main {
@@ -71,22 +73,29 @@ div#modal {
   margin: 20vh 20vw 0 20vw;
   padding: 2em;
 
-  visibility: hidden;
-  transition: top 1s;
+  transition: top $modal-duration, opacity $modal-duration;
 
   z-index: 1;
-  overflow-y: scroll;
   max-height: 60vh;
+  opacity: 0;
 }
 
-div#modal.active {
-  visibility: visible;
+modal.active div#modal {
   top: 0;
+  opacity: 1;
 }
 
-div#modal.active + div#wrapper {
+modal.active + div#wrapper {
   filter: blur(4px) brightness(50%);
   pointer-events: none;
+}
+
+span#modal-close {
+  float: right;
+}
+
+span#modal-close:hover {
+  cursor: pointer;
 }
 
 nav, div#content {
@@ -110,9 +119,7 @@ div#content {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Orbitron';
-  //animation: title-glow 1.5s ease-in-out infinite alternate;
   @include glow(.7, $heading-color);
-  transition: all 0.5s;
   text-transform: uppercase;
 }
 
@@ -123,16 +130,6 @@ nav a {
   text-decoration: none;
 }
 
-a:visited, a:active, a:hover {
+a, a:visited, a:active, a:hover {
   color: inherit;
 }
-
-
-//@keyframes title-glow {
-//  from {
-//    @include glow(1.0, $heading-color);
-//  }
-//  to {
-//    @include glow(.7, $heading-color);
-//  }
-//}

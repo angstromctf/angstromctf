@@ -17,6 +17,7 @@ import { ExtendedInputComponent }           from './extended-input.component';
 import { AboutComponent }                   from './about.component';
 import { AccountComponent }                 from './account.component';
 import { IndexComponent }                   from './index.component';
+import { ModalComponent }                   from './modal.component';
 import { LoginComponent }                   from './login.component';
 import { LogoutComponent }                  from './logout.component';
 import { ProblemsComponent }                from './problems.component';
@@ -25,6 +26,7 @@ import { SignupComponent }                  from './signup.component';
 
 import { ProblemsApi, TeamsApi, UsersApi }  from './api/api/api';
 import { StatusService }                    from './status.service';
+import { ModalService }                     from './modal.service';
 import { BASE_PATH }                        from './api/variables';
 import { API_LOCATION }                     from './config';
 
@@ -90,6 +92,7 @@ export class CookieXhr extends BrowserXhr {
     LogoutComponent,
     ProblemsComponent,
     SignupComponent,
+    ModalComponent,
     ScoreboardComponent,
   ],
   providers: [
@@ -98,6 +101,7 @@ export class CookieXhr extends BrowserXhr {
     UsersApi,
     Title,
     StatusService,
+    ModalService,
     { provide: BASE_PATH, useValue: API_LOCATION },
     { provide: BrowserXhr, useClass: CookieXhr },
     // { provide: XHRBackend, useClass: ConnectionRefusedBackend },

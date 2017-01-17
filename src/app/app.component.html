@@ -1,8 +1,4 @@
-<div id="modal">
-  <h2>Login!</h2>
-
-  Here's a modal!
-</div>
+<modal></modal>
 
 <div id="wrapper">
   <div id="background"></div>
@@ -20,8 +16,8 @@
       </div>
 
       <div *ngIf="!status.user">
-        <h2><a class="nav-link" routerLink="/login">Login</a></h2>
-        <h2><a class="nav-link" routerLink="/signup">Signup</a></h2>
+        <h2><a (click)="login()">Login</a></h2>
+        <h2><a routerLink="/signup">Signup</a></h2>
       </div>
     </nav>
 
