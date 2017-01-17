@@ -1,25 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Titillium+Web|Orbitron);
 
-$text-color: #ffffff;
-$heading-color: darken(#7df9ff, 30);
 $background-color: rgba(.2, .2, .25, .5);
 
-$modal-duration: 1.0s;
-
-@mixin glow($size, $color) {
-  $all: ();
-  @for $i from 1 through 8 {
-    $all: append($all, 0 0 ($i*$i*$size) + px $color, comma);
-  }
-  @warn $all;
-  text-shadow: $all;
-}
-
 body {
-  font-family: 'Titillium Web';
-  color: white;
-  font-size: 18px;
-
   margin: 0;
   padding: 3em;
 
@@ -50,7 +33,6 @@ div#wrapper {
 
   padding: 2em;
   box-sizing: border-box;
-  transition: filter $modal-duration;
 }
 
 div#main {
@@ -61,41 +43,6 @@ div#main {
   margin: 0;
 
   display: flex;
-}
-
-div#modal {
-  position: absolute;
-  left: 0;
-  top: 80vh;
-
-  background-color: $background-color;
-  width: 60vw;
-  margin: 20vh 20vw 0 20vw;
-  padding: 2em;
-
-  transition: top $modal-duration, opacity $modal-duration;
-
-  z-index: 1;
-  max-height: 60vh;
-  opacity: 0;
-}
-
-modal.active div#modal {
-  top: 0;
-  opacity: 1;
-}
-
-modal.active + div#wrapper {
-  filter: blur(4px) brightness(50%);
-  pointer-events: none;
-}
-
-span#modal-close {
-  float: right;
-}
-
-span#modal-close:hover {
-  cursor: pointer;
 }
 
 nav, div#content {
@@ -117,19 +64,9 @@ div#content {
   overflow-y: scroll;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Orbitron';
-  @include glow(.7, $heading-color);
-  text-transform: uppercase;
-}
-
-h1 { font-size: 3.5em; }
-h2 { font-size: 2em; }
-
 nav a {
   text-decoration: none;
 }
 
-a, a:visited, a:active, a:hover {
-  color: inherit;
-}
+@import 'styles/_modal';
+@import 'styles/_typography';

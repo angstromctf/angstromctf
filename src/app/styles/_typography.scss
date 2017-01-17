@@ -1,0 +1,30 @@
+$text-color: #ffffff;
+$heading-color: darken(#7df9ff, 30);
+
+@mixin glow($size, $color) {
+  $all: ();
+  @for $i from 1 through 8 {
+    $all: append($all, 0 0 ($i*$i*$size) + px $color, comma);
+  }
+  @warn $all;
+  text-shadow: $all;
+}
+
+body {
+  font-family: 'Titillium Web';
+  color: white;
+  font-size: 18px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron';
+  @include glow(.7, $heading-color);
+  text-transform: uppercase;
+}
+
+h1 { font-size: 3.5em; }
+h2 { font-size: 2em; }
+
+a, a:visited, a:active, a:hover {
+  color: inherit;
+}

@@ -1,0 +1,40 @@
+$modal-duration: .7s;
+
+div#wrapper {
+  transition: filter $modal-duration;
+}
+
+div#modal {
+  position: absolute;
+  left: 0;
+  top: 80vh;
+
+  background-color: $background-color;
+  width: 60vw;
+  margin: 20vh 20vw 0 20vw;
+  padding: 2em;
+
+  transition: top $modal-duration, opacity $modal-duration;
+
+  z-index: 1;
+  max-height: 60vh;
+  opacity: 0;
+}
+
+modal.active div#modal {
+  top: 0;
+  opacity: 1;
+}
+
+modal.active + div#wrapper {
+  filter: blur(4px) brightness(50%);
+  pointer-events: none;
+}
+
+span#modal-close {
+  float: right;
+}
+
+span#modal-close:hover {
+  cursor: pointer;
+}
