@@ -6,7 +6,6 @@ $secondary-accent: #ffca00;
 
 body {
   margin: 0;
-  padding: 3em;
 
   overflow: hidden;
 }
@@ -33,7 +32,7 @@ div#wrapper {
   height: 100%;
   z-index: 0;
 
-  padding: 2em;
+  padding: 2% 1% 2% 1%;
   box-sizing: border-box;
 }
 
@@ -47,22 +46,17 @@ div#main {
   display: flex;
 }
 
-nav, div#content {
+div#nav, div#content {
   background-color: $background-color;
   padding: 2em;
-  min-height: 100%;
   box-sizing: border-box;
 }
 
-nav {
-  margin-right: 2em;
+div#nav {
   text-align: right;
-  display: block;
-  flex: 0;
 }
 
 div#content {
-  flex: 1;
   overflow-y: scroll;
 }
 

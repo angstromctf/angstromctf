@@ -3,25 +3,27 @@
 <div id="wrapper">
   <div id="background"></div>
 
-  <div id="main">
-    <nav>
-      <h2><a routerLink="/">Home</a></h2>
-      <h2><a routerLink="/about">About</a></h2>
-      <h2><a routerLink="/scoreboard">Scoreboard</a></h2>
-      <h2><a routerLink="/problems" *ngIf="status.started">Problems</a></h2>
+  <div id="main" class="row">
+    <div id="nav" class="col-sm-12 col-lg-3">
+      <nav>
+        <h2><a routerLink="/">Home</a></h2>
+        <h2><a routerLink="/about">About</a></h2>
+        <h2><a routerLink="/scoreboard">Scoreboard</a></h2>
+        <h2><a routerLink="/problems" *ngIf="status.started">Problems</a></h2>
 
-      <div *ngIf="status.user">
-        <h2><a routerLink="/account">Account</a></h2>
-        <h2><a href="javascript:void(0)" (click)="logout()">Logout</a></h2>
-      </div>
+        <div *ngIf="status.user">
+          <h2><a routerLink="/account">Account</a></h2>
+          <h2><a href="javascript:void(0)" (click)="logout()">Logout</a></h2>
+        </div>
 
-      <div *ngIf="!status.user">
-        <h2><a href="javascript:void(0)" (click)="login()">Login</a></h2>
-        <h2><a routerLink="/signup">Signup</a></h2>
-      </div>
-    </nav>
+        <div *ngIf="!status.user">
+          <h2><a href="javascript:void(0)" (click)="login()">Login</a></h2>
+          <h2><a routerLink="/signup">Signup</a></h2>
+        </div>
+      </nav>
+    </div>
 
-    <div id="content">
+    <div id="content" class="col-sm-12 col-lg-9">
       <router-outlet></router-outlet>
     </div>
   </div>

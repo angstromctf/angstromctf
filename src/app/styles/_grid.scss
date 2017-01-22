@@ -1,20 +1,20 @@
-/* Adapted from http://j4n.co/blog/Creating-your-own-css-grid-system */
+$sizes: (sm: 0px, lg: 768px);
+$gutter: 2%;
 
-$colors: (sm: 0px, lg: 768px);
-
-.row:before, .row:after {
-  content: "";
-  display: table;
-  clear: both;
+.row {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-@each $size, $val in $colors {
+@each $size, $val in $sizes {
   @media (min-width: $val) {
     @for $i from 1 through 12 {
       .col-#{$size}-#{$i} {
         float: left;
         min-height: 1px;
-        width: 100% * $i / 12;
+
+        margin: 0 ($gutter / 2) 0 ($gutter / 2);
+        flex: 0 0 (100% * $i / 12 - $gutter);
       }
     }
   }
