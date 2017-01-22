@@ -1,0 +1,21 @@
+/* Adapted from http://j4n.co/blog/Creating-your-own-css-grid-system */
+
+$colors: (sm: 0px, lg: 768px);
+
+.row:before, .row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@each $size, $val in $colors {
+  @media (min-width: $val) {
+    @for $i from 1 through 12 {
+      .col-#{$size}-#{$i} {
+        float: left;
+        min-height: 1px;
+        width: 100% * $i / 12;
+      }
+    }
+  }
+}

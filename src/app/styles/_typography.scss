@@ -1,5 +1,4 @@
-$text-color: #ffffff;
-$heading-color: darken(#7df9ff, 30);
+$text-color: #ddd;
 
 @mixin glow($size, $color) {
   $all: ();
@@ -11,20 +10,28 @@ $heading-color: darken(#7df9ff, 30);
 }
 
 body {
-  font-family: 'Titillium Web';
-  color: white;
+  color: $text-color;
   font-size: 18px;
+  font-family: 'Titillium Web';
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Orbitron';
-  @include glow(.7, $heading-color);
+  font-family: 'Orbitron' !important;
+  @include glow(.7, $primary-accent);
   text-transform: uppercase;
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+  color: white;
+
+  a, a:visited, a:active, a:hover {
+    color: white;
+  }
 }
 
 h1 { font-size: 3.5em; }
 h2 { font-size: 2em; }
 
 a, a:visited, a:active, a:hover {
-  color: inherit;
+  color: $secondary-accent;
 }

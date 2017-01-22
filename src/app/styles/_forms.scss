@@ -1,0 +1,53 @@
+@mixin norm() {
+  background-color: $background-color;
+  color: white;
+  font-size: 1em;
+  margin: .25em 0 .5em 0;
+  padding: .35em;
+  border: none;
+}
+
+input[type=text], input[type=password] {
+  @include norm();
+  width: 100%;
+}
+
+input[type=submit], button {
+  @include norm();
+  padding: .5em 1em .5em 1em;
+  text-transform: uppercase;
+  background-color: darken($secondary-accent, 10);
+  transition: background-color .3s;
+
+  &:disabled {
+    background-color: $background-color;
+  }
+
+  &:not(:disabled):hover {
+    background-color: $secondary-accent;
+    cursor: pointer;
+  }
+}
+
+input, select {
+  font: inherit;
+}
+
+select {
+  @include norm();
+}
+
+input[type=number] {
+  @include norm();
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+.form-group {
+  &.input-error input {
+    background-color: adjust_color($background-color, $red: 75);
+  }
+}

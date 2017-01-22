@@ -1,6 +1,6 @@
 <form [formGroup]="form" (ngSubmit)="submit(form.value)">
     <extended-input [label]="'Username'" [errors]="form.controls['username'].errors" [touched]="form.controls['username'].touched">
-        <input class="form-control" placeholder="my_username" [formControl]="form.controls['username']">
+        <input type="text" class="form-control" placeholder="my_username" [formControl]="form.controls['username']">
     </extended-input>
 
     <extended-input [label]="'Password'" [errors]="form.controls['password'].errors" [touched]="form.controls['password'].touched">
@@ -8,6 +8,7 @@
     </extended-input>
 
     <div *ngIf="failed" class="alert alert-danger">Login failed. Username and/or password is incorrect.</div>
+    <br/>
 
     <div class="form-group">
         <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Login</button>

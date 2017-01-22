@@ -19,7 +19,6 @@ import { AccountComponent }                 from './account.component';
 import { IndexComponent }                   from './index.component';
 import { ModalComponent }                   from './modal.component';
 import { LoginComponent }                   from './login.component';
-import { LogoutComponent }                  from './logout.component';
 import { ProblemsComponent }                from './problems.component';
 import { ScoreboardComponent }              from './scoreboard.component';
 import { SignupComponent }                  from './signup.component';
@@ -64,6 +63,10 @@ export class CookieXhr extends BrowserXhr {
 //     }
 // }
 
+export function CookieXSRFStrategyFactory(http: any) {
+  return new CookieXSRFStrategy('csrftoken', 'X-CSRFToken');
+}
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -75,7 +78,6 @@ export class CookieXhr extends BrowserXhr {
       { path: 'account', component: AccountComponent },
       { path: 'about', component: AboutComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'logout', component: LogoutComponent },
       { path: 'problems', component: ProblemsComponent },
       { path: 'signup', component: SignupComponent },
       { path: 'scoreboard', component: ScoreboardComponent }
@@ -89,7 +91,6 @@ export class CookieXhr extends BrowserXhr {
     AccountComponent,
     IndexComponent,
     LoginComponent,
-    LogoutComponent,
     ProblemsComponent,
     SignupComponent,
     ModalComponent,
@@ -105,7 +106,7 @@ export class CookieXhr extends BrowserXhr {
     { provide: BASE_PATH, useValue: API_LOCATION },
     { provide: BrowserXhr, useClass: CookieXhr },
     // { provide: XHRBackend, useClass: ConnectionRefusedBackend },
-    // { provide: XSRFStrategy, useValue: new CookieXSRFStrategy('csrftoken', 'X-CSRFToken') }
+    // { provide: XSRFStrategy, useValue: CookieXSRFStrategyFactory }
   ],
   bootstrap: [ AppComponent ]
 })

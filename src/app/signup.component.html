@@ -5,7 +5,7 @@
 
 <form [formGroup]="form" (ngSubmit)="submit(form.value)">
   <extended-input [label]="'Username'" [errors]="form.controls['username'].errors" [touched]="form.controls['username'].touched">
-    <input class="form-control" placeholder="my_username" [formControl]="form.controls['username']">
+    <input type="text" class="form-control" placeholder="my_username" [formControl]="form.controls['username']">
   </extended-input>
 
   <extended-input [label]="'Password'" [errors]="form.controls['password'].errors" [touched]="form.controls['password'].touched">
@@ -17,15 +17,15 @@
   </extended-input>
 
   <extended-input [label]="'Email'" [errors]="form.controls['email'].errors" [touched]="form.controls['email'].touched">
-    <input class="form-control" placeholder="my_email" [formControl]="form.controls['email']">
+    <input type="text" class="form-control" placeholder="my_email" [formControl]="form.controls['email']">
   </extended-input>
 
   <extended-input [label]="'First Name'" [errors]="form.controls['firstName'].errors" [touched]="form.controls['firstName'].touched">
-    <input class="form-control" placeholder="my_first_name" [formControl]="form.controls['firstName']">
+    <input type="text" class="form-control" placeholder="my_first_name" [formControl]="form.controls['firstName']">
   </extended-input>
 
   <extended-input [label]="'Last Name'" [errors]="form.controls['lastName'].errors" [touched]="form.controls['lastName'].touched">
-    <input class="form-control" placeholder="my_last_name" [formControl]="form.controls['lastName']">
+    <input type="text" class="form-control" placeholder="my_last_name" [formControl]="form.controls['lastName']">
   </extended-input>
 
   <div class="form-check">
@@ -41,28 +41,28 @@
     It will be used only for statistical purposes after the CTF is over and will not be disclosed to any other parties for any reason.</p>
 
   <div class="form-group">
-    <label class="control-label">Country</label><br/>
+    <label class="control-label">Country</label>
     <select class="custom-select" [formControl]="form.controls['country']">
       <option *ngFor="let country of COUNTRIES" [value]="country">{{ country }}</option>
     </select>
   </div>
 
   <div class="form-group" *ngIf="form.controls['country'].value == 'United States of America'">
-    <label class="control-label" [formControl]="form.controls['state']">State</label><br/>
+    <label class="control-label" [formControl]="form.controls['state']">State</label>
     <select class="custom-select">
       <option *ngFor="let state of STATES" [value]="state">{{ state }}</option>
     </select>
   </div>
 
   <div class="form-group">
-    <label class="control-label">Gender</label><br/>
+    <label class="control-label">Gender</label>
     <select class="custom-select" [formControl]="form.controls['gender']">
       <option *ngFor="let gender of GENDERS" [value]="gender">{{ gender }}</option>
     </select>
   </div>
 
   <div class="form-group">
-    <label class="control-label">Race</label><br/>
+    <label class="control-label">Race</label>
     <select class="custom-select" [formControl]="form.controls['race']">
       <option *ngFor="let race of RACES" [value]="race">{{ race }}</option>
     </select>

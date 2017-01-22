@@ -26,8 +26,6 @@ export class ModalComponent implements OnInit {
   }
 
   update(title: string, componentClass: any, inputs: any) : void {
-    console.log(this.modalService);
-
     if (componentClass == null) {
       this.currentComponent = null;
       return;

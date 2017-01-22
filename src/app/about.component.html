@@ -37,17 +37,12 @@ Sending money from the US to other countries is a terrible pain and is mired in 
 
 <div class="container">
     <div class="row">
-        <div class="col-md-3" *ngFor="let student of people">
-            <div class="card">
-                <img class="img-fluid card-img-top" src="/assets/images/people/{{ student.name }}.jpg" alt="Card image cap">
-                <div class="card-block">
-                    <h4 class="card-title">{{ student.name }} <small *ngIf="student.site"><a target="_blank" href="{{ student.site }}">(site)</a></small></h4>
-                    <h6 class="card-subtitle text-muted">{{ student.year }}</h6>
+        <div class="col-lg-3" *ngFor="let student of people">
+            <img src="/assets/images/people/{{ student.name }}.jpg">
+            <h4 class="card-title">{{ student.name }} <small *ngIf="student.site"><a target="_blank" href="{{ student.site }}">(site)</a></small></h4>
+            <em>{{ student.year }}</em>
 
-                    <br/>
-                    <p class="card-text">{{ student.role }}</p>
-                </div>
-            </div>
+            <p class="card-text">{{ student.role }}</p>
         </div>
     </div>
 </div>

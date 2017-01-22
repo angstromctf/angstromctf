@@ -9,10 +9,10 @@ export const MESSAGES: any = {
 
 @Component({
   selector: 'extended-input',
-  template: `<div class="form-group" [ngClass]="{ 'has-danger': message && touched, 'has-success': !message && touched }"> 
+  template: `<div class="form-group" [ngClass]="{ 'input-error': message && touched, 'input-valid': !message && touched }"> 
                     <label class="control-label"> {{ label }}</label>
                     <ng-content></ng-content>
-                    <div class="form-control-feedback" *ngIf="message && touched">{{ message }}</div>
+                    <div class="form-error" *ngIf="message && touched">{{ message }}</div>
                 </div>`
 })
 export class ExtendedInputComponent implements OnChanges {

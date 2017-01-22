@@ -1,7 +1,12 @@
 $modal-duration: .7s;
 
 div#wrapper {
-  transition: filter $modal-duration;
+  //transition: filter $modal-duration;
+}
+
+modal.active + div#wrapper {
+  filter: blur(4px) brightness(50%);
+  pointer-events: none;
 }
 
 div#modal {
@@ -26,13 +31,9 @@ modal.active div#modal {
   opacity: 1;
 }
 
-modal.active + div#wrapper {
-  filter: blur(4px) brightness(50%);
-  pointer-events: none;
-}
-
 span#modal-close {
   float: right;
+  user-select: none;
 }
 
 span#modal-close:hover {

@@ -1,4 +1,5 @@
 import { Component, ViewChild, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { StatusService } from './status.service';
 import { ModalService } from './modal.service';
@@ -13,10 +14,14 @@ export class AppComponent {
     navbarCollapsed: boolean = true;
     @ViewChild(ModalComponent) modal;
 
-    constructor(private status: StatusService, private modalService: ModalService) { }
+    constructor(private status: StatusService, private modalService: ModalService, private router: Router) { }
 
     login() : void {
       this.modalService.update("Login", LoginComponent, {});
+    }
+
+    logout() : void {
+      this.status.logout().then(data => this.router.navigateByUrl('/'));
     }
 
     @HostListener('document:keydown.escape')

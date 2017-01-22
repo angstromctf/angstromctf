@@ -1,6 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Titillium+Web|Orbitron);
 
 $background-color: rgba(.2, .2, .25, .5);
+$primary-accent: #00d9e3;
+$secondary-accent: #ffca00;
 
 body {
   margin: 0;
@@ -68,5 +70,7 @@ nav a {
   text-decoration: none;
 }
 
+@import 'styles/_forms';
+@import 'styles/_grid';
 @import 'styles/_modal';
 @import 'styles/_typography';
