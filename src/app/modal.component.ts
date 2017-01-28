@@ -7,12 +7,14 @@ import {
 import 'rxjs/add/operator/toPromise';
 
 import { LoginComponent } from './login.component';
+import { ProblemComponent } from './problem.component';
 import { ModalService } from './modal.service';
 
 @Component({
   selector: 'modal',
-  entryComponents: [ LoginComponent ],
-  templateUrl: './modal.component.html'
+  entryComponents: [ LoginComponent, ProblemComponent ],
+  templateUrl: './modal.component.html',
+  styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent implements OnInit {
   @ViewChild('componentContainer', { read: ViewContainerRef }) componentContainer: ViewContainerRef;

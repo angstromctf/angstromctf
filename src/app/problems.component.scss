@@ -1,11 +1,7 @@
-.card-header > .problem-info {
-  flex: 1;
-}
+.problem-button {
+  display: flex;
 
-#display-toggle {
-  margin-left: auto;
-  display: block;
-  margin-bottom: 1em;
+  button {
+    width: 100%;
+  }
 }
-
-@import 'theme';

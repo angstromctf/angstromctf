@@ -10,7 +10,6 @@ export class StatusService {
     constructor (private usersApi: UsersApi) {
         this.usersApi.usersStatus().toPromise().then(data => {
             this.update(data);
-            console.log(data);
         });
     }
 

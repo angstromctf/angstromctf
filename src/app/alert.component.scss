@@ -1,0 +1,30 @@
+$alert-duration: .7s;
+
+div#alert {
+  position: absolute;
+  top: 0;
+  right: -50vw;
+  max-width: 50vw;
+
+  background-color: green;
+  margin: 2em;
+  padding: 1em;
+
+  transition: right $alert-duration;
+
+  z-index: 1;
+}
+
+div#alert.active {
+  right: 0;
+}
+
+span#alert-close {
+  float: right;
+  user-select: none;
+  margin-left: 1em;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

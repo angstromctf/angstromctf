@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { StatusService } from './status.service';
 import { ModalService } from './modal.service';
+import { AlertService } from './alert.service';
 import { LoginComponent } from './login.component';
 import { ModalComponent } from './modal.component';
 
@@ -14,7 +15,7 @@ export class AppComponent {
     navbarCollapsed: boolean = true;
     @ViewChild(ModalComponent) modal;
 
-    constructor(private status: StatusService, private modalService: ModalService, private router: Router) { }
+    constructor(private status: StatusService, private modalService: ModalService, private alertService: AlertService, private router: Router) { }
 
     login() : void {
       this.modalService.update("Login", LoginComponent, {});
