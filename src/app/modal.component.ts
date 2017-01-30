@@ -2,7 +2,7 @@
 
 import {
   Component, Input, ViewChild, ReflectiveInjector, ViewContainerRef,
-  ComponentFactoryResolver, HostBinding, OnInit
+  ComponentFactoryResolver, HostBinding, OnInit, ViewEncapsulation
 } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 
@@ -14,7 +14,8 @@ import { ModalService } from './modal.service';
   selector: 'modal',
   entryComponents: [ LoginComponent, ProblemComponent ],
   templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.scss']
+  styleUrls: ['./modal.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ModalComponent implements OnInit {
   @ViewChild('componentContainer', { read: ViewContainerRef }) componentContainer: ViewContainerRef;

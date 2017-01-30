@@ -2,13 +2,18 @@
 
 $modal-duration: .7s;
 
-div#wrapper {
-  //transition: filter $modal-duration;
-}
+//div#wrapper {
+//  //transition: filter $modal-duration;
+//}
 
-modal.active + div#wrapper {
+modal.active ~ div#wrapper {
   filter: blur(6px) brightness(30%);
   pointer-events: none;
+}
+
+modal.active div#modal {
+  top: 0;
+  opacity: 1;
 }
 
 div#modal {
@@ -25,11 +30,6 @@ div#modal {
 
   z-index: 1;
   max-height: 60vh;
-  opacity: 0;
-}
-
-modal.active div#modal {
-  top: 0;
   opacity: 1;
 }
 

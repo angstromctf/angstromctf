@@ -1,7 +1,6 @@
-<div id="modal" [ngClass]="{ 'active': this.currentComponent != null }">
+<div id="modal">
   <span id="modal-close" (click)="this.modalService.close()">×</span>
   <h2 [innerHTML]="title"></h2>
 
   <div #componentContainer></div>
 </div>
-

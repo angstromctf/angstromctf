@@ -32,7 +32,7 @@ div#wrapper {
   height: 100%;
   z-index: 0;
 
-  padding: 2% 1% 2% 1%;
+  padding: 1.5em;
   box-sizing: border-box;
 }
 
@@ -46,10 +46,11 @@ div#main {
   display: flex;
 }
 
-div#nav, div#content {
+div#content {
   background-color: $background-color;
-  padding: 2em;
+  padding: 2rem;
   box-sizing: border-box;
+  width: 100%;
 }
 
 div#nav {

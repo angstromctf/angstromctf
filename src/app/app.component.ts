@@ -18,6 +18,7 @@ export class AppComponent {
     constructor(private status: StatusService, private modalService: ModalService, private alertService: AlertService, private router: Router) { }
 
     login() : void {
+      console.log("yay");
       this.modalService.update("Login", LoginComponent, {});
     }
 
