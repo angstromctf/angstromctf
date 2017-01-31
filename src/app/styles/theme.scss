@@ -46,15 +46,26 @@ div#main {
   display: flex;
 }
 
-div#content {
-  background-color: $background-color;
+div#content, div#nav {
   padding: 2rem;
   box-sizing: border-box;
-  width: 100%;
-}
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
 
-div#nav {
-  text-align: right;
+  &#content {
+    background-color: $background-color;
+    width: 100%;
+    z-index: 0;
+  }
+
+  &#nav {
+    background-color: opacify($background-color, .25);
+    text-align: right;
+    z-index: 1;
+    height: 100%;
+  }
 }
 
 div#content {

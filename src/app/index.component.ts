@@ -10,8 +10,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
   UNITS: string[] = ["DAY", "HOUR", "MINUTE", "SECOND"];
   DURATIONS: number[] = [100, 24, 60, 60];
 
-  constructor(private title: Title) {
-  }
+  constructor(private title: Title) { }
 
   ngOnInit(): void {
     this.title.setTitle("ångstromCTF");
@@ -23,15 +22,18 @@ export class IndexComponent implements OnInit, AfterViewInit {
 
     canvas.width = document.getElementById("clock-wrapper").clientWidth;
 
-    window.onload = () => {
-      this.repaint(canvas, ctx);
-      window.setInterval(() => this.repaint(canvas, ctx), 1000);
-    };
+    window.onload = () => this.setup(canvas, ctx);
+    if (document.readyState === "complete") this.setup(canvas, ctx);
 
     window.onresize = () => {
       canvas.width = document.getElementById("clock-wrapper").clientWidth;
       this.repaint(canvas, ctx);
     };
+  }
+
+  setup(canvas: any, ctx: any) {
+    this.repaint(canvas, ctx);
+    window.setInterval(() => this.repaint(canvas, ctx), 1000);
   }
 
   repaint(canvas: any, ctx: any) : void {
