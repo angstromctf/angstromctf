@@ -1,5 +1,5 @@
 <div id="alert" [ngClass]="{ 'active': this.message != null }">
-  <span id="alert-close" (click)="this.alertService.close()">×</span>
+  <span id="alert-close" (click)="this.alertService.close()">&times;</span>
   <strong>{{ title }}</strong><br/>
   {{ message }}
 </div>

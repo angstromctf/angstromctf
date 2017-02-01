@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UsersApi } from './api/api/api';
 import { StatusService } from './status.service';
+import { ModalService } from './modal.service';
+import { AlertService } from './alert.service';
 import 'rxjs/add/operator/toPromise';
 
 @Component({
@@ -13,7 +15,8 @@ export class LoginComponent {
     form: FormGroup;
     failed: boolean = false;
 
-    constructor(private router: Router, private usersApi: UsersApi, private status: StatusService, private fb: FormBuilder) {
+    constructor(private router: Router, private usersApi: UsersApi, private status: StatusService,
+                private modalService: ModalService, private alertService: AlertService, private fb: FormBuilder) {
         this.form = fb.group({
             username: ['', Validators.required],
             password: ['', Validators.required]
@@ -21,10 +24,11 @@ export class LoginComponent {
     }
 
     submit(value: any){
-        this.status.login(value.username, value.password).then(data => {
-            console.log(data);
-            if (data) this.router.navigateByUrl('/');
-            else this.failed = true;
-        });
+        this.status.login(value.username, value.password).then(() => {
+          this.router.navigateByUrl('/');
+          console.log("success eyyy");
+          this.alertService.alert("Success!", "You've logged in.");
+          this.modalService.close();
+        }, () => this.failed = true);
     }
 }

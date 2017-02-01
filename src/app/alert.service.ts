@@ -4,19 +4,19 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class AlertService {
-  alert: AlertComponent;
+  component: AlertComponent;
 
-  setup(alert : AlertComponent) : void {
-    this.alert = alert;
+  setup(component: AlertComponent) : void {
+    this.component = component;
   }
 
-  update(title: string, message: string) {
-    this.alert.title = title;
-    this.alert.message = message;
+  alert(title: string, message: string) {
+    this.component.title = title;
+    this.component.message = message;
   }
 
   close() {
-    this.alert.title = null;
-    this.alert.message = null;
+    this.component.title = null;
+    this.component.message = null;
   }
 }
