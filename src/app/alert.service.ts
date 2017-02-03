@@ -10,13 +10,11 @@ export class AlertService {
     this.component = component;
   }
 
-  alert(title: string, message: string) {
-    this.component.title = title;
-    this.component.message = message;
+  alert(title: string, message: string, type: string) : number {
+    return this.component.alert(title, message, type);
   }
 
-  close() {
-    this.component.title = null;
-    this.component.message = null;
+  close(alert: number) : void {
+    this.component.close(alert);
   }
 }

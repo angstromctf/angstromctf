@@ -2,10 +2,6 @@
 
 $modal-duration: .7s;
 
-//div#wrapper {
-//  //transition: filter $modal-duration;
-//}
-
 modal.active ~ div#wrapper {
   filter: blur(6px) brightness(30%);
   pointer-events: none;

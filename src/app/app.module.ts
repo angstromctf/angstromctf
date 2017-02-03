@@ -47,7 +47,8 @@ export class CookieXhr extends BrowserXhr {
 
 @Injectable()
 export class ConnectionRefusedBackend extends XHRBackend {
-    constructor(browserXhr: BrowserXhr, responseOptions: ResponseOptions, xsrfStrategy: XSRFStrategy) {
+    constructor(browserXhr: BrowserXhr, responseOptions: ResponseOptions, xsrfStrategy: XSRFStrategy,
+      private alertService: AlertService) {
         super(browserXhr, responseOptions, xsrfStrategy);
     }
 
@@ -56,7 +57,7 @@ export class ConnectionRefusedBackend extends XHRBackend {
 
         xhrConnection.response = xhrConnection.response.catch((error: Response) => {
             if (error.status === 0) {
-                console.log("Server is down.")
+                this.alertService.alert("Error!", "The API server is unreachable.", "error");
             }
 
             return Observable.throw(error);

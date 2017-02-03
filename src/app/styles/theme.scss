@@ -3,6 +3,7 @@
 $background-color: rgba(.2, .2, .25, .5);
 $primary-accent: #00d9e3;
 $secondary-accent: #ffca00;
+$states: ( error: #ff0101, success: #32cd32 );
 
 body {
   margin: 0;

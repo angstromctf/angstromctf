@@ -1,25 +1,42 @@
 $alert-duration: .7s;
 
-div#alert {
+@import 'styles/theme.scss';
+
+div#alerts {
   position: absolute;
   top: 0;
-  right: -50vw;
-  max-width: 50vw;
+  right: 0;
 
-  background-color: green;
-  margin: 2em;
-  padding: 1em;
-
-  transition: right $alert-duration;
+  padding: 2em;
+  width: 20em;
 
   z-index: 3;
 }
 
-div#alert.active {
-  right: 0;
+div.alert {
+  position: absolute;
+  transition: opacity $alert-duration;
+  opacity: 0;
+
+  padding: 1em;
+  margin-bottom: 1em;
+
+  width: 20em;
+  box-sizing: border-box;
+
+  &.active {
+    position: relative;
+    opacity: 1;
+  }
+
+  @each $state, $color in $states {
+    &.#{$state} {
+      background-color: mix($background-color, $color);
+    }
+  }
 }
 
-span#alert-close {
+span.alert-close {
   float: right;
   user-select: none;
   margin-left: 1em;

@@ -53,6 +53,11 @@ label {
 
 .form-group {
   &.input-error input {
-    background-color: adjust_color($background-color, $red: 75);
+    background-color: mix($background-color, map-get($states, error), 90%);
   }
+}
+
+div.form-error {
+  color: map-get($states, error);
+  margin-bottom: 1em;
 }
