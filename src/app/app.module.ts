@@ -23,6 +23,7 @@ import { LoginComponent }                   from './login.component';
 import { ProblemComponent }                 from './problem.component';
 import { ProblemsComponent }                from './problems.component';
 import { ScoreboardComponent }              from './scoreboard.component';
+import { SponsorsComponent }                from './sponsors.component';
 import { SignupComponent }                  from './signup.component';
 
 import { ProblemsApi, TeamsApi, UsersApi }  from './api/api/api';
@@ -92,6 +93,7 @@ export class CSRFStrategy extends CookieXSRFStrategy {
       { path: 'login', component: LoginComponent },
       { path: 'problems', component: ProblemsComponent },
       { path: 'signup', component: SignupComponent },
+      { path: 'sponsors', component: SponsorsComponent },
       { path: 'scoreboard', component: ScoreboardComponent }
     ]),
     NgbModule.forRoot()
@@ -106,9 +108,10 @@ export class CSRFStrategy extends CookieXSRFStrategy {
     LoginComponent,
     ProblemComponent,
     ProblemsComponent,
+    ScoreboardComponent,
+    SponsorsComponent,
     SignupComponent,
     ModalComponent,
-    ScoreboardComponent,
     OrdinalPipe
   ],
   providers: [
