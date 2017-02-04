@@ -33,6 +33,16 @@ h1, h2, h3, h4, h5, h6, strong {
 h1 { font-size: 3.5em; }
 h2 { font-size: 2em; }
 
+h1 span.accent, h2 span.accent, h3 span.accent, h4 span.accent, h5 span.accent, h6 span.accent {
+  @include glow(.7, $secondary-accent);
+}
+
 a, a:visited, a:active, a:hover {
   color: $secondary-accent;
+}
+
+samp {
+  color: $secondary-accent;
+  background-color: $background-color;
+  padding: .25rem;
 }

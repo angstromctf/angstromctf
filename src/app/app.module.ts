@@ -29,6 +29,7 @@ import { ProblemsApi, TeamsApi, UsersApi }  from './api/api/api';
 import { StatusService }                    from './status.service';
 import { AlertService }                     from './alert.service';
 import { ModalService }                     from './modal.service';
+import { OrdinalPipe }                      from './ordinal.pipe';
 import { BASE_PATH }                        from './api/variables';
 import { API_LOCATION }                     from './config';
 
@@ -108,6 +109,7 @@ export class CSRFStrategy extends CookieXSRFStrategy {
     SignupComponent,
     ModalComponent,
     ScoreboardComponent,
+    OrdinalPipe
   ],
   providers: [
     ProblemsApi,
