@@ -2,27 +2,25 @@
 <modal></modal>
 
 <div id="wrapper">
-  <div id="background">
-    <img src="/assets/images/background.jpg"/>
-  </div>
+  <div id="background"></div>
 
   <div id="main" class="row">
     <div id="nav" class="col-sm-2">
       <nav>
-        <p><a class="glow" routerLink="/">Home</a></p>
-        <p><a class="glow" routerLink="/about">About</a></p>
-        <p><a class="glow" routerLink="/sponsors">Sponsors</a></p>
-        <p><a class="glow" routerLink="/scoreboard">Scoreboard</a></p>
-        <p><a class="glow" routerLink="/problems" *ngIf="status.started">Problems</a></p>
+        <h3><a routerLink="/">Home</a></h3>
+        <h3><a routerLink="/about">About</a></h3>
+        <h3><a routerLink="/sponsors">Sponsors</a></h3>
+        <h3><a routerLink="/scoreboard">Scoreboard</a></h3>
+        <h3><a routerLink="/problems" *ngIf="status.started">Problems</a></h3>
 
         <div *ngIf="status.user">
-          <p><a class="glow" routerLink="/account">Account</a></p>
-          <p><a class="glow" href="javascript:void(0)" (click)="logout()">Logout</a></p>
+          <h3><a routerLink="/account">Account</a></h3>
+          <h3><a href="javascript:void(0)" (click)="logout()">Logout</a></h3>
         </div>
 
         <div *ngIf="!status.user">
-          <p><a class="glow" href="javascript:void(0)" (click)="login()">Login</a></p>
-          <p><a class="glow" routerLink="/signup">Signup</a></p>
+          <h3><a href="javascript:void(0)" (click)="login()">Login</a></h3>
+          <h3><a routerLink="/signup">Signup</a></h3>
         </div>
       </nav>
 
