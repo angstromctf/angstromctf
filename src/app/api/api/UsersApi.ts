@@ -19,7 +19,7 @@ import { Observable }                                        from 'rxjs/Observab
 import 'rxjs/add/operator/map';
 
 import * as models                                           from '../model/models';
-import { BASE_PATH }                                         from '../variables';
+import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 /* tslint:disable:no-unused-variable member-ordering */
@@ -38,36 +38,6 @@ export class UsersApi {
         if (configuration) {
             this.configuration = configuration;
         }
-    }
-
-    /**
-     * 
-     * Extends object by coping non-existing properties.
-     * @param objA object to be extended
-     * @param objB source object
-     */
-    private extendObj<T1,T2>(objA: T1, objB: T2) {
-        for(let key in objB){
-            if(objB.hasOwnProperty(key)){
-                (objA as any)[key] = (objB as any)[key];
-            }
-        }
-        return <T1&T2>objA;
-    }
-
-    /**
-     * Displays private information about a user&#39;s team.
-     * Displays private information about a user&#39;s team.
-     */
-    public usersAccount(extraHttpRequestParams?: any): Observable<{}> {
-        return this.usersAccountWithHttpInfo(extraHttpRequestParams)
-            .map((response: Response) => {
-                if (response.status === 204) {
-                    return undefined;
-                } else {
-                    return response.json();
-                }
-            });
     }
 
     /**
@@ -134,43 +104,6 @@ export class UsersApi {
 
 
     /**
-     * Displays private information about a user&#39;s team.
-     * Displays private information about a user&#39;s team.
-     */
-    public usersAccountWithHttpInfo(extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/users/account/`;
-
-        let queryParameters = new URLSearchParams();
-        let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
-
-
-        // to determine the Content-Type header
-        let consumes: string[] = [
-        ];
-
-        // to determine the Accept header
-        let produces: string[] = [
-        ];
-        
-            
-
-
-
-        let requestOptions: RequestOptionsArgs = new RequestOptions({
-            method: RequestMethod.Get,
-            headers: headers,
-            search: queryParameters
-        });
-        
-        // https://github.com/swagger-api/swagger-codegen/issues/4037
-        if (extraHttpRequestParams) {
-            requestOptions = this.extendObj(requestOptions, extraHttpRequestParams);
-        }
-
-        return this.http.request(path, requestOptions);
-    }
-
-    /**
      * Logs in a user.
      * Logs in a user.
      * @param data 
@@ -180,8 +113,6 @@ export class UsersApi {
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
-
-
         // to determine the Content-Type header
         let consumes: string[] = [
             'application/json'
@@ -190,11 +121,8 @@ export class UsersApi {
         // to determine the Accept header
         let produces: string[] = [
         ];
-        
-            
 
         headers.set('Content-Type', 'application/json');
-
 
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Post,
@@ -202,10 +130,10 @@ export class UsersApi {
             body: data == null ? '' : JSON.stringify(data), // https://github.com/angular/angular/issues/10612
             search: queryParameters
         });
-        
+
         // https://github.com/swagger-api/swagger-codegen/issues/4037
         if (extraHttpRequestParams) {
-            requestOptions = this.extendObj(requestOptions, extraHttpRequestParams);
+            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
         }
 
         return this.http.request(path, requestOptions);
@@ -220,8 +148,6 @@ export class UsersApi {
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
-
-
         // to determine the Content-Type header
         let consumes: string[] = [
         ];
@@ -229,20 +155,16 @@ export class UsersApi {
         // to determine the Accept header
         let produces: string[] = [
         ];
-        
-            
-
-
 
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Post,
             headers: headers,
             search: queryParameters
         });
-        
+
         // https://github.com/swagger-api/swagger-codegen/issues/4037
         if (extraHttpRequestParams) {
-            requestOptions = this.extendObj(requestOptions, extraHttpRequestParams);
+            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
         }
 
         return this.http.request(path, requestOptions);
@@ -258,8 +180,6 @@ export class UsersApi {
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
-
-
         // to determine the Content-Type header
         let consumes: string[] = [
             'application/json'
@@ -268,11 +188,8 @@ export class UsersApi {
         // to determine the Accept header
         let produces: string[] = [
         ];
-        
-            
 
         headers.set('Content-Type', 'application/json');
-
 
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Post,
@@ -280,10 +197,10 @@ export class UsersApi {
             body: data == null ? '' : JSON.stringify(data), // https://github.com/angular/angular/issues/10612
             search: queryParameters
         });
-        
+
         // https://github.com/swagger-api/swagger-codegen/issues/4037
         if (extraHttpRequestParams) {
-            requestOptions = this.extendObj(requestOptions, extraHttpRequestParams);
+            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
         }
 
         return this.http.request(path, requestOptions);
@@ -298,8 +215,6 @@ export class UsersApi {
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
-
-
         // to determine the Content-Type header
         let consumes: string[] = [
         ];
@@ -307,20 +222,16 @@ export class UsersApi {
         // to determine the Accept header
         let produces: string[] = [
         ];
-        
-            
-
-
 
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Post,
             headers: headers,
             search: queryParameters
         });
-        
+
         // https://github.com/swagger-api/swagger-codegen/issues/4037
         if (extraHttpRequestParams) {
-            requestOptions = this.extendObj(requestOptions, extraHttpRequestParams);
+            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
         }
 
         return this.http.request(path, requestOptions);

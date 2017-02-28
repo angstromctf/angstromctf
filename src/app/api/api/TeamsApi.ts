@@ -19,7 +19,7 @@ import { Observable }                                        from 'rxjs/Observab
 import 'rxjs/add/operator/map';
 
 import * as models                                           from '../model/models';
-import { BASE_PATH }                                         from '../variables';
+import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
 /* tslint:disable:no-unused-variable member-ordering */
@@ -41,18 +41,18 @@ export class TeamsApi {
     }
 
     /**
-     * 
-     * Extends object by coping non-existing properties.
-     * @param objA object to be extended
-     * @param objB source object
+     * Displays private information about a user&#39;s team.
+     * Displays private information about a user&#39;s team.
      */
-    private extendObj<T1,T2>(objA: T1, objB: T2) {
-        for(let key in objB){
-            if(objB.hasOwnProperty(key)){
-                (objA as any)[key] = (objB as any)[key];
-            }
-        }
-        return <T1&T2>objA;
+    public teamsAccount(extraHttpRequestParams?: any): Observable<{}> {
+        return this.teamsAccountWithHttpInfo(extraHttpRequestParams)
+            .map((response: Response) => {
+                if (response.status === 204) {
+                    return undefined;
+                } else {
+                    return response.json();
+                }
+            });
     }
 
     /**
@@ -137,6 +137,37 @@ export class TeamsApi {
 
 
     /**
+     * Displays private information about a user&#39;s team.
+     * Displays private information about a user&#39;s team.
+     */
+    public teamsAccountWithHttpInfo(extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + `/teams/account/`;
+
+        let queryParameters = new URLSearchParams();
+        let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+        // to determine the Content-Type header
+        let consumes: string[] = [
+        ];
+
+        // to determine the Accept header
+        let produces: string[] = [
+        ];
+
+        let requestOptions: RequestOptionsArgs = new RequestOptions({
+            method: RequestMethod.Get,
+            headers: headers,
+            search: queryParameters
+        });
+
+        // https://github.com/swagger-api/swagger-codegen/issues/4037
+        if (extraHttpRequestParams) {
+            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
+        }
+
+        return this.http.request(path, requestOptions);
+    }
+
+    /**
      * Adds the user to a pre-existing team.
      * Adds the user to a pre-existing team.
      * @param data 
@@ -146,8 +177,6 @@ export class TeamsApi {
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
-
-
         // to determine the Content-Type header
         let consumes: string[] = [
             'application/json'
@@ -156,11 +185,8 @@ export class TeamsApi {
         // to determine the Accept header
         let produces: string[] = [
         ];
-        
-            
 
         headers.set('Content-Type', 'application/json');
-
 
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Post,
@@ -168,10 +194,10 @@ export class TeamsApi {
             body: data == null ? '' : JSON.stringify(data), // https://github.com/angular/angular/issues/10612
             search: queryParameters
         });
-        
+
         // https://github.com/swagger-api/swagger-codegen/issues/4037
         if (extraHttpRequestParams) {
-            requestOptions = this.extendObj(requestOptions, extraHttpRequestParams);
+            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
         }
 
         return this.http.request(path, requestOptions);
@@ -188,9 +214,8 @@ export class TeamsApi {
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
         if (page !== undefined) {
-            queryParameters.set('page', <any>page);
+                    queryParameters.set('page', <any>page);
         }
-
 
         // to determine the Content-Type header
         let consumes: string[] = [
@@ -199,20 +224,16 @@ export class TeamsApi {
         // to determine the Accept header
         let produces: string[] = [
         ];
-        
-            
-
-
 
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Get,
             headers: headers,
             search: queryParameters
         });
-        
+
         // https://github.com/swagger-api/swagger-codegen/issues/4037
         if (extraHttpRequestParams) {
-            requestOptions = this.extendObj(requestOptions, extraHttpRequestParams);
+            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
         }
 
         return this.http.request(path, requestOptions);
@@ -228,8 +249,6 @@ export class TeamsApi {
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
-
-
         // to determine the Content-Type header
         let consumes: string[] = [
             'application/json'
@@ -238,11 +257,8 @@ export class TeamsApi {
         // to determine the Accept header
         let produces: string[] = [
         ];
-        
-            
 
         headers.set('Content-Type', 'application/json');
-
 
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Post,
@@ -250,10 +266,10 @@ export class TeamsApi {
             body: data == null ? '' : JSON.stringify(data), // https://github.com/angular/angular/issues/10612
             search: queryParameters
         });
-        
+
         // https://github.com/swagger-api/swagger-codegen/issues/4037
         if (extraHttpRequestParams) {
-            requestOptions = this.extendObj(requestOptions, extraHttpRequestParams);
+            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
         }
 
         return this.http.request(path, requestOptions);
@@ -273,8 +289,6 @@ export class TeamsApi {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling teamsProgress.');
         }
-
-
         // to determine the Content-Type header
         let consumes: string[] = [
         ];
@@ -282,20 +296,16 @@ export class TeamsApi {
         // to determine the Accept header
         let produces: string[] = [
         ];
-        
-            
-
-
 
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Get,
             headers: headers,
             search: queryParameters
         });
-        
+
         // https://github.com/swagger-api/swagger-codegen/issues/4037
         if (extraHttpRequestParams) {
-            requestOptions = this.extendObj(requestOptions, extraHttpRequestParams);
+            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
         }
 
         return this.http.request(path, requestOptions);
@@ -315,8 +325,6 @@ export class TeamsApi {
         if (id === null || id === undefined) {
             throw new Error('Required parameter id was null or undefined when calling teamsRead.');
         }
-
-
         // to determine the Content-Type header
         let consumes: string[] = [
         ];
@@ -324,20 +332,16 @@ export class TeamsApi {
         // to determine the Accept header
         let produces: string[] = [
         ];
-        
-            
-
-
 
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Get,
             headers: headers,
             search: queryParameters
         });
-        
+
         // https://github.com/swagger-api/swagger-codegen/issues/4037
         if (extraHttpRequestParams) {
-            requestOptions = this.extendObj(requestOptions, extraHttpRequestParams);
+            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
         }
 
         return this.http.request(path, requestOptions);

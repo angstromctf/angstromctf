@@ -8,9 +8,13 @@ export class StatusService {
     team: any;
 
     constructor (private usersApi: UsersApi) {
-        this.usersApi.usersStatus().toPromise().then(data => {
-            this.update(data);
-        });
+      this.reload();
+    }
+
+    reload() : Promise<any> {
+      return this.usersApi.usersStatus().toPromise().then(data => {
+        this.update(data);
+      });
     }
 
     login(username: string, password: string) : Promise<any> {

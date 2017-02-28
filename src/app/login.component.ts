@@ -16,7 +16,7 @@ export class LoginComponent {
     failed: boolean = false;
 
     constructor(private router: Router, private usersApi: UsersApi, private status: StatusService,
-                private modalService: ModalService, private alertService: AlertService, private fb: FormBuilder) {
+                private modalService: ModalService, private alert: AlertService, private fb: FormBuilder) {
         this.form = fb.group({
             username: ['', Validators.required],
             password: ['', Validators.required]
@@ -26,8 +26,8 @@ export class LoginComponent {
     submit(value: any){
         this.status.login(value.username, value.password).then(() => {
           this.router.navigateByUrl('/');
-          this.alertService.alert("Success!", "You've logged in.", "success");
+          this.alert.alert("success", "You've logged in." );
           this.modalService.close();
-        }, () => this.alertService.alert("Whoops.", "You couldn't be logged in. Wrong username or password?", "error"));
+        }, () => this.alert.alert("error", "You couldn't be logged in. Wrong username or password?"));
     }
 }

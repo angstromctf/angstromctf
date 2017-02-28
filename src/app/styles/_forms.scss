@@ -7,7 +7,7 @@
   border: none;
 }
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=number] {
   @include norm();
   width: 100%;
 }
