@@ -17,9 +17,16 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Orbitron' !important;
-  @include glow(.7, $primary-accent);
   text-transform: uppercase;
   margin: 1.5rem 0;
+
+  &:not(.no-glow) {
+    @include glow(.7, $primary-accent);
+  }
+
+  &.center {
+    text-align: center;
+  }
 }
 
 h1, h2, h3, h4, h5, h6, strong {
