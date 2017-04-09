@@ -16,11 +16,11 @@ export interface Data2 {
     /**
      * 
      */
-    name: string;
+    school: string;
 
     /**
      * 
      */
-    school: string;
+    name: string;
 
 }

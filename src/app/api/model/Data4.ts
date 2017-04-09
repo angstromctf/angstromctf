@@ -16,12 +16,17 @@ export interface Data4 {
     /**
      * 
      */
-    email?: string;
+    last_name?: string;
 
     /**
      * 
      */
-    password: string;
+    first_name?: string;
+
+    /**
+     * 
+     */
+    email?: string;
 
     /**
      * Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.
@@ -36,11 +41,6 @@ export interface Data4 {
     /**
      * 
      */
-    last_name?: string;
-
-    /**
-     * 
-     */
-    first_name?: string;
+    password: string;
 
 }

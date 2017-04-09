@@ -26,7 +26,7 @@ export class LoginComponent {
     submit(value: any){
         this.status.login(value.username, value.password).then(() => {
           this.router.navigateByUrl('/');
-          this.alert.alert("success", "You've logged in." );
+          this.alert.alert("success", "You've logged in.");
           this.modalService.close();
         }, () => this.alert.alert("error", "You couldn't be logged in. Wrong username or password?"));
     }

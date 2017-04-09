@@ -7,7 +7,7 @@ import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
 import { StatusService } from "./status.service";
 import { AlertService } from "./alert.service";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'angstrom-signup',
@@ -22,7 +22,7 @@ export class SignupComponent implements OnInit {
   STATES = ['', 'Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'District Of Columbia', 'Federated States Of Micronesia', 'Florida', 'Georgia', 'Guam', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Marshall Islands', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Northern Mariana Islands', 'Ohio', 'Oklahoma', 'Oregon', 'Palau', 'Pennsylvania', 'Puerto Rico', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virgin Islands', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
 
   constructor(private titleService: Title, private usersApi: UsersApi, private fb: FormBuilder, private status: StatusService,
-              private alert: AlertService, private router: Router) {
+              private alert: AlertService, private router: Router, private route: ActivatedRoute) {
     this.form = fb.group({
       username: [null, Validators.required],
       password: [null, Validators.required],
@@ -43,6 +43,11 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.titleService.setTitle("Signup | ångstromCTF");
+
+    this.route.queryParams.subscribe(params => {
+      console.log(params);
+        // this.page = +params['page'];
+    });
   }
 
   submit(value: any) {
@@ -63,7 +68,7 @@ export class SignupComponent implements OnInit {
     }).toPromise().then(data => {
       this.alert.alert("success", "Your account has been created.");
       this.status.update(data);
-      this.router.navigateByUrl('/');
+      this.router.navigateByUrl('/account');
     }, () => this.alert.alert("error", "Your account couldn't be created."));
   }
 }

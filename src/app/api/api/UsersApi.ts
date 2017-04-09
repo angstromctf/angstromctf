@@ -109,7 +109,7 @@ export class UsersApi {
      * @param data 
      */
     public usersLoginWithHttpInfo(data?: models.Data3, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/users/login/`;
+        const path = this.basePath + '/users/login/';
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
@@ -144,7 +144,7 @@ export class UsersApi {
      * Logs out a user.
      */
     public usersLogoutWithHttpInfo(extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/users/logout/`;
+        const path = this.basePath + '/users/logout/';
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
@@ -176,7 +176,7 @@ export class UsersApi {
      * @param data 
      */
     public usersSignupWithHttpInfo(data?: models.Data4, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/users/signup/`;
+        const path = this.basePath + '/users/signup/';
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
@@ -211,7 +211,7 @@ export class UsersApi {
      * 
      */
     public usersStatusWithHttpInfo(extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/users/status/`;
+        const path = this.basePath + '/users/status/';
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
@@ -224,7 +224,7 @@ export class UsersApi {
         ];
 
         let requestOptions: RequestOptionsArgs = new RequestOptions({
-            method: RequestMethod.Post,
+            method: RequestMethod.Get,
             headers: headers,
             search: queryParameters
         });

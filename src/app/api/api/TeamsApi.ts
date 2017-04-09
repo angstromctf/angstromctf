@@ -141,7 +141,7 @@ export class TeamsApi {
      * Displays private information about a user&#39;s team.
      */
     public teamsAccountWithHttpInfo(extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/teams/account/`;
+        const path = this.basePath + '/teams/account/';
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
@@ -173,7 +173,7 @@ export class TeamsApi {
      * @param data 
      */
     public teamsJoinWithHttpInfo(data?: models.Data1, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/teams/join/`;
+        const path = this.basePath + '/teams/join/';
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
@@ -209,7 +209,7 @@ export class TeamsApi {
      * @param page 
      */
     public teamsListWithHttpInfo(page?: string, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/teams/`;
+        const path = this.basePath + '/teams/';
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
@@ -245,7 +245,7 @@ export class TeamsApi {
      * @param data 
      */
     public teamsNewWithHttpInfo(data?: models.Data2, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/teams/new/`;
+        const path = this.basePath + '/teams/new/';
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
@@ -281,7 +281,8 @@ export class TeamsApi {
      * @param id 
      */
     public teamsProgressWithHttpInfo(id: string, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/teams/${id}/progress/`;
+        const path = this.basePath + '/teams/${id}/progress/'
+                    .replace('${' + 'id' + '}', String(id));
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
@@ -317,7 +318,8 @@ export class TeamsApi {
      * @param id 
      */
     public teamsReadWithHttpInfo(id: string, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/teams/${id}/`;
+        const path = this.basePath + '/teams/${id}/'
+                    .replace('${' + 'id' + '}', String(id));
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845

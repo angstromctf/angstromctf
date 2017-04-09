@@ -96,7 +96,7 @@ export class ProblemsApi {
      * @param page 
      */
     public problemsListWithHttpInfo(page?: string, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/problems/`;
+        const path = this.basePath + '/problems/';
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
@@ -132,7 +132,8 @@ export class ProblemsApi {
      * @param id 
      */
     public problemsReadWithHttpInfo(id: string, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/problems/${id}/`;
+        const path = this.basePath + '/problems/${id}/'
+                    .replace('${' + 'id' + '}', String(id));
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
@@ -169,7 +170,8 @@ export class ProblemsApi {
      * @param data 
      */
     public problemsSubmitWithHttpInfo(id: string, data?: models.Data, extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/problems/${id}/submit/`;
+        const path = this.basePath + '/problems/${id}/submit/'
+                    .replace('${' + 'id' + '}', String(id));
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845

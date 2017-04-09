@@ -3,8 +3,8 @@ import { BrowserModule, Title }             from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule }                     from '@angular/router';
 import {
-    HttpModule, CookieXSRFStrategy, XSRFStrategy, Request, Response,
-    XHRBackend, ResponseOptions
+  HttpModule, CookieXSRFStrategy, XSRFStrategy, Request, Response,
+  XHRBackend, ResponseOptions, BaseRequestOptions, Headers
 }                                           from '@angular/http';
 import { NgbModule }                        from '@ng-bootstrap/ng-bootstrap';
 import { BrowserXhr }                       from '@angular/http';
@@ -80,6 +80,14 @@ export class CSRFStrategy extends CookieXSRFStrategy {
   }
 }
 
+@Injectable()
+export class CORSRequestOptions extends BaseRequestOptions {
+  headers: Headers = new Headers({
+    'X-Requested-With': 'XMLHttpRequest'
+  });
+  withCredentials: boolean = true;
+}
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -125,7 +133,8 @@ export class CSRFStrategy extends CookieXSRFStrategy {
     { provide: BASE_PATH, useValue: API_LOCATION },
     { provide: BrowserXhr, useClass: CookieXhr },
     { provide: XHRBackend, useClass: ConnectionRefusedBackend },
-    { provide: XSRFStrategy, useClass: CSRFStrategy }
+    { provide: XSRFStrategy, useClass: CSRFStrategy },
+    { provide: BaseRequestOptions, useClass: CORSRequestOptions }
   ],
   bootstrap: [ AppComponent ]
 })
