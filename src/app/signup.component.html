@@ -46,8 +46,8 @@
   </div>
 
   <div class="form-group" *ngIf="form.controls['country'].value == 'United States of America'">
-    <label class="control-label" [formControl]="form.controls['state']">State</label>
-    <select class="custom-select">
+    <label class="control-label">State</label>
+    <select class="custom-select" [formControl]="form.controls['state']">
       <option *ngFor="let state of STATES" [value]="state">{{ state }}</option>
     </select>
   </div>

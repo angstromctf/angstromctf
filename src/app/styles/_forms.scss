@@ -1,3 +1,5 @@
+$error-color: mix($background-color, map-get($states, error), 90%);
+
 @mixin norm() {
   background-color: $background-color;
   color: white;
@@ -24,7 +26,7 @@ input[type=submit], button {
   }
 
   &:disabled {
-    background-color: $background-color;
+    background-color: $error-color;
     pointer-events: none;
   }
 
@@ -53,7 +55,7 @@ label {
 
 .form-group {
   &.input-error input {
-    background-color: mix($background-color, map-get($states, error), 90%);
+    background-color: $error-color;
   }
 }
 
