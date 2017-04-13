@@ -4,6 +4,7 @@ import { Component, OnChanges, Input } from "@angular/core";
 
 export const MESSAGES: any = {
   required: "This field is required.",
+  validateEqual: "These fields don't match.",
   other: "An error occurred processing this field."
 };
 

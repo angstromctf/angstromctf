@@ -8,6 +8,7 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import { StatusService } from "./status.service";
 import { AlertService } from "./alert.service";
 import { Router, ActivatedRoute } from "@angular/router";
+import { validateEqual } from "./equal.validator";
 
 @Component({
   selector: 'angstrom-signup',
@@ -27,7 +28,7 @@ export class SignupComponent implements OnInit {
       username: [null, Validators.required],
       password: [null, Validators.required],
       email: [null, Validators.required],
-      confirm_password: [null, Validators.required],
+      confirm_password: [null, [Validators.required, validateEqual('password')]],
       firstName: [null, Validators.required],
       lastName: [null, Validators.required],
 
