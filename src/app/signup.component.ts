@@ -70,6 +70,9 @@ export class SignupComponent implements OnInit {
       this.alert.alert("success", "Your account has been created.");
       this.status.update(data);
       this.router.navigateByUrl('/account');
-    }, () => this.alert.alert("error", "Your account couldn't be created."));
+    }, error => {
+      if (error.status === 409) this.alert.alert("error", "This user or email already exists.");
+      else this.alert.alert("error", "Your account couldn't be created.");
+    });
   }
 }

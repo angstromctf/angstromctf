@@ -58,9 +58,8 @@ export class ConnectionRefusedBackend extends XHRBackend {
         let xhrConnection = super.createConnection(request);
 
         xhrConnection.response = xhrConnection.response.catch((error: Response) => {
-            if (error.status === 0) {
-                this.alert.alert("error", "The API server is unreachable.");
-            }
+            if (error.status === 0) this.alert.alert("error", "The API server is unreachable.");
+            else if (error.status === 500) this.alert.alert("error", "The API server experienced an internal server error.");
 
             return Observable.throw(error);
         });

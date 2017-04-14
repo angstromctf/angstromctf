@@ -35,15 +35,21 @@ export class AccountComponent implements OnInit {
 
     do_create(data: any) : void {
         this.teamsApi.teamsNew(data).toPromise().then(data => {
-            this.account = data;
-            this.status.reload().then(() => this.alert.alert("success", "You've created team " + this.status.team.name + "."));
-        }, () => this.alert.alert("error", "We couldn't create your team."));
+          this.account = data;
+          this.status.reload().then(() => this.alert.alert("success", "You've created team " + this.status.team.name + "."));
+        }, error => {
+          if (error.status === 409) this.alert.alert("error", "This team already exists.");
+          else this.alert.alert("error", "We couldn't create your team.");
+        });
     }
 
     do_join(data: any) : void {
         this.teamsApi.teamsJoin(data).toPromise().then(data => {
             this.account = data;
             this.status.reload().then(() => this.alert.alert("success", "You've joined team " + this.status.team.name + "."));
-        }, () => this.alert.alert("error", "You couldn't join this team."));
+        }, error => {
+          if (error.status === 409) this.alert.alert("error", "This team is already full.");
+          else this.alert.alert("error", "You couldn't join this team.");
+        });
     }
 }
