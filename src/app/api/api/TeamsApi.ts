@@ -214,7 +214,7 @@ export class TeamsApi {
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
         if (page !== undefined) {
-                    queryParameters.set('page', <any>page);
+            queryParameters.set('page', <any>page);
         }
 
         // to determine the Content-Type header

@@ -11,6 +11,24 @@
         </div>
 
         <h3>Change Password</h3>
+
+        <form [formGroup]="change_password" (ngSubmit)="do_change_password(change_password.value)">
+          <extended-input [label]="'Old Password'" [errors]="change_password.controls['old'].errors" [touched]="change_password.controls['old'].touched">
+            <input type="password" class="form-control" placeholder="my_password" [formControl]="change_password.controls['old']">
+          </extended-input>
+
+          <extended-input [label]="'New Password'" [errors]="change_password.controls['password'].errors" [touched]="change_password.controls['password'].touched">
+            <input type="password" class="form-control" placeholder="my_password" [formControl]="change_password.controls['password']">
+          </extended-input>
+
+          <extended-input [label]="'Confirm Password'" [errors]="change_password.controls['confirm'].errors" [touched]="change_password.controls['confirm'].touched">
+            <input type="password" class="form-control" placeholder="my_password" [formControl]="change_password.controls['confirm']">
+          </extended-input>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary" [disabled]="!change_password.valid">Change Password</button>
+          </div>
+        </form>
     </div>
 
     <div class="col-lg-6">

@@ -41,11 +41,27 @@ export class UsersApi {
     }
 
     /**
+     * 
+     * 
+     * @param data 
+     */
+    public usersChangePassword(data?: models.Data3, extraHttpRequestParams?: any): Observable<{}> {
+        return this.usersChangePasswordWithHttpInfo(data, extraHttpRequestParams)
+            .map((response: Response) => {
+                if (response.status === 204) {
+                    return undefined;
+                } else {
+                    return response.json();
+                }
+            });
+    }
+
+    /**
      * Logs in a user.
      * Logs in a user.
      * @param data 
      */
-    public usersLogin(data?: models.Data3, extraHttpRequestParams?: any): Observable<{}> {
+    public usersLogin(data?: models.Data4, extraHttpRequestParams?: any): Observable<{}> {
         return this.usersLoginWithHttpInfo(data, extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
@@ -76,7 +92,7 @@ export class UsersApi {
      * Signs the user up for an account.
      * @param data 
      */
-    public usersSignup(data?: models.Data4, extraHttpRequestParams?: any): Observable<{}> {
+    public usersSignup(data?: models.Data5, extraHttpRequestParams?: any): Observable<{}> {
         return this.usersSignupWithHttpInfo(data, extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
@@ -104,11 +120,47 @@ export class UsersApi {
 
 
     /**
+     * 
+     * 
+     * @param data 
+     */
+    public usersChangePasswordWithHttpInfo(data?: models.Data3, extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + '/users/change_password/';
+
+        let queryParameters = new URLSearchParams();
+        let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
+        // to determine the Content-Type header
+        let consumes: string[] = [
+            'application/json'
+        ];
+
+        // to determine the Accept header
+        let produces: string[] = [
+        ];
+
+        headers.set('Content-Type', 'application/json');
+
+        let requestOptions: RequestOptionsArgs = new RequestOptions({
+            method: RequestMethod.Post,
+            headers: headers,
+            body: data == null ? '' : JSON.stringify(data), // https://github.com/angular/angular/issues/10612
+            search: queryParameters
+        });
+
+        // https://github.com/swagger-api/swagger-codegen/issues/4037
+        if (extraHttpRequestParams) {
+            requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
+        }
+
+        return this.http.request(path, requestOptions);
+    }
+
+    /**
      * Logs in a user.
      * Logs in a user.
      * @param data 
      */
-    public usersLoginWithHttpInfo(data?: models.Data3, extraHttpRequestParams?: any): Observable<Response> {
+    public usersLoginWithHttpInfo(data?: models.Data4, extraHttpRequestParams?: any): Observable<Response> {
         const path = this.basePath + '/users/login/';
 
         let queryParameters = new URLSearchParams();
@@ -175,7 +227,7 @@ export class UsersApi {
      * Signs the user up for an account.
      * @param data 
      */
-    public usersSignupWithHttpInfo(data?: models.Data4, extraHttpRequestParams?: any): Observable<Response> {
+    public usersSignupWithHttpInfo(data?: models.Data5, extraHttpRequestParams?: any): Observable<Response> {
         const path = this.basePath + '/users/signup/';
 
         let queryParameters = new URLSearchParams();
