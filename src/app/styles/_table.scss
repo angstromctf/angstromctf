@@ -1,0 +1,24 @@
+table {
+  width: 100%;
+  border-spacing: 0;
+}
+
+th {
+  text-align: left;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: $background-color;
+}
+
+td, th {
+  padding: .25em;
+
+  &:first-child {
+    padding-left: 1em;
+  }
+
+  &:last-child {
+    padding-right: 1em;
+  }
+}

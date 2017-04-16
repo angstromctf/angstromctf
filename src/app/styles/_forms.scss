@@ -26,8 +26,12 @@ input[type=submit], button {
     content: ' »';
   }
 
-  &.backward::after {
-    content: '';
+  &.stationary {
+    text-transform: none;
+
+    &::after {
+      content: '';
+    }
   }
 
   &.stable {
