@@ -15,6 +15,12 @@ export class ScoreboardComponent implements OnInit {
 
     ngOnInit(): void {
         this.titleService.setTitle("Scoreboard | ångstromCTF");
-        this.teamsApi.teamsList().toPromise().then(data => this.teams = data);
+        this.update();
+
+        window.setInterval(() => this.update(), 30000);
+    }
+
+    update(): void {
+      this.teamsApi.teamsList().toPromise().then(data => this.teams = data);
     }
 }

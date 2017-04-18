@@ -1,0 +1,31 @@
+<h1>Team <span class="accent">{{ team?.name }}</span> <span *ngIf="team?.eligible">{{ team?.place | ordinal}}</span></h1>
+
+<h3>Members</h3>
+
+<ul>
+  <li *ngFor="let member of team?.members">{{ member.user.username }}</li>
+</ul>
+
+<div *ngIf="status.started">
+  <h3>Solves</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Problem</th>
+        <th>Points</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let solve of team?.solves; let i = index">
+        <th scope="row">{{ i+1 }}</th>
+        <td>{{ solve.problem.title }}</td>
+        <td>{{ solve.problem.value }}</td>
+        <td>{{ solve.time | date: 'medium' }}</td>
+      </tr>
+      </tbody>
+  </table>
+</div>

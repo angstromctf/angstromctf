@@ -14,7 +14,7 @@
     <tbody>
         <tr *ngFor="let team of teams; let i = index">
             <th scope="row">{{ i+1 }}</th>
-            <td>{{ team.name }}</td>
+            <td><a [routerLink]="['/profile', team.id]">{{ team.name }}</a></td>
             <td>{{ team.school }}</td>
             <td *ngIf="status.started">{{ team.score }}</td>
         </tr>

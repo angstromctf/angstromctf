@@ -22,6 +22,7 @@ import { ModalComponent }                   from './modal.component';
 import { LoginComponent }                   from './login.component';
 import { ProblemComponent }                 from './problem.component';
 import { ProblemsComponent }                from './problems.component';
+import { ProfileComponent }                 from './profile.component';
 import { ScoreboardComponent }              from './scoreboard.component';
 import { SponsorsComponent }                from './sponsors.component';
 import { SignupComponent }                  from './signup.component';
@@ -99,6 +100,7 @@ export class CORSRequestOptions extends BaseRequestOptions {
       { path: 'about', component: AboutComponent },
       { path: 'login', component: LoginComponent },
       { path: 'problems', component: ProblemsComponent },
+      { path: 'profile/:id', component: ProfileComponent },
       { path: 'signup', component: SignupComponent },
       { path: 'sponsors', component: SponsorsComponent },
       { path: 'scoreboard', component: ScoreboardComponent }
@@ -115,6 +117,7 @@ export class CORSRequestOptions extends BaseRequestOptions {
     LoginComponent,
     ProblemComponent,
     ProblemsComponent,
+    ProfileComponent,
     ScoreboardComponent,
     SponsorsComponent,
     SignupComponent,
