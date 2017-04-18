@@ -1,6 +1,22 @@
-<h4>{{ problem.category }}, {{ problem.value }}</h4>
+<div>
+  <h4>{{ problem.category }}, {{ problem.value }}</h4>
 
-<span [innerHTML]="problem.text"></span>
+  <span [innerHTML]="problem.text"></span>
 
-<br/><br/>
-<input type="text" placeholder="actf{flag}">
+  <br/><br/>
+
+  <form *ngIf="status.user && status.team && !problem.solved" [formGroup]="form" (ngSubmit)="submit(form.value)">
+    <extended-input [errors]="form.controls['guess'].errors" [touched]="form.controls['guess'].touched">
+      <input type="text" class="form-control" placeholder="actf{flag}" [formControl]="form.controls['guess']">
+    </extended-input>
+
+    <button type="submit">Submit!</button>
+  </form>
+
+  <button type="button" class="btn btn-primary" (click)="toggle_hint()" *ngIf="!hint">Show Hint</button>
+  <button type="button" class="btn btn-primary" (click)="toggle_hint()" *ngIf="hint">Hide Hint</button>
+
+  <div *ngIf="hint">
+    {{ problem.hint }}
+  </div>
+</div>

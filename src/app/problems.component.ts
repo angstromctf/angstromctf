@@ -39,10 +39,4 @@ export class ProblemsComponent implements OnInit {
     show(problem: any) : void {
         this.modalService.update(problem.title, ProblemComponent, { problem: problem });
     }
-
-    submit(problem: any) : void {
-        this.problemsApi.problemsSubmit(String(problem.id), {
-            flag: problem.guess
-        }).toPromise().then(data => problem.solved = true);
-    }
 }

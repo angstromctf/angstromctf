@@ -10,6 +10,12 @@
           <p>You don't have a team!</p>
         </div>
 
+        <h3>User Information</h3>
+
+        Name: <code>{{ status.user?.first_name }} {{ status.user?.last_name }}</code><br/>
+        Username: <code>{{ status.user?.username }}</code><br/>
+        Eligible for prizes: <code>{{ status.user?.eligible }}</code>
+
         <h3>Change Password</h3>
 
         <form [formGroup]="change_password" (ngSubmit)="do_change_password(change_password.value)">
