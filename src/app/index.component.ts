@@ -9,7 +9,7 @@ import { StatusService } from './status.service';
 })
 export class IndexComponent implements OnInit, AfterViewInit {
   UNITS: string[] = ["DAY", "HOUR", "MINUTE", "SECOND"];
-  DURATIONS: number[] = [100, 24, 60, 60];
+  DURATIONS: number[] = [7, 24, 60, 60];
 
   constructor(private title: Title, private status: StatusService) { }
 

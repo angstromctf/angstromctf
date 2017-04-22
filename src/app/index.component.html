@@ -4,6 +4,9 @@
     CTF cybersecurity competitions have become an increasingly popular way for students to learn more about cybersecurity and develop and refine
     their hacking skills. These competitions are designed to <strong>educate and inspire high school students through interactive hacking challenges</strong>.</p>
 
+<h2 class="center" *ngIf="status.team && status.started"><a routerLink="/problems">Go to Problems!</a></h2>
+<h2 class="center" *ngIf="status.team && !status.user"><a routerLink="/account">Find a Team!</a></h2>
+<h2 class="center" *ngIf="!status.user"><a routerLink="/signup">Sign Up!</a></h2>
 <h2 class="no-glow center">4/22/2017 - 4/29/2017, 12:00 EST</h2>
 <h2 class="no-glow center" *ngIf="!status.started">Until Start:</h2>
 <h2 class="no-glow center" *ngIf="status.started && !status.ended">Time Remaining:</h2>

@@ -52,6 +52,7 @@ div#content, div#nav {
   box-sizing: border-box;
   height: 100%;
   background-color: $background-color;
+  //overflow-y: scroll;
 }
 
 div#content {

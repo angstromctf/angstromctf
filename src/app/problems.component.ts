@@ -19,7 +19,7 @@ export class ProblemsComponent implements OnInit {
     constructor(private problemsApi: ProblemsApi, private usersApi: UsersApi, private titleService: Title, private status: StatusService, private modalService: ModalService) { }
 
     ngOnInit(): void {
-        this.titleService.setTitle("Problems | ångstromCTF");
+        this.titleService.setTitle("Profile | ångstromCTF");
 
         this.problemsApi.problemsList().toPromise().then(problems => {
             this.problems = problems;
