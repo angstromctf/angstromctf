@@ -52,7 +52,6 @@ div#content, div#nav {
   box-sizing: border-box;
   height: 100%;
   background-color: $background-color;
-  //overflow-y: scroll;
 }
 
 div#content {
@@ -60,9 +59,11 @@ div#content {
 }
 
 div#nav {
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-width: min-content;
 }
 
 nav a {

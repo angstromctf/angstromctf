@@ -4,7 +4,7 @@
 <div class="row" *ngFor="let category of categories">
     <div class="col-sm-12 col-lg-2"><h3>{{ category }}</h3></div>
     <div class="col-sm-12 col-lg-10 row">
-        <div class="problem-button col-sm-6 col-lg-2" *ngFor="let problem of problems[category]">
+        <div class="problem-button col-sm-12 col-md-4 col-lg-2" *ngFor="let problem of problems[category]">
           <button (click)="show(problem)" class="stationary" [ngClass]="{ 'stable': problem.solved }">
             <span [innerHTML]="problem.title"></span>
             <br/><br/>
