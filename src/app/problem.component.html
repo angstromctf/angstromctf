@@ -16,7 +16,6 @@
   <button type="button" class="btn btn-primary" (click)="toggle_hint()" *ngIf="!hint">Show Hint</button>
   <button type="button" class="btn btn-primary" (click)="toggle_hint()" *ngIf="hint">Hide Hint</button>
 
-  <div *ngIf="hint">
-    {{ problem.hint }}
+  <div *ngIf="hint" [innerHTML]="problem.hint">
   </div>
 </div>

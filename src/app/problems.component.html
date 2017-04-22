@@ -1,6 +1,9 @@
 <h1>Problems</h1>
 <br/>
 
+<span *ngIf="!status.user">Looks like you don't have an account. <a routerLink="/signup">Sign up</a> to play!</span>
+<span *ngIf="status.user && !status.team">Looks like you don't have a team. <a routerLink="/signup">Get a team</a> to play!</span>
+
 <div class="row" *ngFor="let category of categories">
     <div class="col-sm-12 col-lg-2"><h3>{{ category }}</h3></div>
     <div class="col-sm-12 col-lg-10 row">
