@@ -102,6 +102,7 @@ export class CORSRequestOptions extends BaseRequestOptions {
       { path: 'problems', component: ProblemsComponent },
       { path: 'profile/:id', component: ProfileComponent },
       { path: 'signup', component: SignupComponent },
+      { path: 'signups', component: SignupComponent },
       { path: 'sponsors', component: SponsorsComponent },
       { path: 'scoreboard', component: ScoreboardComponent }
     ]),
