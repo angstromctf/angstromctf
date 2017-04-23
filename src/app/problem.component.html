@@ -10,7 +10,7 @@
       <input type="text" class="form-control" placeholder="actf{flag}" [formControl]="form.controls['guess']">
     </extended-input>
 
-    <button type="submit">Submit!</button>
+    <button type="submit" [disabled]="!form.valid">Submit!</button>
   </form>
 
   <button type="button" class="btn btn-primary" (click)="toggle_hint()" *ngIf="!hint">Show Hint</button>

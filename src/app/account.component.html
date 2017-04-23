@@ -52,6 +52,8 @@
         <p>Your shell account username and default password are below:</p>
         Username: <code>{{ account?.shell_username }}</code><br/>
         Password: <code>{{ account?.shell_password }}</code>
+
+        <p>The shell is available through SSH at <code>shell.angstromctf.com</code>.</p>
       </div>
 
       <div *ngIf="!status.team">
