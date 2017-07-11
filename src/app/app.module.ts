@@ -6,11 +6,10 @@ import {
   HttpModule, CookieXSRFStrategy, XSRFStrategy, Request, Response,
   XHRBackend, ResponseOptions, BaseRequestOptions, Headers
 }                                           from '@angular/http';
-import { NgbModule }                        from '@ng-bootstrap/ng-bootstrap';
 import { BrowserXhr }                       from '@angular/http';
 import { Observable }                       from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/throw';
+import 'rxjs/add/observable/throw';import { environment } from '../environments/environment';
 
 import { AlertComponent }                   from './alert.component';
 import { AppComponent }                     from './app.component';
@@ -33,40 +32,39 @@ import { AlertService }                     from './alert.service';
 import { ModalService }                     from './modal.service';
 import { OrdinalPipe }                      from './ordinal.pipe';
 import { BASE_PATH }                        from './api/variables';
-import { API_LOCATION }                     from './config';
 
 @Injectable()
 export class CookieXhr extends BrowserXhr {
-    constructor() {
-        super();
-    }
+  constructor() {
+    super();
+  }
 
-    build(): any {
-        let xhr = super.build();
-        xhr.withCredentials = true;
-        return <any>(xhr);
-    }
+  build(): any {
+    let xhr = super.build();
+    xhr.withCredentials = true;
+    return <any>(xhr);
+  }
 }
 
 @Injectable()
 export class ConnectionRefusedBackend extends XHRBackend {
-    constructor(browserXhr: BrowserXhr, responseOptions: ResponseOptions, xsrfStrategy: XSRFStrategy,
-      private alert: AlertService) {
-        super(browserXhr, responseOptions, xsrfStrategy);
-    }
+  constructor(browserXhr: BrowserXhr, responseOptions: ResponseOptions, xsrfStrategy: XSRFStrategy,
+              private alert: AlertService) {
+    super(browserXhr, responseOptions, xsrfStrategy);
+  }
 
-    createConnection(request: Request) {
-        let xhrConnection = super.createConnection(request);
+  createConnection(request: Request) {
+    let xhrConnection = super.createConnection(request);
 
-        xhrConnection.response = xhrConnection.response.catch((error: Response) => {
-            if (error.status === 0) this.alert.alert("error", "The API server is unreachable.");
-            else if (error.status === 500) this.alert.alert("error", "The API server experienced an internal server error.");
+    xhrConnection.response = xhrConnection.response.catch((error: Response) => {
+      if (error.status === 0) this.alert.alert("error", "The API server is unreachable.");
+      else if (error.status === 500) this.alert.alert("error", "The API server experienced an internal server error.");
 
-            return Observable.throw(error);
-        });
+      return Observable.throw(error);
+    });
 
-        return xhrConnection;
-    }
+    return xhrConnection;
+  }
 }
 
 @Injectable()
@@ -75,7 +73,7 @@ export class CSRFStrategy extends CookieXSRFStrategy {
     super('csrftoken', 'X-CSRFToken');
   }
 
-  configureRequest(req: any) : void {
+  configureRequest(req: any): void {
     super.configureRequest(req);
   }
 }
@@ -105,8 +103,7 @@ export class CORSRequestOptions extends BaseRequestOptions {
       { path: 'signups', component: SignupComponent },
       { path: 'sponsors', component: SponsorsComponent },
       { path: 'scoreboard', component: ScoreboardComponent }
-    ]),
-    NgbModule.forRoot()
+    ])
   ],
   declarations: [
     AppComponent,
@@ -125,6 +122,10 @@ export class CORSRequestOptions extends BaseRequestOptions {
     ModalComponent,
     OrdinalPipe
   ],
+  entryComponents: [
+    LoginComponent,
+    ProblemComponent
+  ],
   providers: [
     ProblemsApi,
     TeamsApi,
@@ -133,7 +134,7 @@ export class CORSRequestOptions extends BaseRequestOptions {
     StatusService,
     AlertService,
     ModalService,
-    { provide: BASE_PATH, useValue: API_LOCATION },
+    { provide: BASE_PATH, useValue: environment.apiUrl },
     { provide: BrowserXhr, useClass: CookieXhr },
     { provide: XHRBackend, useClass: ConnectionRefusedBackend },
     { provide: XSRFStrategy, useClass: CSRFStrategy },

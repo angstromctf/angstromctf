@@ -17,7 +17,7 @@ export class AccountComponent implements OnInit {
     join: FormGroup;
     account: any;
 
-    constructor(private titleService: Title, private teamsApi: TeamsApi, private usersApi: UsersApi, private status: StatusService, private fb: FormBuilder,
+    constructor(private titleService: Title, private teamsApi: TeamsApi, private usersApi: UsersApi, public status: StatusService, private fb: FormBuilder,
                 private alert: AlertService) {
         this.change_password = fb.group({
           old: [null, Validators.required],
@@ -35,13 +35,13 @@ export class AccountComponent implements OnInit {
         });
     }
 
-    ngOnInit() : void {
+    ngOnInit(): void {
         this.titleService.setTitle("Account | ångstromCTF");
 
         this.teamsApi.teamsAccount().toPromise().then(data => this.account = data);
     }
 
-    do_create(data: any) : void {
+    do_create(data: any): void {
         this.teamsApi.teamsNew(data).toPromise().then(data => {
           this.account = data;
           this.status.reload().then(() => this.alert.alert("success", "You've created team " + this.status.team.name + "."));
@@ -51,7 +51,7 @@ export class AccountComponent implements OnInit {
         });
     }
 
-    do_join(data: any) : void {
+    do_join(data: any): void {
         this.teamsApi.teamsJoin(data).toPromise().then(data => {
             this.account = data;
             this.status.reload().then(() => this.alert.alert("success", "You've joined team " + this.status.team.name + "."));
@@ -61,7 +61,7 @@ export class AccountComponent implements OnInit {
         });
     }
 
-    do_change_password(data: any) : void {
+    do_change_password(data: any): void {
         this.usersApi.usersChangePassword(data).toPromise().then(data => {
           this.alert.alert("success", "You've changed your password.");
         }, () => {

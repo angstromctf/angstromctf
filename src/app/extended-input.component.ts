@@ -28,7 +28,7 @@ export class ExtendedInputComponent implements OnChanges {
 
     message: string = '';
 
-    ngOnChanges(changes: any) : void {
+    ngOnChanges(changes: any): void {
         if (changes.errors) {
             this.message = '';
 

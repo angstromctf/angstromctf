@@ -6,7 +6,7 @@
   <li *ngFor="let member of team?.members">{{ member.user.username }}</li>
 </ul>
 
-<div *ngIf="status.started">
+<ng-container *ngIf="status.started">
   <h3>Solves</h3>
 
   <table>
@@ -28,5 +28,5 @@
       </tr>
       </tbody>
   </table>
-</div>
+</ng-container>
 

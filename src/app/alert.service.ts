@@ -14,15 +14,15 @@ export class AlertService {
     "error": ["Oh no.", "Whoops.", "We're sorry."]
   };
 
-  setup(component: AlertComponent) : void {
+  setup(component: AlertComponent): void {
     this.component = component;
   }
 
-  alert(type: string, message: string) : number {
+  alert(type: string, message: string): number {
     return this.component.alert(choose(this.MESSAGES[type]), message, type);
   }
 
-  close(alert: number) : void {
+  close(alert: number): void {
     this.component.close(alert);
   }
 }

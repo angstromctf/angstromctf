@@ -11,13 +11,13 @@ export class StatusService {
       this.reload();
     }
 
-    reload() : Promise<any> {
+    reload(): Promise<any> {
       return this.usersApi.usersStatus().toPromise().then(data => {
         this.update(data);
       });
     }
 
-    login(username: string, password: string) : Promise<any> {
+    login(username: string, password: string): Promise<any> {
         return this.usersApi.usersLogin({
             username: username,
             password: password
@@ -26,7 +26,7 @@ export class StatusService {
         });
     }
 
-    logout() : Promise<any> {
+    logout(): Promise<any> {
         return this.usersApi.usersLogout().toPromise().then(data => {
             this.user = null;
             this.update(data);
@@ -34,7 +34,7 @@ export class StatusService {
         });
     }
 
-    update(data: any) : void {
+    update(data: any): void {
         this.user = data.user;
         this.team = data.team;
     }

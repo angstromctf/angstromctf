@@ -2,13 +2,13 @@
 
 <div class="row">
     <div class="col-lg-6">
-        <div *ngIf="status.team">
-          <h3>Progression</h3>
-        </div>
+        <ng-template #noteam>
+          You don't have a team!
+        </ng-template>
 
-        <div *ngIf="!status.team">
-          <p>You don't have a team!</p>
-        </div>
+        <ng-container *ngIf="status.team; else noteam">
+          <h3>Progression</h3>
+        </ng-container>
 
         <h3>User Information</h3>
 
@@ -37,7 +37,7 @@
     </div>
 
     <div class="col-lg-6">
-      <div *ngIf="status.team">
+      <ng-container *ngIf="status.team">
         <h3>Team Information</h3>
 
         <p>You're a member of team "{{ status.team.name }}". Your team code is <code>{{ account?.code }}</code>.
@@ -54,9 +54,9 @@
         Password: <code>{{ account?.shell_password }}</code>
 
         <p>The shell is available through SSH at <code>shell.angstromctf.com</code>.</p>
-      </div>
+      </ng-container>
 
-      <div *ngIf="!status.team">
+      <ng-container *ngIf="!status.team">
           <h3>Create Team</h3>
 
           <form [formGroup]="create" (ngSubmit)="do_create(create.value)">
@@ -85,6 +85,6 @@
                 <button type="submit" class="btn btn-primary" [disabled]="!join.valid">Join!</button>
               </div>
           </form>
-      </div>
+      </ng-container>
     </div>
 </div>

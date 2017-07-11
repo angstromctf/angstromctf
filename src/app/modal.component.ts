@@ -1,8 +1,6 @@
-/* Adapted from http://blog.rangle.io/dynamically-creating-components-with-angular-2/ */
-
 import {
-  Component, Input, ViewChild, ReflectiveInjector, ViewContainerRef,
-  ComponentFactoryResolver, HostBinding, OnInit, ViewEncapsulation
+  Component, Injector, Input, ReflectiveInjector,
+  HostBinding, OnInit, ViewEncapsulation
 } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 
@@ -18,39 +16,24 @@ import { ModalService } from './modal.service';
   encapsulation: ViewEncapsulation.None
 })
 export class ModalComponent implements OnInit {
-  @ViewChild('componentContainer', { read: ViewContainerRef }) componentContainer: ViewContainerRef;
   @Input() title: string;
-  @HostBinding('class.active') currentComponent = null;
+  @HostBinding('class.active') componentClass;
+  injector;
 
-  constructor(private resolver: ComponentFactoryResolver, private modalService: ModalService) { }
+  constructor(private rootInjector: Injector, public modalService: ModalService) { }
 
-  ngOnInit() : void {
+  ngOnInit(): void {
     this.modalService.setup(this);
   }
 
-  update(title: string, componentClass: any, inputs: any) : void {
-    if (componentClass == null) {
-      this.currentComponent = null;
-      return;
-    }
-
-    this.componentContainer.clear();
+  update(title: string, componentClass: any, providers: any): void {
     this.title = title;
+    this.componentClass = componentClass;
 
-    let inputProviders = Object.keys(inputs).map((inputName) => { return {
-      provide: inputName,
-      useValue: inputs[inputName]};
-    });
-    let resolvedInputs = ReflectiveInjector.resolve(inputProviders);
-    let injector = ReflectiveInjector.fromResolvedProviders(resolvedInputs, this.componentContainer.parentInjector);
-    let factory = this.resolver.resolveComponentFactory(componentClass);
-    let component = factory.create(injector);
-
-    this.componentContainer.insert(component.hostView);
-    if (this.currentComponent) {
-      this.currentComponent.destroy();
+    if (!providers) this.injector = this.rootInjector;
+    else {
+      let resolvedProviders = ReflectiveInjector.resolve(providers);
+      this.injector = ReflectiveInjector.fromResolvedProviders(resolvedProviders, this.rootInjector);
     }
-
-    this.currentComponent = component;
   }
 }

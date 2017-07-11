@@ -6,15 +6,15 @@ import 'rxjs/add/operator/toPromise';
 export class ModalService {
   modal: ModalComponent;
 
-  setup(modal : ModalComponent) : void {
+  setup(modal: ModalComponent): void {
     this.modal = modal;
   }
 
-  update(title: string, component : Component, inputs : {}) {
-    this.modal.update(title, component, inputs);
+  update(title: string, componentClass: any, inputs: {}): void {
+    this.modal.update(title, componentClass, inputs);
   }
 
-  close() {
+  close(): void {
     this.modal.update(null, null, null);
   }
 }

@@ -11,7 +11,7 @@ import 'rxjs/add/operator/toPromise';
 export class ScoreboardComponent implements OnInit {
     teams: any;
 
-    constructor(private teamsApi: TeamsApi, private titleService: Title, private status: StatusService) { }
+    constructor(private teamsApi: TeamsApi, private titleService: Title, public status: StatusService) { }
 
     ngOnInit(): void {
         this.titleService.setTitle("Scoreboard | ångstromCTF");

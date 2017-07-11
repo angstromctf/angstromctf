@@ -11,7 +11,7 @@ import 'rxjs/add/operator/switchMap';
 export class ProfileComponent implements OnInit {
   team: any;
 
-  constructor(private route: ActivatedRoute, private teamsApi: TeamsApi, private status: StatusService) { }
+  constructor(private route: ActivatedRoute, private teamsApi: TeamsApi, public status: StatusService) { }
 
   ngOnInit(): void {
     this.route.params

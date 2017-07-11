@@ -11,21 +11,21 @@ import { LoginComponent } from './login.component';
     templateUrl: './app.component.html'
 })
 export class AppComponent {
-    constructor(private status: StatusService, private modalService: ModalService, private alert: AlertService, private router: Router) { }
+    constructor(public status: StatusService, private modalService: ModalService, private alert: AlertService, private router: Router) { }
 
-    login() : void {
-      this.modalService.update("Login", LoginComponent, {});
-    }
+  login(): void {
+    this.modalService.update("Login", LoginComponent, {});
+  }
 
-    logout() : void {
-      this.status.logout().then(() => {
-        this.alert.alert("success", "You've been logged out.");
-        this.router.navigateByUrl('/');
-      });
-    }
+  logout(): void {
+    this.status.logout().then(() => {
+      this.alert.alert("success", "You've been logged out.");
+      this.router.navigateByUrl('/');
+    });
+  }
 
-    @HostListener('document:keydown.escape')
-    escape() : void {
-      this.modalService.close();
-    }
+  @HostListener('document:keydown.escape')
+  escape(): void {
+    this.modalService.close();
+  }
 }

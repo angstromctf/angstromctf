@@ -15,7 +15,7 @@ export class LoginComponent {
     form: FormGroup;
     failed: boolean = false;
 
-    constructor(private router: Router, private usersApi: UsersApi, private status: StatusService,
+    constructor(private router: Router, private usersApi: UsersApi, public status: StatusService,
                 private modalService: ModalService, private alert: AlertService, private fb: FormBuilder) {
         this.form = fb.group({
             username: ['', Validators.required],

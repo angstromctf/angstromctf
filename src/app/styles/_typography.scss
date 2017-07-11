@@ -1,14 +1,5 @@
 $text-color: #ddd;
 
-@mixin glow($size, $color) {
-  $all: ();
-  @for $i from 1 through 8 {
-    $all: append($all, 0 0 ($i*$i*$size) + px $color, comma);
-  }
-  @warn $all;
-  text-shadow: $all;
-}
-
 body {
   color: $text-color;
   font-size: 18px;
@@ -19,10 +10,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Orbitron' !important;
   text-transform: uppercase;
   margin: 1.5rem 0;
-
-  &:not(.no-glow) {
-    @include glow(.7, $primary-accent);
-  }
 
   &.center {
     text-align: center;
@@ -41,11 +28,15 @@ h1 { font-size: 3.5em; }
 h2 { font-size: 2em; }
 
 h1 span.accent, h2 span.accent, h3 span.accent, h4 span.accent, h5 span.accent, h6 span.accent {
-  @include glow(.7, $secondary-accent);
+  color: $secondary-accent;
 }
 
-a, a:visited, a:active, a:hover {
+a, a:visited, a:active {
   color: $secondary-accent;
+
+  &:hover {
+    color: darken($secondary-accent, 10%);
+  }
 }
 
 code {

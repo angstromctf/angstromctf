@@ -11,13 +11,13 @@ export class IndexComponent implements OnInit, AfterViewInit {
   UNITS: string[] = ["DAY", "HOUR", "MINUTE", "SECOND"];
   DURATIONS: number[] = [7, 24, 60, 60];
 
-  constructor(private title: Title, private status: StatusService) { }
+  constructor(private title: Title, public status: StatusService) { }
 
   ngOnInit(): void {
     this.title.setTitle("ångstromCTF");
   }
 
-  ngAfterViewInit() : void {
+  ngAfterViewInit(): void {
     if (!this.status.ended) {
       var canvas: any = document.getElementById("clock");
       var ctx: any = canvas.getContext("2d");
@@ -39,7 +39,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
     window.setInterval(() => this.repaint(canvas, ctx), 1000);
   }
 
-  repaint(canvas: any, ctx: any) : void {
+  repaint(canvas: any, ctx: any): void {
     if (!this.status.ended) {
       var time: number[] = [0, 0, 0, 0];
 

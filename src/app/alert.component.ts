@@ -17,11 +17,11 @@ export class AlertComponent implements OnInit {
 
   constructor(private alertService: AlertService) { }
 
-  ngOnInit() : void {
+  ngOnInit(): void {
     this.alertService.setup(this);
   }
 
-  alert(title: string, message: string, type: string) : number {
+  alert(title: string, message: string, type: string): number {
     let index: number = this.alerts.length - 1;
 
     this.alerts[index].title = title;
@@ -37,7 +37,7 @@ export class AlertComponent implements OnInit {
     return index;
   }
 
-  close(alert: number) : void {
+  close(alert: number): void {
     this.active.splice(this.active.indexOf(alert), 1);
   }
 }
