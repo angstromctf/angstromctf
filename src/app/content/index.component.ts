@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { START_TIME, END_TIME } from './config';
-import { StatusService } from './status.service';
+import { START_TIME, END_TIME } from '../config';
+import { StatusService } from '../utils/status.service';
 
 @Component({
   selector: 'angstrom-index',

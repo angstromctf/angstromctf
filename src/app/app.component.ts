@@ -1,10 +1,10 @@
 import { Component, ViewChild, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { StatusService } from './status.service';
-import { ModalService } from './modal.service';
-import { AlertService } from './alert.service';
-import { LoginComponent } from './login.component';
+import { StatusService } from './utils/status.service';
+import { ModalService } from './utils/modal.service';
+import { AlertService } from './utils/alert.service';
+import { LoginComponent } from './users/login.component';
 
 @Component({
     selector: 'angstrom-app',

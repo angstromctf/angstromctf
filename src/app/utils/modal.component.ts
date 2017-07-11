@@ -4,8 +4,8 @@ import {
 } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 
-import { LoginComponent } from './login.component';
-import { ProblemComponent } from './problem.component';
+import { LoginComponent } from '../users/login.component';
+import { ProblemComponent } from '../problems/problem.component';
 import { ModalService } from './modal.service';
 
 @Component({

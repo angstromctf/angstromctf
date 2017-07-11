@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { StatusService } from './status.service';
-import { AlertService } from './alert.service';
-import { TeamsApi, UsersApi } from './api/api/api';
-import { validateEqual } from './equal.validator';
+import { StatusService } from '../utils/status.service';
+import { AlertService } from '../utils/alert.service';
+import { TeamsApi, UsersApi } from '../api/api/api';
+import { validateEqual } from '../misc/equal.validator';
 import 'rxjs/add/operator/toPromise';
 
 @Component({

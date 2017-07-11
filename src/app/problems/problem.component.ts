@@ -1,9 +1,9 @@
 import { Component, Injector, Inject } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { ProblemsApi } from './api/api/api';
-import { ModalService } from './modal.service';
-import { AlertService } from './alert.service';
-import { StatusService } from './status.service';
+import { ProblemsApi } from '../api/api/api';
+import { ModalService } from '../utils/modal.service';
+import { AlertService } from '../utils/alert.service';
+import { StatusService } from '../utils/status.service';
 import { PROBLEM_TOKEN } from './problems.component';
 
 import 'rxjs/add/operator/toPromise';

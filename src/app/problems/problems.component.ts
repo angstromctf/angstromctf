@@ -1,8 +1,8 @@
 import { Component, OnInit, InjectionToken } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ProblemsApi, UsersApi } from './api/api/api';
-import { StatusService } from './status.service';
-import { ModalService } from './modal.service';
+import { ProblemsApi, UsersApi } from '../api/api/api';
+import { StatusService } from '../utils/status.service';
+import { ModalService } from '../utils/modal.service';
 import { ProblemComponent } from './problem.component';
 import 'rxjs/add/operator/toPromise';
 

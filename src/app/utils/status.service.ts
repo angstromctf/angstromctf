@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
-import { UsersApi } from './api/api/api';
-import { START_TIME, END_TIME } from './config';
+import { UsersApi } from '../api/api/api';
+import { START_TIME, END_TIME } from '../config';
 
 @Injectable()
 export class StatusService {

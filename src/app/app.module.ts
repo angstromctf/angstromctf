@@ -11,26 +11,26 @@ import { Observable }                       from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';import { environment } from '../environments/environment';
 
-import { AlertComponent }                   from './alert.component';
+import { AlertComponent }                   from './utils/alert.component';
 import { AppComponent }                     from './app.component';
-import { ExtendedInputComponent }           from './extended-input.component';
-import { AboutComponent }                   from './about.component';
-import { AccountComponent }                 from './account.component';
-import { IndexComponent }                   from './index.component';
-import { ModalComponent }                   from './modal.component';
-import { LoginComponent }                   from './login.component';
-import { ProblemComponent }                 from './problem.component';
-import { ProblemsComponent }                from './problems.component';
-import { ProfileComponent }                 from './profile.component';
-import { ScoreboardComponent }              from './scoreboard.component';
-import { SponsorsComponent }                from './sponsors.component';
-import { SignupComponent }                  from './signup.component';
+import { ExtendedInputComponent }           from './misc/extended-input.component';
+import { AboutComponent }                   from './content/about.component';
+import { AccountComponent }                 from './users/account.component';
+import { IndexComponent }                   from './content/index.component';
+import { ModalComponent }                   from './utils/modal.component';
+import { LoginComponent }                   from './users/login.component';
+import { ProblemComponent }                 from './problems/problem.component';
+import { ProblemsComponent }                from './problems/problems.component';
+import { ProfileComponent }                 from './teams/profile.component';
+import { ScoreboardComponent }              from './teams/scoreboard.component';
+import { SponsorsComponent }                from './content/sponsors.component';
+import { SignupComponent }                  from './users/signup.component';
 
 import { ProblemsApi, TeamsApi, UsersApi }  from './api/api/api';
-import { StatusService }                    from './status.service';
-import { AlertService }                     from './alert.service';
-import { ModalService }                     from './modal.service';
-import { OrdinalPipe }                      from './ordinal.pipe';
+import { StatusService }                    from './utils/status.service';
+import { AlertService }                     from './utils/alert.service';
+import { ModalService }                     from './utils/modal.service';
+import { OrdinalPipe }                      from './misc/ordinal.pipe';
 import { BASE_PATH }                        from './api/variables';
 
 @Injectable()

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { TeamsApi } from './api/api/api';
-import { StatusService } from './status.service';
+import { TeamsApi } from '../api/api/api';
+import { StatusService } from '../utils/status.service';
 import 'rxjs/add/operator/switchMap';
 
 @Component({

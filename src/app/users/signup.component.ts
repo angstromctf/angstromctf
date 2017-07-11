@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { UsersApi } from './api/api/api';
+import { UsersApi } from '../api/api/api';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
-import { StatusService } from "./status.service";
-import { AlertService } from "./alert.service";
+import { StatusService } from "../utils/status.service";
+import { AlertService } from "../utils/alert.service";
 import { Router, ActivatedRoute } from "@angular/router";
-import { validateEqual } from "./equal.validator";
+import { validateEqual } from "../misc/equal.validator";
 
 @Component({
   selector: 'angstrom-signup',

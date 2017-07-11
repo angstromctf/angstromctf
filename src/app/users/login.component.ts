@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { UsersApi } from './api/api/api';
-import { StatusService } from './status.service';
-import { ModalService } from './modal.service';
-import { AlertService } from './alert.service';
+import { UsersApi } from '../api/api/api';
+import { StatusService } from '../utils/status.service';
+import { ModalService } from '../utils/modal.service';
+import { AlertService } from '../utils/alert.service';
 import 'rxjs/add/operator/toPromise';
 
 @Component({
