@@ -1,5 +1,5 @@
 $sizes: (sm: 0px, md: 960px, lg: 1420px);
-$gutter: 2%;
+$gutter: 1rem;
 
 .row {
   display: flex;
@@ -17,7 +17,7 @@ $gutter: 2%;
     @for $i from 1 through 12 {
       .col-#{$size}-#{$i} {
         @extend .col;
-        flex: 0 1 (100% * $i / 12 - $gutter);
+        flex: 0 1 calc(100% * #{$i} / 12 - #{$gutter});
       }
     }
 

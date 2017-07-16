@@ -8,7 +8,7 @@ import 'rxjs/add/operator/distinctUntilChanged';
 import { StatusService } from "../utils/status.service";
 import { AlertService } from "../utils/alert.service";
 import { Router, ActivatedRoute } from "@angular/router";
-import { validateEqual } from "../misc/equal.validator";
+import { validateEqual } from "../lib/equal.validator";
 
 @Component({
   selector: 'angstrom-signup',

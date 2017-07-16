@@ -29,7 +29,7 @@ div#wrapper {
   height: 100%;
   z-index: 0;
 
-  padding: 1.5em;
+  padding: 1rem .5rem;
   box-sizing: border-box;
 }
 
@@ -52,6 +52,8 @@ div#content, div#nav {
 
 div#content {
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+
 }
 
 div#nav {

@@ -13,7 +13,7 @@ import 'rxjs/add/observable/throw';import { environment } from '../environments/
 
 import { AlertComponent }                   from './utils/alert.component';
 import { AppComponent }                     from './app.component';
-import { ExtendedInputComponent }           from './misc/extended-input.component';
+import { ExtendedInputComponent }           from './lib/extended-input.component';
 import { AboutComponent }                   from './content/about.component';
 import { AccountComponent }                 from './users/account.component';
 import { IndexComponent }                   from './content/index.component';
@@ -30,7 +30,7 @@ import { ProblemsApi, TeamsApi, UsersApi }  from './api/api/api';
 import { StatusService }                    from './utils/status.service';
 import { AlertService }                     from './utils/alert.service';
 import { ModalService }                     from './utils/modal.service';
-import { OrdinalPipe }                      from './misc/ordinal.pipe';
+import { OrdinalPipe }                      from './lib/ordinal.pipe';
 import { BASE_PATH }                        from './api/variables';
 
 @Injectable()
