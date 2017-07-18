@@ -17,7 +17,7 @@
 
         <h3>Change Password</h3>
 
-        <form [formGroup]="change_password" (ngSubmit)="do_change_password(change_password.value)">
+        <form [formGroup]="change_password" (ngSubmit)="doChangePassword(change_password.value)">
           <extended-input [label]="'Old Password'" [errors]="change_password.controls['old'].errors" [touched]="change_password.controls['old'].touched">
             <input type="password" class="form-control" placeholder="my_password" [formControl]="change_password.controls['old']">
           </extended-input>
@@ -31,7 +31,7 @@
           </extended-input>
 
           <div class="form-group">
-            <button type="submit" class="btn btn-primary" [disabled]="!change_password.valid">Change Password</button>
+            <button class="btn btn-primary" [disabled]="!change_password.valid">Change Password</button>
           </div>
         </form>
     </div>
@@ -59,7 +59,7 @@
       <ng-container *ngIf="!status.team">
           <h3>Create Team</h3>
 
-          <form [formGroup]="create" (ngSubmit)="do_create(create.value)">
+          <form [formGroup]="create" (ngSubmit)="doCreate(create.value)">
               <extended-input [label]="'Team Name'" [errors]="create.controls['name'].errors" [touched]="create.controls['name'].touched">
                   <input type="text" class="form-control" placeholder="my_team_name" [formControl]="create.controls['name']">
               </extended-input>
@@ -69,20 +69,20 @@
               </extended-input>
 
               <div class="form-group">
-                  <button type="submit" class="btn btn-primary" [disabled]="!create.valid">Create!</button>
+                  <button class="btn btn-primary" [disabled]="!create.valid">Create!</button>
               </div>
           </form>
 
 
           <h3>Join Team</h3>
 
-          <form [formGroup]="join" (ngSubmit)="do_join(join.value)">
+          <form [formGroup]="join" (ngSubmit)="doJoin(join.value)">
               <extended-input [label]="'Code'" [errors]="join.controls['code'].errors" [touched]="join.controls['code'].touched">
                   <input type="text" class="form-control" placeholder="team_code" [formControl]="join.controls['code']">
               </extended-input>
 
               <div class="form-group">
-                <button type="submit" class="btn btn-primary" [disabled]="!join.valid">Join!</button>
+                <button class="btn btn-primary" [disabled]="!join.valid">Join!</button>
               </div>
           </form>
       </ng-container>

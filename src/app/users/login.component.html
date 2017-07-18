@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="submit(form.value)">
+<form [formGroup]="form" (ngSubmit)="login(form.value)">
   <div *ngIf="failed" class="form-error">Login failed. Username and/or password is incorrect.</div>
 
     <extended-input [label]="'Username'" [errors]="form.controls['username'].errors" [touched]="form.controls['username'].touched">

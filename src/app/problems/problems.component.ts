@@ -23,7 +23,7 @@ export class ProblemsComponent implements OnInit {
   categories: string[];
   account: any;
 
-  constructor(private problemsApi: ProblemsApi, private usersApi: UsersApi, private titleService: Title, public status: StatusService, private modalService: ModalService) { }
+  constructor(private problemsApi: ProblemsApi, private usersApi: UsersApi, private titleService: Title, public status: StatusService, private modal: ModalService) { }
 
   ngOnInit(): void {
     this.titleService.setTitle("Problems | ångstromCTF");
@@ -45,10 +45,10 @@ export class ProblemsComponent implements OnInit {
 
   /**
    * Display a problem when clicked on.
-   * @param problem - The problem to display
+   * @param problem - The problem to display..
    */
   show(problem: any): void {
     // Display the modal for the problem, injecting the specific problem into the ProblemComponent
-    this.modalService.update(problem.title, ProblemComponent, [{ provide: PROBLEM_TOKEN, useValue: problem }]);
+    this.modal.open(problem.title, ProblemComponent, [{ provide: PROBLEM_TOKEN, useValue: problem }]);
   }
 }

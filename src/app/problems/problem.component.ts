@@ -29,24 +29,24 @@ export class ProblemComponent {
 
   /**
    * Submit a problem to the server.
-   * @param flag - The user's guess for the flag
+   * @param flag The user's guess for the flag
    */
   submit(flag: any): void {
     this.problemsApi.problemsSubmit(this.problem.id, flag).toPromise().then(() => {
-      this.alert.alert("success", "You solved problem \"" + this.problem.title + "\" for " + this.problem.value + " points.");
+      this.alert.open("success", "You solved problem \"" + this.problem.title + "\" for " + this.problem.value + " points.");
 
       // Recalculate the user's score
       this.status.reload().then(() => {
         this.problem.solved = true;
         this.modalService.close();
       });
-    }, () => this.alert.alert("error", "That wasn't the flag."));
+    }, () => this.alert.open("error", "That wasn't the flag."));
   }
 
   /**
    * Toggle whether the hint should be displayed.
    */
-  toggle_hint(): void {
+  toggleHint(): void {
     this.hint = !this.hint;
   }
 }

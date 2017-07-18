@@ -1,3 +1,7 @@
+/**
+ * Information about a specific team.
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { TeamsApi } from '../api/api/api';

@@ -1,3 +1,7 @@
+/**
+ * Logs the user in to the competition to answer problems.
+ */
+
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -12,22 +16,28 @@ import 'rxjs/add/operator/toPromise';
   templateUrl: './login.component.html',
 })
 export class LoginComponent {
-    form: FormGroup;
-    failed: boolean = false;
+  form: FormGroup;
 
-    constructor(private router: Router, private usersApi: UsersApi, public status: StatusService,
-                private modalService: ModalService, private alert: AlertService, private fb: FormBuilder) {
-        this.form = fb.group({
-            username: ['', Validators.required],
-            password: ['', Validators.required]
-        });
-    }
+  // Whether the last login failed
+  failed: boolean = false;
 
-    submit(value: any){
-        this.status.login(value.username, value.password).then(() => {
-          this.router.navigateByUrl('/');
-          this.alert.alert("success", "You've logged in.");
-          this.modalService.close();
-        }, () => this.alert.alert("error", "You couldn't be logged in. Wrong username or password?"));
-    }
+  constructor(private router: Router, private usersApi: UsersApi, public status: StatusService,
+              private modalService: ModalService, private alert: AlertService, private fb: FormBuilder) {
+    this.form = fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
+
+  /**
+   * Log the user in.
+   * @param data - The form data the user submitted..
+   */
+  login(data: any){
+    this.status.login(data.username, data.password).then(() => {
+      this.alert.open("success", "You've logged in.");
+      this.modalService.close();
+      this.router.navigateByUrl('/');
+    }, () => this.alert.open("error", "You couldn't be logged in. Wrong username or password?"));
+  }
 }

@@ -1,3 +1,7 @@
+/**
+ * The actual alerts that get displayed. Automatically created by the AppComponent.
+ */
+
 import {
   Component, Input, OnInit
 } from '@angular/core';
@@ -5,6 +9,7 @@ import 'rxjs/add/operator/toPromise';
 
 import { AlertService } from './alert.service';
 
+const CLOSE_TIME: number = 5000;
 
 @Component({
   selector: 'alert',
@@ -12,32 +17,49 @@ import { AlertService } from './alert.service';
   styleUrls: ['./alert.component.scss']
 })
 export class AlertComponent implements OnInit {
-  @Input() alerts: any[] = [{}];
+  // All the alerts that have been created
+  @Input() alerts: any[] = [ { } ];
+
+  // The alerts that are currently open
   @Input() active: number[] = [];
 
   constructor(private alertService: AlertService) { }
 
   ngOnInit(): void {
+    // Give the AlertService a handle to this automatically created AlertComponent
     this.alertService.setup(this);
   }
 
-  alert(title: string, message: string, type: string): number {
-    let index: number = this.alerts.length - 1;
+  /**
+   * Open an alert.
+   * @param {string} type - The type of the alert, currently either 'success' or 'error'.
+   * @param {string} title - The title of the alert.
+   * @param {string} message - The message of the alert.
+   * @returns {number} - The reference number of the created alert, which is needed to close it.
+   */
+  open(type: string, title: string, message: string): number {
+    // Create the alert, and record its reference number as the old length of the array
+    let index: number = this.alerts.push({
+      'title': title,
+      'message': message,
+      'type': type
+    }) - 1;
 
-    this.alerts[index].title = title;
-    this.alerts[index].message = message;
-    this.alerts[index].type = type;
-
-    this.alerts.push({});
-
+    // Add this to the list of active alerts
     this.active.push(index);
 
-    window.setTimeout(() => this.close(index), 5000);
+    // Close this alert after CLOSE_TIME milliseconds
+    window.setTimeout(() => this.close(index), CLOSE_TIME);
 
     return index;
   }
 
+  /**
+   * Close an alert.
+   * @param {number} alert - The reference number of the alert to close.
+   */
   close(alert: number): void {
+    // Take the open out of the "active" list, which will remove the "active" CSS class
     this.active.splice(this.active.indexOf(alert), 1);
   }
 }

@@ -1,3 +1,7 @@
+/**
+ * The central portal for the logged-in user.
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
@@ -13,60 +17,67 @@ import 'rxjs/add/operator/toPromise';
 })
 export class AccountComponent implements OnInit {
   change_password: FormGroup;
-    create: FormGroup;
-    join: FormGroup;
-    account: any;
+  create: FormGroup;
+  join: FormGroup;
+  account: any;
 
-    constructor(private titleService: Title, private teamsApi: TeamsApi, private usersApi: UsersApi, public status: StatusService, private fb: FormBuilder,
-                private alert: AlertService) {
-        this.change_password = fb.group({
-          old: [null, Validators.required],
-          password: [null, Validators.required],
-          confirm: [null, [Validators.required, validateEqual('password')]]
-        });
+  constructor(private titleService: Title, private teamsApi: TeamsApi, private usersApi: UsersApi, public status: StatusService, private fb: FormBuilder,
+              private alert: AlertService) {
+    // Create the various forms on the page
+    this.change_password = fb.group({
+      old: [null, Validators.required],
+      password: [null, Validators.required],
+      confirm: [null, [Validators.required, validateEqual('password')]]
+    });
 
-        this.create = fb.group({
-            name: [null, Validators.required],
-            school: [null, Validators.required]
-        });
+    this.create = fb.group({
+      name: [null, Validators.required],
+      school: [null, Validators.required]
+    });
 
-        this.join = fb.group({
-            code: [null, Validators.required]
-        });
-    }
+    this.join = fb.group({
+      code: [null, Validators.required]
+    });
+  }
 
-    ngOnInit(): void {
-        this.titleService.setTitle("Account | ångstromCTF");
+  ngOnInit(): void {
+    this.titleService.setTitle("Account | ångstromCTF");
 
-        this.teamsApi.teamsAccount().toPromise().then(data => this.account = data);
-    }
+    // Load the user's data from the server
+    this.teamsApi.teamsAccount().toPromise().then(data => this.account = data);
+  }
 
-    do_create(data: any): void {
-        this.teamsApi.teamsNew(data).toPromise().then(data => {
-          this.account = data;
-          this.status.reload().then(() => this.alert.alert("success", "You've created team " + this.status.team.name + "."));
-        }, error => {
-          if (error.status === 409) this.alert.alert("error", "This team already exists.");
-          else this.alert.alert("error", "We couldn't create your team.");
-        });
-    }
+  /**
+   * Create a team.
+   * @param data - The form data the user submitted..
+   */
+  doCreate(data: any): void {
+    this.teamsApi.teamsNew(data).toPromise().then(data => {
+      this.account = data;
+      // Reload user status data, and notify the user that it was successful
+      this.status.reload().then(() => this.alert.open("success", "You've created team " + this.status.team.name + "."));
+    }, error => {
+      if (error.status === 409) this.alert.open("error", "This team already exists.");
+      else this.alert.open("error", "We couldn't create your team.");
+    });
+  }
 
-    do_join(data: any): void {
-        this.teamsApi.teamsJoin(data).toPromise().then(data => {
-            this.account = data;
-            this.status.reload().then(() => this.alert.alert("success", "You've joined team " + this.status.team.name + "."));
-        }, error => {
-          if (error.status === 409) this.alert.alert("error", "This team is already full.");
-          else this.alert.alert("error", "You couldn't join this team.");
-        });
-    }
+  doJoin(data: any): void {
+    this.teamsApi.teamsJoin(data).toPromise().then(data => {
+      this.account = data;
+      this.status.reload().then(() => this.alert.open("success", "You've joined team " + this.status.team.name + "."));
+    }, error => {
+      if (error.status === 409) this.alert.open("error", "This team is already full.");
+      else this.alert.open("error", "You couldn't join this team.");
+    });
+  }
 
-    do_change_password(data: any): void {
-        this.usersApi.usersChangePassword(data).toPromise().then(data => {
-          this.alert.alert("success", "You've changed your password.");
-        }, () => {
-          this.alert.alert("error", "Your password couldn't be changed.");
-        });
-        this.change_password.reset();
-    }
+  doChangePassword(data: any): void {
+    this.usersApi.usersChangePassword(data).toPromise().then(data => {
+      this.alert.open("success", "You've changed your password.");
+    }, () => {
+      this.alert.open("error", "Your password couldn't be changed.");
+    });
+    this.change_password.reset();
+  }
 }

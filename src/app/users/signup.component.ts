@@ -1,3 +1,7 @@
+/**
+ * Signs up the user for the competition.
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -17,6 +21,7 @@ import { validateEqual } from "../lib/equal.validator";
 export class SignupComponent implements OnInit {
   form: FormGroup;
 
+  // Constant options for dropdowns
   GENDERS = ['', 'Female', 'Male', 'Non-binary'];
   RACES = ['', 'American Indian or Alaskan Native', 'Asian', 'Black or African American', 'Native Hawaiian or Other Pacific Islander', 'White', 'Two or more races', 'Other'];
   COUNTRIES = ['', 'United States of America', 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Aruba', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burma', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon', 'Canada', 'Central African Republic', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros', 'Costa Rica', "Cote d'Ivoire", 'Croatia', 'Cuba', 'Curacao', 'Cyprus', 'Czechia', 'Democratic Republic of the Congo', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'East Timor', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Ethiopia', 'Fiji', 'Finland', 'France', 'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Holy See', 'Honduras', 'Hong Kong', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Kosovo', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macau', 'Macedonia', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania', 'Mauritius', 'Mexico', 'Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'North Korea', 'North Korea', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Palestinian Territories', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Republic of the Congo', 'Romania', 'Russia', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines', 'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Sint Maarten', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Korea', 'South Korea', 'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname', 'Swaziland', 'Sweden', 'Switzerland', 'Syria', 'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', 'Timor-Leste', 'Togo', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe'];
@@ -24,6 +29,7 @@ export class SignupComponent implements OnInit {
 
   constructor(private titleService: Title, private usersApi: UsersApi, private fb: FormBuilder, public status: StatusService,
               private alert: AlertService, private router: Router, private route: ActivatedRoute) {
+    // Create the dynamic form
     this.form = fb.group({
       username: [null, Validators.required],
       password: [null, Validators.required],
@@ -44,35 +50,37 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.titleService.setTitle("Signup | ångstromCTF");
-
-    this.route.queryParams.subscribe(params => {
-      console.log(params);
-        // this.page = +params['page'];
-    });
   }
 
-  submit(value: any) {
+  /**
+   * Sign up the user for an account.
+   * @param data - The form data the user submitted..
+   */
+  submit(data: any) {
     this.usersApi.usersSignup({
-      username: value.username,
-      password: value.password,
-      email: value.email,
-      first_name: value.firstName,
-      last_name: value.lastName,
+      username: data.username,
+      password: data.password,
+      email: data.email,
+      first_name: data.firstName,
+      last_name: data.lastName,
       profile: {
-        eligible: value.eligible == true,
-        country: value.country,
-        state: value.state,
-        gender: value.gender,
-        race: value.race,
-        age: value.age,
+        eligible: data.eligible == true,
+        country: data.country,
+        state: data.state,
+        gender: data.gender,
+        race: data.race,
+        age: data.age,
       }
     }).toPromise().then(data => {
-      this.alert.alert("success", "Your account has been created.");
+      this.alert.open("success", "Your account has been created.");
+
+      // Change the application status to reflect login
       this.status.update(data);
+
       this.router.navigateByUrl('/account');
     }, error => {
-      if (error.status === 409) this.alert.alert("error", "This user or email already exists.");
-      else this.alert.alert("error", "Your account couldn't be created.");
+      if (error.status === 409) this.alert.open("error", "This user or email already exists.");
+      else this.alert.open("error", "Your account couldn't be created.");
     });
   }
 }

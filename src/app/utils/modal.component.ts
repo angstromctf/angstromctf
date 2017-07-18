@@ -1,3 +1,7 @@
+/**
+ * The actual modal that gets displayed. Automatically created by the AppComponent.
+ */
+
 import {
   Component, Injector, Input, ReflectiveInjector,
   HostBinding, OnInit, ViewEncapsulation
@@ -17,8 +21,11 @@ import { ModalService } from './modal.service';
 })
 export class ModalComponent implements OnInit {
   @Input() title: string;
+
+  // Sets the 'active' CSS class on the component when componentClass is non-null
   @HostBinding('class.active') componentClass;
-  injector;
+
+  injector: Injector;
 
   constructor(private rootInjector: Injector, public modalService: ModalService) { }
 
@@ -26,14 +33,29 @@ export class ModalComponent implements OnInit {
     this.modalService.setup(this);
   }
 
-  update(title: string, componentClass: any, providers: any): void {
+  /**
+   * Open a modal dialog.
+   * @param {string} title - The title of the modal.
+   * @param componentClass - The class of the Component inside the modal.
+   * @param providers - Data to inject into the child Component.
+   */
+  open(title: string, componentClass: any, providers: any): void {
     this.title = title;
     this.componentClass = componentClass;
 
     if (!providers) this.injector = this.rootInjector;
     else {
+      // Create an injector that will inject the providers into the child
       let resolvedProviders = ReflectiveInjector.resolve(providers);
       this.injector = ReflectiveInjector.fromResolvedProviders(resolvedProviders, this.rootInjector);
     }
+  }
+
+  /**
+   * Close the currently open modal dialog.
+   */
+  close(): void {
+    this.componentClass = null;
+    this.title = null;
   }
 }

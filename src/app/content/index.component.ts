@@ -23,7 +23,9 @@ export class IndexComponent implements OnInit, AfterViewInit {
     this.title.setTitle("ångstromCTF");
   }
 
-  /** Prepare to render the clock. */
+  /**
+   * Prepare to render the clock.
+   */
   ngAfterViewInit(): void {
     if (!this.status.ended) {
       let canvas: any = document.getElementById("clock");
@@ -52,8 +54,8 @@ export class IndexComponent implements OnInit, AfterViewInit {
 
   /**
    * Redraw the countdown timer. Called every second by the timer created in setup().
-   * @param canvas - The HTML5 canvas to draw on.
-   * @param ctx - A handle to the HTML5 canvas drawing context for the canvas.
+   * @param canvas The HTML5 canvas to draw on.
+   * @param ctx A handle to the HTML5 canvas drawing context for the canvas.
    */
   repaint(canvas: any, ctx: any): void {
     if (!this.status.ended) {
@@ -97,17 +99,17 @@ export class IndexComponent implements OnInit, AfterViewInit {
 
       // Stroke the quantity of each unit of time
       ctx.font = Math.floor(canvas.height / 5).toString() + "pt Orbitron";
-      for (var i = 0; i < 4; i++) {
-        ctx.fillText(time[i], canvas.width * (2 * i + 1) / 8, canvas.height / 2);
+      for (let i = 0; i < time.length; i++) {
+        ctx.fillText(time[i], canvas.width * (2 * i + 1) / (2 * time.length), canvas.height / 2);
       }
 
       // Stroke the name of each unit of time
       ctx.textBaseline = "top";
       ctx.font = Math.floor(canvas.height / 20).toString() + "pt Orbitron";
-      for (var i = 0; i < 4; i++) {
-        var unit = this.UNITS[i];
+      for (let i = 0; i < time.length; i++) {
+        let unit: string = this.UNITS[i];
         if (time[i] != 1) unit += "S";
-        ctx.fillText(unit, canvas.width * (2 * i + 1) / 8, canvas.height / 2 + canvas.height / 10);
+        ctx.fillText(unit, canvas.width * (2 * i + 1) / (2 * time.length), canvas.height / 2 + canvas.height / 10);
       }
     }
   }
