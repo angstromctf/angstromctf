@@ -1,4 +1,8 @@
-import { Component, Injector, Inject } from '@angular/core';
+/**
+ * The interface for interacting with a single CTF problem.
+ */
+
+import { Component, Inject } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ProblemsApi } from '../api/api/api';
 import { ModalService } from '../utils/modal.service';
@@ -23,9 +27,15 @@ export class ProblemComponent {
     });
   }
 
-  submit(value: any): void {
-    this.problemsApi.problemsSubmit(this.problem.id, value).toPromise().then(data => {
+  /**
+   * Submit a problem to the server.
+   * @param flag - The user's guess for the flag
+   */
+  submit(flag: any): void {
+    this.problemsApi.problemsSubmit(this.problem.id, flag).toPromise().then(() => {
       this.alert.alert("success", "You solved problem \"" + this.problem.title + "\" for " + this.problem.value + " points.");
+
+      // Recalculate the user's score
       this.status.reload().then(() => {
         this.problem.solved = true;
         this.modalService.close();
@@ -33,6 +43,9 @@ export class ProblemComponent {
     }, () => this.alert.alert("error", "That wasn't the flag."));
   }
 
+  /**
+   * Toggle whether the hint should be displayed.
+   */
   toggle_hint(): void {
     this.hint = !this.hint;
   }

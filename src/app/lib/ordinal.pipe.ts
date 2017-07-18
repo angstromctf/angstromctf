@@ -1,6 +1,12 @@
+/**
+ * A pipe that displays a number as an ordinal, e.g. 1st or 12th.
+ */
+
 import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({name: 'ordinal'})
+@Pipe({
+  name: 'ordinal'
+})
 export class OrdinalPipe implements PipeTransform {
   transform(value: number): string {
     let str: string = String(value);

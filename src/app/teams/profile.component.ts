@@ -14,6 +14,7 @@ export class ProfileComponent implements OnInit {
   constructor(private route: ActivatedRoute, private teamsApi: TeamsApi, public status: StatusService) { }
 
   ngOnInit(): void {
+    // Locates the team number from the query string and calls the API to get its information
     this.route.params
       .switchMap((params: Params) => this.teamsApi.teamsProgress(params['id']))
       .subscribe(team => this.team = team);
