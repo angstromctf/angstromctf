@@ -3,9 +3,12 @@
  */
 
 import {
-  Component, Injector, Input, ReflectiveInjector,
-  HostBinding, OnInit, ViewEncapsulation
+  Component, HostBinding, Injector, ReflectiveInjector,
+  OnInit, ViewEncapsulation
 } from '@angular/core';
+import {
+  AnimationEvent, animate, state, style, transition, trigger
+} from '@angular/animations';
 import 'rxjs/add/operator/toPromise';
 
 import { LoginComponent } from '../users/login.component';
@@ -17,14 +20,20 @@ import { ModalService } from './modal.service';
   entryComponents: [ LoginComponent, ProblemComponent ],
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  animations: [
+    trigger('display', [
+      state('active', style({ opacity: 1 })),
+      state('inactive', style({ transform: "translateY(100%)", opacity: 0 })),
+      transition('active <=> inactive', animate(500))
+    ])
+  ]
 })
 export class ModalComponent implements OnInit {
-  @Input() title: string;
+  title: string;
 
-  // Sets the 'active' CSS class on the component when componentClass is non-null
-  @HostBinding('class.active') componentClass;
-
+  @HostBinding('class.active') componentClass: any;
+  display: string = 'inactive';
   injector: Injector;
 
   constructor(private rootInjector: Injector, public modalService: ModalService) { }
@@ -43,19 +52,32 @@ export class ModalComponent implements OnInit {
     this.title = title;
     this.componentClass = componentClass;
 
-    if (!providers) this.injector = this.rootInjector;
+    if (!providers || Object.keys(providers).length === 0) this.injector = this.rootInjector;
     else {
       // Create an injector that will inject the providers into the child
       let resolvedProviders = ReflectiveInjector.resolve(providers);
       this.injector = ReflectiveInjector.fromResolvedProviders(resolvedProviders, this.rootInjector);
     }
+
+    this.display = 'active';
   }
 
   /**
    * Close the currently open modal dialog.
    */
   close(): void {
-    this.componentClass = null;
-    this.title = null;
+    this.display = 'inactive';
+  }
+
+  /**
+   * Notify the Component of the completion of the modal display animation.
+   * @param {AnimationEvent} event - The animation event that was completed
+   */
+  animationDone(event: AnimationEvent): void {
+    // If the event was a "close", then destroy everything when it's over
+    if (event.toState === 'inactive') {
+      this.componentClass = null;
+      this.title = null;
+    }
   }
 }

@@ -7,27 +7,18 @@ div#alerts {
   top: 0;
   right: 0;
 
-  padding: 2em;
-  width: 20em;
+  padding: 4rem;
+  width: 20rem;
 
   z-index: 3;
 }
 
 div.alert {
-  position: absolute;
-  transition: opacity $alert-duration;
-  opacity: 0;
+  padding: 1rem;
+  margin-bottom: 1rem;
 
-  padding: 1em;
-  margin-bottom: 1em;
-
-  width: 20em;
+  width: 20rem;
   box-sizing: border-box;
-
-  &.active {
-    position: relative;
-    opacity: 1;
-  }
 
   @each $state, $color in $states {
     &.#{$state} {
@@ -39,7 +30,7 @@ div.alert {
 span.alert-close {
   float: right;
   user-select: none;
-  margin-left: 1em;
+  margin-left: 1rem;
 
   &:hover {
     cursor: pointer;

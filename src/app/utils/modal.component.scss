@@ -1,32 +1,22 @@
 @import '../styles/master';
 
-$modal-duration: .75s;
-
 modal.active ~ div#wrapper {
   filter: blur(6px) brightness(30%);
   pointer-events: none;
 }
 
-modal.active div#modal {
-  top: 0;
-  opacity: 1;
-}
-
 div#modal {
   position: absolute;
+  top: 0;
   left: 0;
-  top: 80vh;
 
   background-color: $background-color;
   width: 60vw;
   margin: 20vh 20vw 0 20vw;
   padding: 2em;
 
-  transition: top $modal-duration, opacity $modal-duration;
-
   z-index: 2;
   max-height: 60vh;
-  opacity: 0;
 }
 
 span#modal-close {

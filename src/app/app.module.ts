@@ -5,11 +5,12 @@
 
 import { NgModule, Injectable } from '@angular/core';
 import { BrowserModule, Title }             from '@angular/platform-browser';
+import { BrowserAnimationsModule }          from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule }                     from '@angular/router';
 import {
   HttpModule, CookieXSRFStrategy, XSRFStrategy, Request, Response,
-  XHRBackend, ResponseOptions, BaseRequestOptions, Headers
+  XHRBackend, ResponseOptions
 }                                           from '@angular/http';
 import { BrowserXhr }                       from '@angular/http';
 import { Observable }                       from 'rxjs/Observable';
@@ -89,6 +90,7 @@ export class CSRFStrategy extends CookieXSRFStrategy {
 @NgModule({
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,

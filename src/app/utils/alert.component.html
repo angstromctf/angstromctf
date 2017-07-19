@@ -1,6 +1,6 @@
 <div id="alerts">
   <div *ngFor="let alert of this.alerts; let i = index">
-    <div class="alert {{ alert.type }}" [ngClass]="{ 'active': this.active.indexOf(i) != -1 }">
+    <div class="alert {{ alert.type }}" *ngIf="this.active.indexOf(i) != -1" [@display]="'active'">
       <span class="alert-close" (click)="this.alertService.close(i)">&times;</span>
       <strong>{{ alert.title }}</strong><br/>
       {{ alert.message }}

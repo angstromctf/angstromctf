@@ -1,4 +1,4 @@
-<div id="modal">
+<div id="modal" [@display]="display" (@display.done)="animationDone($event)">
   <span id="modal-close" (click)="this.modalService.close()">&times;</span>
   <h2 [innerHTML]="title"></h2>
 

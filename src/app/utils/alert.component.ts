@@ -5,6 +5,9 @@
 import {
   Component, Input, OnInit
 } from '@angular/core';
+import {
+  animate, state, style, transition, trigger
+} from '@angular/animations';
 import 'rxjs/add/operator/toPromise';
 
 import { AlertService } from './alert.service';
@@ -14,7 +17,14 @@ const CLOSE_TIME: number = 5000;
 @Component({
   selector: 'alert',
   templateUrl: './alert.component.html',
-  styleUrls: ['./alert.component.scss']
+  styleUrls: ['./alert.component.scss'],
+  animations: [
+    trigger('display', [
+      state('in', style({ opacity: 1 })),
+      state('void', style({ transform: "translateX(50%)", opacity: 0 })),
+      transition('void <=> *', animate(500))
+    ])
+  ]
 })
 export class AlertComponent implements OnInit {
   // All the alerts that have been created
