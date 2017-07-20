@@ -20,16 +20,6 @@ $gutter: 1rem;
         flex: 0 1 calc(100% * #{$i} / 12 - #{$gutter});
       }
     }
-
-    .col-#{$size}-grow {
-      @extend .col;
-      flex: 1 0;
-    }
-
-    .col-#{$size}-squeeze {
-      @extend .col;
-      flex: 0 1;
-    }
   }
 }
 
