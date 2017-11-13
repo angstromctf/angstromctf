@@ -13,14 +13,15 @@ import 'rxjs/add/operator/toPromise';
 })
 export class AboutComponent implements OnInit {
   people: any = [
-    {name: 'Noah Singer', role: 'Director, lead platform developer, learning materials', year: 'Junior', site: 'https://singerng.github.io/'},
-    {name: 'Artemis Tosini', role: 'Deployment and infrastructure', year: 'Junior', site: 'https://artemis.re/'},
-    {name: 'Andrew Komo', role: 'Crypto problems', year: 'Junior'},
-    {name: 'George Klees', role: 'Binary and reverse engineering problems', year: 'Junior'},
-    {name: 'Chris Wang', role: 'Graphic design', year: 'Junior'},
-    {name: 'Noah Kim', role: 'Platform developer', year: 'Junior', site: 'https://noahbkim.com/'},
-    // {name: 'Ian Rackow', role: 'Outreach, sponsors, web problems', year: 'Sophomore'},
-    // {name: 'William Wang', role: 'Forensics problems', year: 'Sophomore'}
+    {name: 'Noah Singer', role: 'Director, technical lead, learning materials', year: 'Senior', site: 'https://singerng.github.io/'},
+    {name: 'Artemis Tosini', role: 'Deployment and infrastructure', year: 'Senior', site: 'https://artemis.re/'},
+    {name: 'Andrew Komo', role: 'Problems lead', year: 'Junior'},
+    {name: 'George Klees', role: 'Binary and reverse engineering problems', year: 'Senior'},
+    {name: 'Chris Wang', role: 'Graphic design', year: 'Senior'},
+    {name: 'Noah Kim', role: 'Platform developer', year: 'Senior', site: 'https://noahbkim.com/'},
+    {name: 'Ian Rackow', role: 'Outreach, sponsors, web problems', year: 'Sophomore'},
+    {name: 'William Wang', role: 'Forensics problems', year: 'Sophomore'},
+    {name: 'Kevin Higgs', role: 'Problems', year: 'Freshman'}
   ];
 
   constructor(private titleService: Title) { }

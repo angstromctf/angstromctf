@@ -6,9 +6,7 @@ If you have any questions or concerns, you can find us at <a href="mailto:angstr
 <h2>Rules</h2>
 <h4>Eligibility</h4>
 
-<p>Anyone can participate in &aring;ngstromCTF. However, due to various reasons, we can only give prizes to teams from the United States.
-Sending money from the US to other countries is a terrible pain and is mired in all sorts of legal issues.
-    All team members must be affiliated with either a public or private middle or high school in the US, or they may be home-schooled. College students, international students, industry professionals, and anyone else from around the world is allowed to participate, however, they will be unable to win any prizes.</p>
+<p>Anyone can participate in &aring;ngstromCTF. However, due to various reasons, we can only give prizes to teams from the United States. In order for a team to be eligible for prizes, all team members must be affiliated with either a public or private middle or high school in the U.S. or be home-schooled. College students, international students, industry professionals, and anyone else from around the world is allowed to participate, however, they will be ineligible to win prizes.</p>
 
 <h4>Rules and Restrictions</h4>
 <ol>
@@ -34,18 +32,16 @@ Sending money from the US to other countries is a terrible pain and is mired in 
 
 <h4>Prizes</h4>
 
-<p>We're proud to offer prizes to the top teams, courtesy of our generous sponsors. Prizes will include:
+<p>We're proud to offer prizes to the top teams, courtesy of our generous sponsors. So far, prizes will include:
 
 <ul>
   <li>DigitalOcean credit
       <ol>
-        <li>$500 to each first place team member</li>
-        <li>$250 to each second place team member</li>
-        <li>125 to each third place team member</li>
+        <li>$200 to each first place team member</li>
+        <li>$125 to each second place team member</li>
+        <li>$63 to each third place team member</li>
       </ol>
   </li>
-  <li>BAE Systems swag</li>
-  <li>Checkmarx swag</li>
 </ul>
 
 We reserve the right to require any sort of verification of problem solutions, including, but not limited to, write-ups and photo identification.
@@ -58,7 +54,7 @@ We reserve the right to require any sort of verification of problem solutions, i
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-2 col-sm-6" *ngFor="let student of people">
+        <div class="col-lg-2 col-md-4 col-sm-3" *ngFor="let student of people">
             <img class="person" src="/assets/images/people/{{ student.name }}.jpg">
             <h4>{{ student.name }} <small *ngIf="student.site"><a target="_blank" href="{{ student.site }}">(site)</a></small></h4>
 
