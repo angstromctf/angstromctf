@@ -20,8 +20,8 @@ div.alert {
   width: 20rem;
   box-sizing: border-box;
 
-  @each $state, $color in $states {
-    &.#{$state} {
+  @each $name, $color in $state {
+    &.#{$name} {
       background-color: mix($background-color, $color);
     }
   }

@@ -1,20 +1,10 @@
-@import url(https://fonts.googleapis.com/css?family=Titillium+Web|Orbitron);
-
-$lg: 1200px;
-$md: 992px + 50px;  // Looks nice
-$sm: 768px;
-
-$background-base: #181820;
-$background-color: rgba(.2, .2, .25, .5);
-$primary-accent: #00d9e3;
-$secondary-accent: #ffca00;
-$states: ( error: #ff0101, success: #32cd32 );
-
+@import 'theme';
 @import 'forms';
 @import 'typography';
 @import 'table';
 @import 'grid';
 @import 'trigonometry';
+@import 'navigation';
 
 body {
   margin: 0;
@@ -23,51 +13,19 @@ body {
 
 div#wrapper {
   display: flex;
-  width: 100vw;
-  height: 100vh;
   padding: 0.5rem;
   box-sizing: border-box;
   z-index: 0;
 }
 
-div#content, div#nav {
+div#navigation, div#content {
   display: block;
-  padding: 2rem;
+  padding: 1rem;
   margin: 0.5rem;
   box-sizing: border-box;
   background-color: $background-color;
 }
 
-div#nav {
-  overflow-y: auto;
-  min-width: min-content;
-
-  .item {
-    color: white;
-    text-decoration: none;
-    display: block;
-    font-weight: bold;
-    font-family: "Orbitron", sans-serif;
-    text-transform: uppercase;
-    font-size: 1.2em;
-    margin-top: 0;
-  }
-
-  .item ~ .item {
-    margin-top: 1.5rem;
-  }
-
-}
-
-div#content {
-  flex-grow: 1;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
-}
-
-nav a {
-  text-decoration: none;
-}
 
 /* Large desktops. */
 @media screen and (min-width: $lg) { }
