@@ -1,50 +1,61 @@
-$text-color: #ddd;
+@import 'theme';
 
 body {
   color: $text-color;
   font-size: 18px;
-  font-family: 'Titillium Web';
+  font-family: $font-body, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Orbitron' !important;
-  text-transform: uppercase;
   margin: 1.5rem 0;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-family: $font-title, serif !important;
 
   &.center {
     text-align: center;
   }
 }
 
-h1, h2, h3, h4, h5, h6, strong {
+h1, h2, h3, h4, h5, h6 {
   color: white;
-
-  a, a:visited, a:active, a:hover {
+  a {
+    font-weight: normal;
     color: white;
+  }
+}
+
+span.primary-accent {
+  color: $accent-primary;
+}
+
+span.secondary-accent {
+  color: $accent-secondary;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: $accent-secondary;
+
+  &:visited, &:active {
+    color: inherit;
+  }
+
+  &:hover {
+    color: darken($accent-secondary, 20%);
   }
 }
 
 h1 { font-size: 3.5em; }
 h2 { font-size: 2em; }
 
-span.primary-accent {
-  color: $primary-accent;
-}
-
-span.secondary-accent {
-  color: $secondary-accent;
-}
-
-a, a:visited, a:active {
-  color: $secondary-accent;
-
-  &:hover {
-    color: darken($secondary-accent, 10%);
-  }
+h1 span.accent, h2 span.accent, h3 span.accent, h4 span.accent, h5 span.accent, h6 span.accent {
+  color: $accent-secondary;
 }
 
 code {
-  color: $secondary-accent;
+  color: $accent-secondary;
   background-color: $background-color;
   padding: .25rem;
 }

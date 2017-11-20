@@ -1,4 +1,6 @@
-$error-color: mix($background-color, map-get($states, error), 90%);
+@import 'theme';
+
+$error-color: mix($background-color, map-get($state, error), 90%);
 
 @mixin norm() {
   background-color: $background-color;
@@ -44,7 +46,7 @@ input[type=submit], button {
   }
 
   &:not(:disabled):hover {
-    background-color: $secondary-accent;
+    background-color: $accent-secondary;
     cursor: pointer;
   }
 }
@@ -73,6 +75,6 @@ label {
 }
 
 div.form-error {
-  color: map-get($states, error);
+  color: map-get($state, error);
   margin-bottom: 1em;
 }

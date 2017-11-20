@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web|Orbitron');
+
+$lg: 1200px;
+$md: 992px + 50px;  // Looks nice
+$sm: 768px;
+
+$background-color: rgba(.2, .2, .25, .5);
+$accent-primary: #e61587;
+$accent-secondary: #bf00ff;
+$text-color: #ddd;
+
+$font-title: 'Orbitron';
+$font-body: 'Titillium Web';
+
+$state: (
+  error: #ff0101,
+  success: #32cd32 );

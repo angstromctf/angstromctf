@@ -91,24 +91,26 @@ export class AppComponent implements OnInit, AfterViewInit {
     let canvas: any = document.getElementById("background");
     let ctx: any = canvas.getContext("2d");
 
-    // Make the canvas full width
-    canvas.width = document.body.clientWidth;
-    canvas.height = document.body.clientHeight;
-
     // Set up the clock when the window loads
     window.onload = () => this.setup(canvas, ctx);
     if (document.readyState === "complete") this.setup(canvas, ctx);
 
     // Resize the clock when the window is resized
     window.onresize = () => {
-      canvas.width = document.body.clientWidth;
-      canvas.height = document.body.clientHeight;
+      this.resize(canvas);
       this.repaint(canvas, ctx);
     };
   }
 
+  resize(canvas: any): void {
+    // Make the canvas full size
+    canvas.width = document.body.clientWidth;
+    canvas.height = document.body.clientHeight;
+  }
+
   /** Start rendering the background. */
   setup(canvas: any, ctx: any) {
+    this.resize(canvas);
     this.repaint(canvas, ctx);
     window.setInterval(() => { this.tick(); this.repaint(canvas, ctx); }, 50);
   }
