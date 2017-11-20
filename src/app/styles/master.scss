@@ -4,10 +4,9 @@ $lg: 1200px;
 $md: 992px + 50px;  // Looks nice
 $sm: 768px;
 
-$background-base: #181820;
 $background-color: rgba(.2, .2, .25, .5);
-$primary-accent: #00d9e3;
-$secondary-accent: #ffca00;
+$primary-accent: #e61587;
+$secondary-accent: #bf00ff;
 $states: ( error: #ff0101, success: #32cd32 );
 
 @import 'forms';
@@ -18,7 +17,8 @@ $states: ( error: #ff0101, success: #32cd32 );
 
 body {
   margin: 0;
-  background-color: $background-base;
+  //background-color: $background-base;
+  background: radial-gradient(ellipse at bottom, #121050 0%, #181820 100%);
 }
 
 div#wrapper {
@@ -28,6 +28,13 @@ div#wrapper {
   padding: 0.5rem;
   box-sizing: border-box;
   z-index: 0;
+}
+
+canvas#background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 div#content, div#nav {

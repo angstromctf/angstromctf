@@ -27,7 +27,11 @@ h1, h2, h3, h4, h5, h6, strong {
 h1 { font-size: 3.5em; }
 h2 { font-size: 2em; }
 
-h1 span.accent, h2 span.accent, h3 span.accent, h4 span.accent, h5 span.accent, h6 span.accent {
+span.primary-accent {
+  color: $primary-accent;
+}
+
+span.secondary-accent {
   color: $secondary-accent;
 }
 
