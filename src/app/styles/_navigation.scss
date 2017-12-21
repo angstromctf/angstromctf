@@ -14,19 +14,13 @@ div#navigation {
     }
 
     margin-right: 1em;
-
-    &.right {
-      margin-right: 0;
-      margin-left: 1em;
-    }
   }
 
-  .left-nav {
-    display: inline-block;
-    text-align-last: left;
+  div.right-nav a.item:last-child {
+    margin-right: 0;
   }
 
-  .right-nav {
+  div.left-nav, div.right-nav {
     display: inline-block;
     text-align-last: left;
   }
