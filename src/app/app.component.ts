@@ -94,12 +94,6 @@ export class AppComponent implements OnInit, AfterViewInit {
     // Set up the clock when the window loads
     window.onload = () => this.setup(canvas, ctx);
     if (document.readyState === "complete") this.setup(canvas, ctx);
-
-    // Resize the clock when the window is resized
-    window.onresize = () => {
-      this.resize(canvas);
-      this.repaint(canvas, ctx);
-    };
   }
 
   resize(canvas: any): void {
@@ -112,7 +106,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   setup(canvas: any, ctx: any) {
     this.resize(canvas);
     this.repaint(canvas, ctx);
-    window.setInterval(() => { this.tick(); this.repaint(canvas, ctx); }, 50);
+    window.setInterval(() => { this.tick(); this.resize(canvas); this.repaint(canvas, ctx); }, 50);
   }
 
   repaint(canvas: any, ctx: any): void {

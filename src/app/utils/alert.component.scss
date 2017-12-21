@@ -4,10 +4,9 @@ $alert-duration: .7s;
 
 div#alerts {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 4rem;
+  right: 4rem;
 
-  padding: 4rem;
   width: 20rem;
 
   z-index: 3;

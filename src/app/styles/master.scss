@@ -6,10 +6,15 @@
 @import 'trigonometry';
 @import 'navigation';
 
+html {
+  min-height: 100vh;
+}
+
 body {
   margin: 0;
   //background-color: $background-base;
   background: radial-gradient(ellipse at bottom, #121050 0%, #181820 100%);
+  min-height: 100%;
 }
 
 div#wrapper {
@@ -34,6 +39,9 @@ div#navigation, div#content {
   background-color: $background-color;
 }
 
+div#content {
+  min-height: calc(100vh - 51px - 2rem);
+}
 
 /* Large desktops. */
 @media screen and (min-width: $lg) { }
@@ -44,7 +52,6 @@ div#navigation, div#content {
 /* Small mode */
 @media screen and (max-width: $md - 1px) {
   div#wrapper { display: block; }
-  div#content { margin: 1rem 0.5rem; }
 }
 
 /* Tablets. */
