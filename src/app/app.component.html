@@ -15,15 +15,15 @@
 
   <ng-container *ngIf="!status.user">
     <div class="right-nav">
-      <a class="item right" href="javascript:void(0)" (click)="login()">Login</a>
-      <a class="item right" routerLink="/signup">Signup</a>
+      <a class="item" href="javascript:void(0)" (click)="login()">Login</a>
+      <a class="item" routerLink="/signup">Signup</a>
     </div>
   </ng-container>
 
   <ng-container *ngIf="status.user">
     <div class="right-nav">
-      <a class="item right" routerLink="/account">Account</a>
-      <a class="item right" href="javascript:void(0)" (click)="logout()">Logout</a>
+      <a class="item" routerLink="/account">Account</a>
+      <a class="item" href="javascript:void(0)" (click)="logout()">Logout</a>
     </div>
   </ng-container>
 
