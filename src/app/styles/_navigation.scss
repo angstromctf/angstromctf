@@ -14,6 +14,11 @@ div#navigation {
     }
 
     margin-right: 1em;
+
+    &.right {
+      margin-right: 0;
+      margin-left: 1em;
+    }
   }
 
   .left-nav {
