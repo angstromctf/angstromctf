@@ -14,8 +14,10 @@ import 'rxjs/add/operator/toPromise';
 })
 export class ScoreboardComponent implements OnInit {
   teams: any;
+  showIneligible: boolean;
+  constructor(private teamsApi: TeamsApi, private titleService: Title, public status: StatusService) {
 
-  constructor(private teamsApi: TeamsApi, private titleService: Title, public status: StatusService) { }
+  }
 
   ngOnInit(): void {
     this.titleService.setTitle("Scoreboard | ångstromCTF");
@@ -31,6 +33,7 @@ export class ScoreboardComponent implements OnInit {
   update(): void {
     this.teamsApi.teamsList().toPromise().then(data => {
       this.teams = data;
+
 
       // Rank the eligible teams
       let rank = 1;
