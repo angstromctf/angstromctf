@@ -1,6 +1,12 @@
 <h1>Scoreboard</h1>
 <br/>
 
+<div class="form-check">
+  <label class="form-check-label">
+    <input [(ngModel)]="showIneligible" (change)="update()" class="form-check-input" type="checkbox">
+    Show Eligible Teams
+  </label>
+</div>
 <table>
     <thead>
         <tr>
@@ -11,13 +17,15 @@
         </tr>
     </thead>
 
-    <tbody>
-        <tr *ngFor="let team of teams">
-            <th scope="row" *ngIf="team.eligible">{{ team.rank }}</th>
-            <th scope="row" *ngIf="!team.eligible">&mdash;</th>
-            <td><a [routerLink]="['/profile', team.id]">{{ team.name }}</a></td>
-            <td>{{ team.school }}</td>
-            <td *ngIf="status.started">{{ team.score }}</td>
+    <tbody *ngFor="let team of teams">
+        <tr *ngIf="team.eligible || showIneligible">
+
+              <th scope="row" *ngIf="team.eligible">{{ team.rank }}</th>
+              <th scope="row" *ngIf="!team.eligible">&mdash;</th>
+              <td><a [routerLink]="['/profile', team.id]">{{ team.name }}</a></td>
+              <td>{{ team.school }}</td>
+              <td *ngIf="status.started">{{ team.score }}</td>
+
         </tr>
     </tbody>
 </table>
