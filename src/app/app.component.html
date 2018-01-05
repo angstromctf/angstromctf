@@ -22,7 +22,7 @@
 
   <ng-container *ngIf="status.user">
     <div class="right-nav">
-      <span class="item"><span class="accent">{{ status.team.name }}: {{ status.team.score }} points</span></span>
+      <span class="item" *ngIf="status.team"><span class="accent">{{ status.team.name }}<span *ngIf="status.started">: {{ status.team.score }} points</span></span></span>
       <a class="item" routerLink="/account">Account</a>
       <a class="item" href="javascript:void(0)" (click)="logout()">Logout</a>
     </div>
