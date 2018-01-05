@@ -47,7 +47,12 @@ a {
   }
 }
 
-h1 { font-size: 3.5em; }
+h1 {
+  font-size: 3.5em;
+  @media screen and (max-width: $sm) {
+    font-size: 10vw;
+  }
+}
 h2 { font-size: 2em; }
 
 h1 span.accent, h2 span.accent, h3 span.accent, h4 span.accent, h5 span.accent, h6 span.accent {
