@@ -41,11 +41,7 @@ a {
   &:active {
     color: inherit;
   }
-
-  &:visited {
-    color: lighten($accent-secondary, 30%)
-  }
-
+  
   &:hover {
     color: darken($accent-secondary, 20%);
   }
