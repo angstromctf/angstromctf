@@ -26,8 +26,8 @@ export class ScoreboardComponent implements OnInit {
     this.update();
 
 
-    // Update the scoreboard every 30 seconds
-    window.setInterval(() => this.update(), 30000);
+    // Update the scoreboard every minute
+    window.setInterval(() => this.update(), 60000);
   }
 
   /**
