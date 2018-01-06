@@ -57,10 +57,11 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
   }
 
-  tick(): void {
+  tick(canvas): void {
+    var yCons = 1200/canvas.height;
     for (let i = 0; i < STARS; i++) {
       this.stars[i].x += this.stars[i].vx + gaussian() * BASE_SPEED * 2;
-      this.stars[i].y += this.stars[i].vy + gaussian() * BASE_SPEED * 2;
+      this.stars[i].y += (this.stars[i].vy + gaussian() * BASE_SPEED * 2) * yCons;
 
       if (this.stars[i].x < 0) this.stars[i].x += 1;
       if (this.stars[i].x > 1) this.stars[i].x -= 1;
@@ -99,7 +100,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   setup(canvas: any, ctx: any) {
     this.resize(canvas);
     this.repaint(canvas, ctx);
-    window.setInterval(() => { this.tick(); this.resize(canvas); this.repaint(canvas, ctx); }, 50);
+    window.setInterval(() => { this.tick(canvas); this.resize(canvas); this.repaint(canvas, ctx); }, 40);
   }
 
   repaint(canvas: any, ctx: any): void {
