@@ -114,8 +114,6 @@ export class AppComponent implements OnInit, AfterViewInit {
     if (newStarCount == currStarCount)
       return;
     else if (newStarCount > this.stars.length) {
-      console.log("new set");
-      //this.stars = [];
       for (let i = currStarCount; i < newStarCount; i++) {
         let sf = Math.abs(gaussian());
         this.stars[i] = {
