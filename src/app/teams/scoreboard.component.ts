@@ -14,6 +14,8 @@ import 'rxjs/add/operator/toPromise';
 })
 export class ScoreboardComponent implements OnInit {
   teams: any;
+  allTeams: any;
+  eligibleTeams: any;
   showIneligible: boolean;
   constructor(private teamsApi: TeamsApi, private titleService: Title, public status: StatusService) {
 
@@ -22,6 +24,7 @@ export class ScoreboardComponent implements OnInit {
   ngOnInit(): void {
     this.titleService.setTitle("Scoreboard | ångstromCTF");
     this.update();
+
 
     // Update the scoreboard every 30 seconds
     window.setInterval(() => this.update(), 30000);
@@ -32,21 +35,27 @@ export class ScoreboardComponent implements OnInit {
    */
   update(): void {
     this.teamsApi.teamsList().toPromise().then(data => {
-      this.teams = data;
+      this.allTeams = data;
       console.log(data);
-      if (!this.showIneligible){
-        this.teams = this.teams.filter(function (obj) {
-            return obj.eligible;
-        })
-      }
+
+      this.eligibleTeams = this.allTeams.filter(function (obj) {
+        return obj.eligible;
+      });
 
       // Rank the eligible teams
       let rank = 1;
-      for (let team of this.teams) {
+      for (let team of this.allTeams) {
         if (team.eligible){
           team.rank = rank++;
         }
       }
+      this.updateList();
     });
   }
+
+  updateList(): void {
+      if (this.showIneligible) this.teams = this.allTeams;
+      else this.teams = this.eligibleTeams;
+  }
 }
+
