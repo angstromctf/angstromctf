@@ -7,6 +7,7 @@
       stroke-opacity="0"
       stroke-width="50"
       [attr.points]="line.points.join(' ')"
+      style="cursor: pointer;"
     />
     <polyline onmouseover="evt.target.parentNode.getElementsByClassName('label')[0].setAttribute('opacity', '1');"
       onmouseout="evt.target.parentNode.getElementsByClassName('label')[0].setAttribute('opacity', '0');"
@@ -15,13 +16,14 @@
       [attr.stroke]="line.color"
       stroke-width="10"
       [attr.points]="line.points.join(' ')"
+      style="cursor: pointer;"
     />
     <g>
       <circle *ngFor="let point of line.points.slice(1)" [attr.cx]="point[0]" [attr.cy]="point[1]" r="10" [attr.fill]="line.color"></circle>
     </g>
     <g class="label" style="transition: opacity 0.5s;" opacity="0">
-      <text transform="scale(8, -8)" [attr.x]="80/8" [attr.y]="-(maxY-minY-100)/8" font-family="Orbitron" [attr.fill]="line.color">{{ line.name }}</text>
-      <text transform="scale(6, -6)" [attr.x]="80/6" [attr.y]="-(maxY-minY-250)/6" font-family="Orbitron" fill="white">{{ line.points.slice(-1)[0][1] }}</text>
+      <text transform="scale(8, -8)" [attr.x]="80/8" [attr.y]="-(maxY-minY-150)/8" font-family="Orbitron" [attr.fill]="line.color">{{ line.name }}</text>
+      <text transform="scale(6, -6)" [attr.x]="80/6" [attr.y]="-(maxY-minY-300)/6" font-family="Orbitron" fill="white">{{ line.points.slice(-1)[0][1] }}</text>
     </g>
   </g>
 </svg>
