@@ -21,7 +21,7 @@ export class AboutComponent implements OnInit {
     {name: 'Noah Kim', role: 'Platform developer', year: 'Senior', site: 'https://noahbkim.com/'},
     {name: 'Ian Rackow', role: 'Outreach, sponsors, web problems', year: 'Junior'},
     {name: 'William Wang', role: 'Problems', year: 'Junior', site: 'https://defund.io'},
-    {name: 'Kevin Higgs', role: 'Problems', year: 'Freshman', site: 'https://kmh.zone'}
+    {name: 'Kevin Higgs', role: 'Problems, platform developer', year: 'Freshman', site: 'https://kmh.zone'}
   ];
 
   constructor(private titleService: Title) { }
