@@ -17,13 +17,6 @@ body {
   min-height: 100%;
 }
 
-div#wrapper {
-  display: flex;
-  padding: 0.5rem;
-  box-sizing: border-box;
-  z-index: 0;
-}
-
 canvas#background {
   position: absolute;
   top: 0;

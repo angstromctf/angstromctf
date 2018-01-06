@@ -5,6 +5,18 @@ modal.active ~ div#wrapper {
   pointer-events: none;
 }
 
+div#modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+div#wrapper {
+  transition: 0.25s filter linear;
+}
+
 div#modal {
   overflow: auto;
   position: fixed;
