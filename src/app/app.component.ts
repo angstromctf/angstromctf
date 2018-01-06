@@ -31,13 +31,6 @@ export class AppComponent implements OnInit, AfterViewInit {
   constructor(public status: StatusService, private modalService: ModalService, private alert: AlertService, private router: Router) { }
 
   /**
-   * Open the login prompt.
-   */
-  login(): void {
-    this.modalService.open("Login", LoginComponent, {});
-  }
-
-  /**
    * Log out the user.
    */
   logout(): void {
