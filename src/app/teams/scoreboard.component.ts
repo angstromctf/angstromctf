@@ -20,7 +20,7 @@ export class ScoreboardComponent implements OnInit {
   allTeams: any;
   eligibleTeams: any;
   showIneligible: boolean;
-  colors = ["#bf42f4", "#3d23b2", "#2352b2", "#d12792", "#7b0396"]
+  colors = ["#bf42f4", "#3d23b2", "#2352b2", "#d12792", "#7b0396", "#118adb", "#ff72ee", "#3f0182", "#07248e", "#ad2bd1"]
   constructor(private teamsApi: TeamsApi, private titleService: Title, public status: StatusService, private chartService: ChartService) {
 
   }
@@ -69,7 +69,9 @@ export class ScoreboardComponent implements OnInit {
     var lines = [];
     var clear = this.chartService.component.lines.length;
     var team = 0;
+    var teamColors = {}
     for (var i = 0; i < (this.teams.length < 10 ? this.teams.length: 10); i++) {
+      teamColors[this.teams[i].name] = this.colors[i%this.colors.length]
       this.teamsApi.teamsProgress(this.teams[i].id).toPromise().then(data => {
         var solves = data["solves"];
         var points = [];
@@ -88,10 +90,13 @@ export class ScoreboardComponent implements OnInit {
           }
           points.push(point);
         }
-        this.chartService.setBounds(minX, maxX, 0, maxY);
-        this.chartService.addLine({points: points, color: this.colors[team%this.colors.length], name: data["name"]});
+        if (clear > 0) {
+          this.chartService.clearLines(1);
+          clear--;
+        }
+        this.chartService.addLine({points: points, color: teamColors[data["name"]], name: data["name"]});
         team += 1;
-        if (team == 10) { this.chartService.clearLines(clear) }
+        if (team == 10) { this.chartService.setBounds(minX, maxX, 0, maxY); }
       })
     }
 
