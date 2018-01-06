@@ -23,6 +23,7 @@ import { AppComponent }                     from './app.component';
 import { ExtendedInputComponent }           from './lib/extended-input.component';
 import { AboutComponent }                   from './content/about.component';
 import { AccountComponent }                 from './users/account.component';
+import { ChartComponent }                   from './utils/chart.component';
 import { IndexComponent }                   from './content/index.component';
 import { ModalComponent }                   from './utils/modal.component';
 import { LoginComponent }                   from './users/login.component';
@@ -37,6 +38,7 @@ import { ProblemsApi, TeamsApi, UsersApi }  from './api/api/api';
 import { StatusService }                    from './utils/status.service';
 import { AlertService }                     from './utils/alert.service';
 import { ModalService }                     from './utils/modal.service';
+import { ChartService }                     from './utils/chart.service'
 import { OrdinalPipe }                      from './lib/ordinal.pipe';
 import { BASE_PATH }                        from './api/variables';
 
@@ -113,6 +115,7 @@ export class CSRFStrategy extends CookieXSRFStrategy {
     AboutComponent,
     AlertComponent,
     AccountComponent,
+    ChartComponent,
     IndexComponent,
     LoginComponent,
     ProblemComponent,
@@ -136,6 +139,7 @@ export class CSRFStrategy extends CookieXSRFStrategy {
     StatusService,
     AlertService,
     ModalService,
+    ChartService,
     { provide: BASE_PATH, useValue: environment.apiUrl },
     { provide: XHRBackend, useClass: ConnectionRefusedBackend },
     { provide: XSRFStrategy, useClass: CSRFStrategy }

@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { TeamsApi } from '../api/api/api';
 import { StatusService } from '../utils/status.service';
+import { ChartService } from '../utils/chart.service';
 import 'rxjs/add/operator/toPromise';
+
+const START_TIME = 1492876800000;
 
 @Component({
   selector: 'angstrom-scoreboard',
@@ -17,7 +20,8 @@ export class ScoreboardComponent implements OnInit {
   allTeams: any;
   eligibleTeams: any;
   showIneligible: boolean;
-  constructor(private teamsApi: TeamsApi, private titleService: Title, public status: StatusService) {
+  colors = ["#bf42f4", "#3d23b2", "#2352b2", "#d12792", "#7b0396"]
+  constructor(private teamsApi: TeamsApi, private titleService: Title, public status: StatusService, private chartService: ChartService) {
 
   }
 
@@ -55,6 +59,41 @@ export class ScoreboardComponent implements OnInit {
   updateList(): void {
       if (this.showIneligible) this.teams = this.allTeams;
       else this.teams = this.eligibleTeams;
+      this.updateChart();
+  }
+
+  updateChart(): void {
+    var minX = Infinity;
+    var maxX = 0;
+    var maxY = 0;
+    var lines = [];
+    var clear = this.chartService.component.lines.length;
+    var team = 0;
+    for (var i = 0; i < (this.teams.length < 10 ? this.teams.length: 10); i++) {
+      this.teamsApi.teamsProgress(this.teams[i].id).toPromise().then(data => {
+        var solves = data["solves"];
+        var points = [];
+        var score = 0;
+        for (var j = 0; j < solves.length; j++) {
+          score += solves[j].problem.value;
+          var point = [(+new Date(solves[j].time)-START_TIME)/100000, score];
+          if (point[0] < minX) {
+            minX = point[0];
+          }
+          if (point[0] > maxX) {
+            maxX = point[0];
+          }
+          if (point[1] > maxY) {
+            maxY = point[1];
+          }
+          points.push(point);
+        }
+        this.chartService.setBounds(minX, maxX, 0, maxY);
+        this.chartService.addLine({points: points, color: this.colors[team%this.colors.length], name: data["name"]});
+        team += 1;
+        if (team == 10) { this.chartService.clearLines(clear) }
+      })
+    }
+
   }
 }
-
