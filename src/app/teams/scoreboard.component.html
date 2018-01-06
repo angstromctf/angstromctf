@@ -17,7 +17,7 @@
         </tr>
     </thead>
 
-    <tbody >
+    <tbody>
         <tr *ngFor="let team of teams">
             <template [ngIf]="team.eligible || showIneligible">
                 <th scope="row" *ngIf="team.eligible">{{ team.rank }}</th>
