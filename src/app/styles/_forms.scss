@@ -11,9 +11,9 @@ $error-color: mix($background-color, map-get($state, error), 90%);
   border: none;
 }
 
-input[type=text], input[type=password], input[type=number] {
+input[type=text], input[type=password] {
   @include norm();
-  width: 100%;
+  width: 95%;
 }
 
 input[type=submit], button {
