@@ -18,8 +18,8 @@ export class ChartService {
     this.component.minY = minY;
   }
 
-  clearLines(number): void {
-    if (number == undefined) { number = this.component.lines.length }
+  clearLines(number=-1): void {
+    if (number == -1) { number = this.component.lines.length }
     this.component.lines = this.component.lines.slice(number);
   }
 
