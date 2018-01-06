@@ -67,7 +67,6 @@ export class ScoreboardComponent implements OnInit {
     var maxX = 0;
     var maxY = 0;
     var lines = [];
-    var clear = this.chartService.component.lines.length;
     var team = 0;
     var teamColors = {}
     for (var i = 0; i < (this.teams.length < 10 ? this.teams.length: 10); i++) {
@@ -90,13 +89,13 @@ export class ScoreboardComponent implements OnInit {
           }
           points.push(point);
         }
-        if (clear > 0) {
-          this.chartService.clearLines(1);
-          clear--;
-        }
-        this.chartService.addLine({points: points, color: teamColors[data["name"]], name: data["name"]});
+        lines.push({points: points, color: teamColors[data["name"]], name: data["name"]});
         team += 1;
-        if (team == 10) { this.chartService.setBounds(minX, maxX, 0, maxY); }
+        if (team == 10) {
+          lines.sort((function (b, a) { return this.that.teams.filter((x) => { return x.name == a.name })[0].rank-this.that.teams.filter((x) => { return x.name == b.name })[0].rank}).bind({that: this}));
+          this.chartService.setBounds(minX, maxX, 0, maxY);
+          this.chartService.setLines(lines);
+        }
       })
     }
 

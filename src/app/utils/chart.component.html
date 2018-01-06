@@ -1,4 +1,4 @@
-<svg [attr.viewBox]="minX.toString()+' '+minY.toString()+' '+(maxX-minX+10).toString()+' '+(maxY-minY+10).toString()" transform="scale(1, -1)" class="chart">
+<svg *ngIf="lines.length" [attr.viewBox]="minX.toString()+' '+minY.toString()+' '+(maxX-minX+10).toString()+' '+(maxY-minY+10).toString()" transform="scale(1, -1)" class="chart">
   <g *ngFor="let line of lines">
     <polyline onmouseover="evt.target.parentNode.getElementsByClassName('label')[0].setAttribute('opacity', '1');"
       onmouseout="evt.target.parentNode.getElementsByClassName('label')[0].setAttribute('opacity', '0');"
@@ -18,9 +18,11 @@
       [attr.points]="line.points.join(' ')"
       style="cursor: pointer;"
     />
-    <g>
-      <circle *ngFor="let point of line.points.slice(1)" [attr.cx]="point[0]" [attr.cy]="point[1]" r="10" [attr.fill]="line.color"></circle>
-    </g>
+    <circle onmouseover="evt.target.parentNode.getElementsByClassName('label')[0].setAttribute('opacity', '1');"
+      onmouseout="evt.target.parentNode.getElementsByClassName('label')[0].setAttribute('opacity', '0');"
+      style="cursor: pointer;"
+      *ngFor="let point of line.points.slice(1)" [attr.cx]="point[0]" [attr.cy]="point[1]" r="10" [attr.fill]="line.color">
+    </circle>
     <g class="label" style="transition: opacity 0.5s;" opacity="0">
       <text transform="scale(8, -8)" [attr.x]="80/8" [attr.y]="-(maxY-minY-150)/8" font-family="Orbitron" [attr.fill]="line.color">{{ line.name }}</text>
       <text transform="scale(6, -6)" [attr.x]="80/6" [attr.y]="-(maxY-minY-300)/6" font-family="Orbitron" fill="white">{{ line.points.slice(-1)[0][1] }}</text>
