@@ -1,6 +1,6 @@
 @import '../styles/master';
 
-modal.active ~ div#wrapper {
+div#wrapper.blur {
   filter: blur(6px) brightness(30%);
   pointer-events: none;
 }

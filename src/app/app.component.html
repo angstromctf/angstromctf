@@ -3,7 +3,7 @@
 
 <div id="modal-bg" *ngIf="modalService.component.display == 'active'" (mousedown)="modalService.close()"></div>
 
-<div id="wrapper">
+<div id="wrapper" [ngClass]="{ blur: modalService.component.display == 'active' }">
   <canvas id="background"></canvas>
 
   <div id="navigation">
