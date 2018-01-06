@@ -36,7 +36,6 @@ export class ScoreboardComponent implements OnInit {
   update(): void {
     this.teamsApi.teamsList().toPromise().then(data => {
       this.allTeams = data;
-      console.log(data);
 
       this.eligibleTeams = this.allTeams.filter(function (obj) {
         return obj.eligible;
