@@ -3,11 +3,16 @@ $alert-duration: .7s;
 @import '../styles/master';
 
 div#alerts {
-  position: absolute;
+  position: fixed;
   top: 4rem;
   right: 4rem;
 
   width: 20rem;
+
+  @media screen and (max-width: $sm) {
+    right: 50%;
+    transform: translateX(50%);
+  }
 
   z-index: 3;
 }
