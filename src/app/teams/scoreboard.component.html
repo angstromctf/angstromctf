@@ -16,18 +16,16 @@
             <th *ngIf="status.started">Points</th>
         </tr>
     </thead>
-
     <tbody>
         <tr *ngFor="let team of teams">
-            <template [ngIf]="team.eligible || showIneligible">
-                <th scope="row" *ngIf="team.eligible">{{ team.rank }}</th>
-                <th scope="row" *ngIf="!team.eligible">&mdash;</th>
-                <td><a [routerLink]="['/profile', team.id]">{{ team.name }}</a></td>
-                <td>{{ team.school }}</td>
-                <td *ngIf="status.started">{{ team.score }}</td>
-            </template>
+            <th scope="row" *ngIf="team.eligible">{{ team.rank }}</th>
+            <th scope="row" *ngIf="!team.eligible">&mdash;</th>
+            <td><a [routerLink]="['/profile', team.id]">{{ team.name }}</a></td>
+            <td>{{ team.school }}</td>
+            <td *ngIf="status.started">{{ team.score }}</td>
         </tr>
-    </tbody>
+  </tbody>
+
 </table>
 
 <br/><br/>

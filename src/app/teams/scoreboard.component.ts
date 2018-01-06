@@ -33,12 +33,19 @@ export class ScoreboardComponent implements OnInit {
   update(): void {
     this.teamsApi.teamsList().toPromise().then(data => {
       this.teams = data;
-
+      console.log(data);
+      if (!this.showIneligible){
+        this.teams = this.teams.filter(function (obj) {
+            return obj.eligible;
+        })
+      }
 
       // Rank the eligible teams
       let rank = 1;
       for (let team of this.teams) {
-        if (team.eligible) team.rank = rank++;
+        if (team.eligible){
+          team.rank = rank++;
+        }
       }
     });
   }
