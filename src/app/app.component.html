@@ -15,7 +15,7 @@
 
   <ng-container *ngIf="!status.user">
     <div class="right-nav">
-      <a class="item" href="javascript:void(0)" (click)="login()">Login</a>
+      <a class="item" routerLink="/login">Login</a>
       <a class="item" routerLink="/signup">Signup</a>
     </div>
   </ng-container>
