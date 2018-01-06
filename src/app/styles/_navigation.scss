@@ -2,9 +2,9 @@
 
 div#navigation {
   padding: 1em;
+  text-align-last: justify;
 
   a.item {
-    display: inline-block;
     color: white;
     text-transform: uppercase;
     font-family: $font-title, serif !important;
@@ -14,13 +14,15 @@ div#navigation {
     }
 
     margin-right: 1em;
+  }
 
-    &.right {
-      float: right;
-      margin-right: 0;
-      margin-left: 1em;
-    }
+  div.right-nav a.item:last-child {
+    margin-right: 0;
+  }
 
+  div.left-nav, div.right-nav {
+    display: inline-block;
+    text-align-last: left;
   }
 }
 

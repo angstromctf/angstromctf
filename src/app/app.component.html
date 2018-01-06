@@ -4,29 +4,37 @@
 <canvas id="background"></canvas>
 
 <div id="navigation">
-  <a class="item" routerLink="/">Home</a>
-  <a class="item" routerLink="/about">About</a>
-  <a class="item" routerLink="/sponsors">Sponsors</a>
-  <a class="item" routerLink="/scoreboard">Scoreboard</a>
-  <a class="item" href="http://learn.angstromctf.com">Learn</a>
-  <a class="item" routerLink="/problems" *ngIf="status.started">Problems</a>
+  <div class="left-nav">
+    <a class="item" routerLink="/">Home</a>
+    <a class="item" routerLink="/about">About</a>
+    <a class="item" routerLink="/sponsors">Sponsors</a>
+    <a class="item" routerLink="/scoreboard">Scoreboard</a>
+    <a class="item" href="http://learn.angstromctf.com">Learn</a>
+    <a class="item" routerLink="/problems" *ngIf="status.started">Problems</a>
+  </div>
 
   <ng-container *ngIf="!status.user">
-    <a class="item right" href="javascript:void(0)" (click)="login()">Login</a>
-    <a class="item right" routerLink="/signup">Signup</a>
+    <div class="right-nav">
+      <a class="item" href="javascript:void(0)" (click)="login()">Login</a>
+      <a class="item" routerLink="/signup">Signup</a>
+    </div>
   </ng-container>
 
   <ng-container *ngIf="status.user">
-    <a class="item right" routerLink="/account">Account</a>
-    <a class="item right" href="javascript:void(0)" (click)="logout()">Logout</a>
+    <div class="right-nav">
+      <a class="item" routerLink="/account">Account</a>
+      <a class="item" href="javascript:void(0)" (click)="logout()">Logout</a>
+    </div>
   </ng-container>
 
   <div id="nav-info" *ngIf="status.user && status.team">
-    <h3><span class="accent">{{ status.team.name }}</span></h3>
-    <ng-container *ngIf="status.started">
-      <h3><span class="accent">{{ status.team.score }}</span> points</h3>
-      <h3 *ngIf="status.team.eligible"><span class="accent">{{ status.team.place | ordinal }}</span> place</h3>
-    </ng-container>
+    <div class="left-nav">
+      <h3><span class="accent">{{ status.team.name }}</span></h3>
+      <ng-container *ngIf="status.started">
+        <h3><span class="accent">{{ status.team.score }}</span> points</h3>
+        <h3 *ngIf="status.team.eligible"><span class="accent">{{ status.team.place | ordinal }}</span> place</h3>
+      </ng-container>
+    </div>
   </div>
 </div>
 
