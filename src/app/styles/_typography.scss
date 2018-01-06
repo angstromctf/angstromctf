@@ -38,8 +38,12 @@ a {
   font-weight: bold;
   color: $accent-secondary;
 
-  &:visited, &:active {
+  &:active {
     color: inherit;
+  }
+
+  &:visited {
+    color: lighten($accent-secondary, 30%)
   }
 
   &:hover {
