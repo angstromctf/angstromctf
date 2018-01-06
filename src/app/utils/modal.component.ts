@@ -24,8 +24,8 @@ import { ModalService } from './modal.service';
   animations: [
     trigger('display', [
       state('active', style({ opacity: 1 })),
-      state('inactive', style({ opacity: 0 })),
-      transition('active <=> inactive', animate(500))
+      state('inactive', style({ opacity: 0, display: "none" })),
+      transition('active <=> inactive', animate(250))
     ])
   ]
 })

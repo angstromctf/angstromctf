@@ -6,11 +6,11 @@ modal.active ~ div#wrapper {
 }
 
 div#modal {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
 
-  background-color: $background-color;
+  background-color: rgba(0, 0, 0, 0.9);
   width: 60vw;
   margin: 20vh 20vw 0 20vw;
   padding: 2em;
@@ -20,6 +20,7 @@ div#modal {
 }
 
 span#modal-close {
+  font-size: 1.5em;
   float: right;
   user-select: none;
 
