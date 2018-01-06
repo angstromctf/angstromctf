@@ -86,7 +86,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   resize(canvas: any): void {
     // Make the canvas full size
     canvas.width = document.body.clientWidth;
-    canvas.height = document.body.clientHeight;
+    canvas.height = Math.min(document.body.clientHeight, 15000);
 
   }
 
@@ -94,7 +94,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   setup(canvas: any, ctx: any) {
     this.resize(canvas);
     this.repaint(canvas, ctx);
-    window.setInterval(() => { this.tick(canvas); this.resize(canvas); this.repaint(canvas, ctx); this.genStars(document.body.clientHeight/1000);}, 50);
+    window.setInterval(() => { this.tick(canvas); this.resize(canvas); this.repaint(canvas, ctx); this.genStars(canvas.height/1000);}, 50);
   }
 
   repaint(canvas: any, ctx: any): void {
@@ -110,7 +110,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   //Generate the stars/orbs that float on the site
   genStars(numStars: any) : void {
     var currStarCount = this.stars.length;
-    var newStarCount = Math.floor(STARS*numStars);
+    var newStarCount = Math.min(Math.floor(STARS*numStars),1500);
     if (newStarCount == currStarCount)
       return;
     else if (newStarCount > this.stars.length) {
