@@ -89,7 +89,8 @@ export class ScoreboardComponent implements OnInit {
           }
           points.push(point);
         }
-        lines.push({points: points, color: teamColors[data["name"]], name: data["name"]});
+        console.log(data)
+        lines.push({points: points, color: teamColors[data["name"]], name: data["name"], id: this.teams.filter((x) => {return x.name == data["name"]})[0].id});
         team += 1;
         if (team == 10) {
           lines.sort((function (b, a) { return this.that.teams.filter((x) => { return x.name == a.name })[0].rank-this.that.teams.filter((x) => { return x.name == b.name })[0].rank}).bind({that: this}));

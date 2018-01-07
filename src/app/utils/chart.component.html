@@ -2,6 +2,7 @@
   <g *ngFor="let line of lines">
     <polyline onmouseover="evt.target.parentNode.getElementsByClassName('label')[0].setAttribute('opacity', '1');"
       onmouseout="evt.target.parentNode.getElementsByClassName('label')[0].setAttribute('opacity', '0');"
+      (click)="router.navigate(['./profile/'+line.id])"
       fill="none"
       stroke="white"
       stroke-opacity="0"
@@ -11,6 +12,7 @@
     />
     <polyline onmouseover="evt.target.parentNode.getElementsByClassName('label')[0].setAttribute('opacity', '1');"
       onmouseout="evt.target.parentNode.getElementsByClassName('label')[0].setAttribute('opacity', '0');"
+      (click)="router.navigate(['./profile/'+line.id])"
       fill="none"
       [attr.alt]="line.name"
       [attr.stroke]="line.color"
