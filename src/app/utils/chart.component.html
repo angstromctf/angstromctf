@@ -23,7 +23,7 @@
       style="cursor: pointer;"
       *ngFor="let point of line.points.slice(1)" [attr.cx]="point[0]" [attr.cy]="point[1]" r="10" [attr.fill]="line.color">
     </circle>
-    <g class="label" style="transition: opacity 0.5s;" opacity="0">
+    <g class="label" style="transition: opacity 0.4s;" opacity="0">
       <text transform="scale(8, -8)" y="0" [attr.y]="-(maxY-minY-175)/8" font-family="Orbitron" [attr.fill]="line.color">{{ line.name }}</text>
       <text transform="scale(6, -6)" x="0" [attr.y]="-(maxY-minY-325)/6" font-family="Orbitron" fill="white">{{ line.points.slice(-1)[0][1] }}</text>
     </g>
