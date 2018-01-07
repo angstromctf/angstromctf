@@ -22,6 +22,7 @@
     />
     <circle onmouseover="evt.target.parentNode.getElementsByClassName('label')[0].setAttribute('opacity', '1');"
       onmouseout="evt.target.parentNode.getElementsByClassName('label')[0].setAttribute('opacity', '0');"
+      (click)="router.navigate(['./profile/'+line.id])"
       style="cursor: pointer;"
       *ngFor="let point of line.points.slice(1)" [attr.cx]="point[0]" [attr.cy]="point[1]" r="10" [attr.fill]="line.color">
     </circle>
