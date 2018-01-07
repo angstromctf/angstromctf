@@ -37,7 +37,11 @@ input[type=submit], button {
   }
 
   &.stable {
-    background-color: #666;
+    background-color: rgba(0, 191, 255, 0.667);
+
+    &:hover {
+      background-color: rgba(0, 206, 255, 0.667) !important;
+    }
   }
 
   &:disabled {
