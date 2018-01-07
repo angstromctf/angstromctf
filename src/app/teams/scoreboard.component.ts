@@ -9,7 +9,7 @@ import { StatusService } from '../utils/status.service';
 import { ChartService } from '../utils/chart.service';
 import 'rxjs/add/operator/toPromise';
 
-const START_TIME = 1492876800000;
+import { START_TIME, END_TIME } from '../config';
 
 @Component({
   selector: 'angstrom-scoreboard',
@@ -89,7 +89,6 @@ export class ScoreboardComponent implements OnInit {
           }
           points.push(point);
         }
-        console.log(data)
         lines.push({points: points, color: teamColors[data["name"]], name: data["name"], id: this.teams.filter((x) => {return x.name == data["name"]})[0].id});
         team += 1;
         if (team == 10) {

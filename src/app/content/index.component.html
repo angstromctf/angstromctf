@@ -11,7 +11,7 @@
 <h2 class="no-glow center" *ngIf="!status.started">Until Start:</h2>
 <h2 class="no-glow center" *ngIf="status.started && !status.ended">Time Remaining:</h2>
 
-<div id="clock-wrapper" *ngIf="!status.ended">
+<div id="clock-wrapper" >
   <canvas width="1" height="1" id="clock"></canvas>
 </div>
 
