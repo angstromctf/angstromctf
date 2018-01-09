@@ -28,13 +28,8 @@ function gaussian(): number {
     templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  constructor(public status: StatusService, private modalService: ModalService, private alert: AlertService, private router: Router) { }
+  constructor(public status: StatusService, private modalService: ModalService, private alert: AlertService, private router: Router) {
 
-  /**
-   * Open the login prompt.
-   */
-  login(): void {
-    this.modalService.open("Login", LoginComponent, {});
   }
 
   /**
@@ -51,23 +46,15 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   stars: any[] = [];
   ngOnInit(): void {
-    for (let i = 0; i < STARS; i++) {
-      let sf = Math.abs(gaussian());
-      this.stars[i] = {
-        x: Math.random(),
-        y: Math.random(),
-        r: 4 / Math.pow(sf + 1, 10),
-        vx: BASE_SPEED * gaussian(),
-        vy: -BASE_SPEED * (20 * sf + 4),
-        h: 300 + gaussian() * 200
-      };
-    }
+    this.genStars(document.body.clientHeight/1000);
   }
 
-  tick(): void {
-    for (let i = 0; i < STARS; i++) {
+  tick(canvas): void {
+
+    var yCons = 1375/canvas.height;
+    for (let i = 0; i < this.stars.length; i++) {
       this.stars[i].x += this.stars[i].vx + gaussian() * BASE_SPEED * 2;
-      this.stars[i].y += this.stars[i].vy + gaussian() * BASE_SPEED * 2;
+      this.stars[i].y += (this.stars[i].vy + gaussian() * BASE_SPEED * 2) * yCons;
 
       if (this.stars[i].x < 0) this.stars[i].x += 1;
       if (this.stars[i].x > 1) this.stars[i].x -= 1;
@@ -99,23 +86,48 @@ export class AppComponent implements OnInit, AfterViewInit {
   resize(canvas: any): void {
     // Make the canvas full size
     canvas.width = document.body.clientWidth;
-    canvas.height = document.body.clientHeight;
+    canvas.height = Math.min(document.body.clientHeight, 15000);
+
   }
 
   /** Start rendering the background. */
   setup(canvas: any, ctx: any) {
     this.resize(canvas);
     this.repaint(canvas, ctx);
-    window.setInterval(() => { this.tick(); this.resize(canvas); this.repaint(canvas, ctx); }, 50);
+    window.setInterval(() => { this.tick(canvas); this.resize(canvas); this.repaint(canvas, ctx); this.genStars(canvas.height/1000);}, 50);
   }
 
   repaint(canvas: any, ctx: any): void {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    for (let i = 0; i < STARS; i++) {
+    for (let i = 0; i < this.stars.length; i++) {
       ctx.fillStyle = 'hsl(' + this.stars[i].h + ',100%,60%)';
       ctx.beginPath();
       ctx.arc(this.stars[i].x * canvas.width, this.stars[i].y * canvas.height, this.stars[i].r, 0, 2*Math.PI, false);
       ctx.fill();
     }
   }
+
+  //Generate the stars/orbs that float on the site
+  genStars(numStars: any) : void {
+    var currStarCount = this.stars.length;
+    var newStarCount = Math.min(Math.floor(STARS*numStars),1500);
+    if (newStarCount == currStarCount)
+      return;
+    else if (newStarCount > this.stars.length) {
+      for (let i = currStarCount; i < newStarCount; i++) {
+        let sf = Math.abs(gaussian());
+        this.stars[i] = {
+          x: Math.random(),
+          y: Math.random(),
+          r: 4 / Math.pow(sf + 1, 10),
+          vx: BASE_SPEED * gaussian(),
+          vy: -BASE_SPEED * (20 * sf + 4),
+          h: 300 + gaussian() * 200
+        };
+      }
+    } else {
+        this.stars = this.stars.slice(0,newStarCount);
+    }
+  }
+
 }

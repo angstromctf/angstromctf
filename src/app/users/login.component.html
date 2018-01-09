@@ -1,3 +1,6 @@
+<h1>Login</h1>
+<br/>
+
 <form [formGroup]="form" (ngSubmit)="login(form.value)">
   <div *ngIf="failed" class="form-error">Login failed. Username and/or password is incorrect.</div>
 

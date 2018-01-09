@@ -1,26 +1,50 @@
 @import '../styles/master';
 
-modal.active ~ div#wrapper {
+div#wrapper.blur {
   filter: blur(6px) brightness(30%);
   pointer-events: none;
 }
 
-div#modal {
-  position: absolute;
+div#modal-bg {
+  position: fixed;
   top: 0;
   left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+div#wrapper {
+  transition: 0.25s filter linear;
+}
+
+div#modal {
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
 
   background-color: $background-color;
   width: 60vw;
-  margin: 20vh 20vw 0 20vw;
+  margin-top: 20vh;
+
+  @media screen and (max-width: $sm) {
+    margin-top: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
   padding: 2em;
 
-  z-index: -2;
+  z-index: 2;
   max-height: 60vh;
 }
 
 span#modal-close {
-  float: right;
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  font-size: 1.5em;
   user-select: none;
 
   &:hover {

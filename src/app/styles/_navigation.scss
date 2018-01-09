@@ -11,12 +11,37 @@ div#navigation {
 
     &:hover {
       color: darken(white, 20%);
+
+      span.accent {
+        color: darken($accent-primary, 20%);
+      }
     }
 
     margin-right: 1em;
+
+    span.accent {
+      color: $accent-primary;
+    }
   }
 
-  div.right-nav a.item:last-child {
+  span.item {
+    color: white;
+    text-transform: uppercase;
+    font-family: $font-title, serif !important;
+    font-weight: bold;
+
+    margin-right: 1em;
+
+    span.accent {
+      color: $accent-primary;
+    }
+
+    &:hover {
+      cursor: default;
+    }
+  }
+
+  div.right-nav .item:last-child {
     margin-right: 0;
   }
 

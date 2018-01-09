@@ -20,6 +20,7 @@ import { AppComponent }                     from './app.component';
 import { ExtendedInputComponent }           from './lib/extended-input.component';
 import { AboutComponent }                   from './content/about.component';
 import { AccountComponent }                 from './users/account.component';
+import { ChartComponent }                   from './utils/chart.component';
 import { IndexComponent }                   from './content/index.component';
 import { ModalComponent }                   from './utils/modal.component';
 import { LoginComponent }                   from './users/login.component';
@@ -34,6 +35,7 @@ import { ApiModule }                        from './api/api.module';
 import { StatusService }                    from './utils/status.service';
 import { AlertService }                     from './utils/alert.service';
 import { ModalService }                     from './utils/modal.service';
+import { ChartService }                     from './utils/chart.service'
 import { OrdinalPipe }                      from './lib/ordinal.pipe';
 import { BASE_PATH }                        from './api/variables';
 
@@ -96,6 +98,7 @@ import { BASE_PATH }                        from './api/variables';
     AboutComponent,
     AlertComponent,
     AccountComponent,
+    ChartComponent,
     IndexComponent,
     LoginComponent,
     ProblemComponent,
@@ -116,6 +119,7 @@ import { BASE_PATH }                        from './api/variables';
     StatusService,
     AlertService,
     ModalService,
+    ChartService,
     { provide: BASE_PATH, useValue: environment.apiUrl }
   ],
   bootstrap: [ AppComponent ]
