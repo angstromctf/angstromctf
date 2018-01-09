@@ -26,8 +26,15 @@ canvas#background {
 
 div#navigation, div#content {
   display: block;
+
+  margin: 0.75rem;
   padding: 1rem;
-  margin: 0.8rem;
+
+  @media screen and (min-width: $md) {
+    margin: 0.75rem 3rem;
+    padding: 1rem 2rem;
+  }
+
   box-sizing: border-box;
   background-color: $background-color;
 }
