@@ -40,11 +40,11 @@ div#navigation, div#content {
 }
 
 div#content {
-  min-height: calc(100vh - 2ex - 2rem - 3rem);
+  min-height: calc(100vh - 1em - 2rem - 3rem);
 
 
   @media screen and (min-width: $md) {
-    min-height: calc(100vh - 2ex - 2rem - 4.8rem);
+    min-height: calc(100vh - 1em - 2rem - 4.8rem);
   }
 }
 
