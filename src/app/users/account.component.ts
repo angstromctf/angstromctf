@@ -7,7 +7,7 @@ import { Title } from '@angular/platform-browser';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { StatusService } from '../utils/status.service';
 import { AlertService } from '../utils/alert.service';
-import { TeamsApi, UsersApi } from '../api/api/api';
+import { TeamsService, UsersService } from '../api/api/api';
 import { validateEqual } from '../lib/equal.validator';
 import 'rxjs/add/operator/toPromise';
 
@@ -21,7 +21,7 @@ export class AccountComponent implements OnInit {
   join: FormGroup;
   account: any;
 
-  constructor(private titleService: Title, private teamsApi: TeamsApi, private usersApi: UsersApi, public status: StatusService, private fb: FormBuilder,
+  constructor(private titleService: Title, private teamsService: TeamsService, private usersService: UsersService, public status: StatusService, private fb: FormBuilder,
               private alert: AlertService) {
     // Create the various forms on the page
     this.change_password = fb.group({
@@ -44,7 +44,7 @@ export class AccountComponent implements OnInit {
     this.titleService.setTitle("Account | ångstromCTF");
 
     // Load the user's data from the server
-    this.teamsApi.teamsAccount().toPromise().then(data => this.account = data);
+    this.teamsService.teamsAccount().toPromise().then(data => this.account = data);
   }
 
   /**
@@ -52,7 +52,7 @@ export class AccountComponent implements OnInit {
    * @param data - The form data the user submitted..
    */
   doCreate(data: any): void {
-    this.teamsApi.teamsNew(data).toPromise().then(data => {
+    this.teamsService.teamsNew(data).toPromise().then(data => {
       this.account = data;
       // Reload user status data, and notify the user that it was successful
       this.status.reload().then(() => this.alert.open("success", "You've created team " + this.status.team.name + "."));
@@ -63,7 +63,7 @@ export class AccountComponent implements OnInit {
   }
 
   doJoin(data: any): void {
-    this.teamsApi.teamsJoin(data).toPromise().then(data => {
+    this.teamsService.teamsJoin(data).toPromise().then(data => {
       this.account = data;
       this.status.reload().then(() => this.alert.open("success", "You've joined team " + this.status.team.name + "."));
     }, error => {
@@ -73,7 +73,7 @@ export class AccountComponent implements OnInit {
   }
 
   doChangePassword(data: any): void {
-    this.usersApi.usersChangePassword(data).toPromise().then(data => {
+    this.usersService.usersChangePassword(data).toPromise().then(data => {
       this.alert.open("success", "You've changed your password.");
     }, () => {
       this.alert.open("error", "Your password couldn't be changed.");

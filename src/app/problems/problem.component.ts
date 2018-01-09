@@ -4,7 +4,7 @@
 
 import { Component, Inject } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { ProblemsApi } from '../api/api/api';
+import { ProblemsService } from '../api/api/problems.service';
 import { ModalService } from '../utils/modal.service';
 import { AlertService } from '../utils/alert.service';
 import { StatusService } from '../utils/status.service';
@@ -20,7 +20,7 @@ export class ProblemComponent {
   form: FormGroup;
   hint: boolean = false;
 
-  constructor(private fb: FormBuilder, private problemsApi: ProblemsApi, private modalService: ModalService,
+  constructor(private fb: FormBuilder, private problemsService: ProblemsService, private modalService: ModalService,
               private alert: AlertService, public status: StatusService, @Inject(PROBLEM_TOKEN) public problem: any) {
     this.form = fb.group({
       guess: [null]
@@ -32,7 +32,7 @@ export class ProblemComponent {
    * @param flag The user's guess for the flag
    */
   submit(flag: any): void {
-    this.problemsApi.problemsSubmit(this.problem.id, flag).toPromise().then(() => {
+    this.problemsService.problemsSubmit(this.problem.id, flag).toPromise().then(() => {
       this.alert.open("success", "You solved problem \"" + this.problem.title + "\" for " + this.problem.value + " points.");
 
       // Recalculate the user's score

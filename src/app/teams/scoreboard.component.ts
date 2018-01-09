@@ -4,7 +4,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { TeamsApi } from '../api/api/api';
+import { TeamsService } from '../api/api/teams.service';
 import { StatusService } from '../utils/status.service';
 import 'rxjs/add/operator/toPromise';
 
@@ -15,7 +15,7 @@ import 'rxjs/add/operator/toPromise';
 export class ScoreboardComponent implements OnInit {
   teams: any;
 
-  constructor(private teamsApi: TeamsApi, private titleService: Title, public status: StatusService) { }
+  constructor(private teamsService: TeamsService, private titleService: Title, public status: StatusService) { }
 
   ngOnInit(): void {
     this.titleService.setTitle("Scoreboard | ångstromCTF");
@@ -29,7 +29,7 @@ export class ScoreboardComponent implements OnInit {
    * Update the scoreboard by getting the list of teams and (re-)computing the rankings.
    */
   update(): void {
-    this.teamsApi.teamsList().toPromise().then(data => {
+    this.teamsService.teamsList().toPromise().then(data => {
       this.teams = data;
 
       // Rank the eligible teams

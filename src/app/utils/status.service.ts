@@ -4,7 +4,7 @@
  */
 
 import { Injectable } from "@angular/core";
-import { UsersApi } from '../api/api/api';
+import { UsersService } from '../api/api/api';
 import { START_TIME, END_TIME } from '../config';
 
 @Injectable()
@@ -12,7 +12,7 @@ export class StatusService {
   user: any;
   team: any;
 
-  constructor (private usersApi: UsersApi) {
+  constructor (private usersService: UsersService) {
     this.reload();
   }
 
@@ -23,7 +23,7 @@ export class StatusService {
    * @returns {Promise<any>} - A Promise that completes when the user is logged in.
    */
   login(username: string, password: string): Promise<any> {
-    return this.usersApi.usersLogin({
+    return this.usersService.usersLogin({
       username: username,
       password: password
     }).toPromise().then(status => {
@@ -36,7 +36,7 @@ export class StatusService {
    * @returns {Promise<any>} - A Promise that completes when the user is logged out.
    */
   logout(): Promise<any> {
-    return this.usersApi.usersLogout().toPromise().then(status => {
+    return this.usersService.usersLogout().toPromise().then(status => {
       this.user = null;
       this.update(status);
       return true;
@@ -48,7 +48,7 @@ export class StatusService {
    * @returns {Promise<any>} - A Promise that completes when the status is reloaded.
    */
   reload(): Promise<any> {
-    return this.usersApi.usersStatus().toPromise().then(status => {
+    return this.usersService.usersStatus().toPromise().then(status => {
       this.update(status);
     });
   }

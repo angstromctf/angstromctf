@@ -4,7 +4,8 @@
 
 import { Component, OnInit, InjectionToken } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ProblemsApi, UsersApi } from '../api/api/api';
+import { ProblemsService } from '../api/api/problems.service';
+import { UsersService } from '../api/api/users.service';
 import { StatusService } from '../utils/status.service';
 import { ModalService } from '../utils/modal.service';
 import { ProblemComponent } from './problem.component';
@@ -23,12 +24,12 @@ export class ProblemsComponent implements OnInit {
   categories: string[];
   account: any;
 
-  constructor(private problemsApi: ProblemsApi, private usersApi: UsersApi, private titleService: Title, public status: StatusService, private modal: ModalService) { }
+  constructor(private problemsService: ProblemsService, private usersService: UsersService, private titleService: Title, public status: StatusService, private modal: ModalService) { }
 
   ngOnInit(): void {
     this.titleService.setTitle("Problems | ångstromCTF");
 
-    this.problemsApi.problemsList().toPromise().then(problems => {
+    this.problemsService.problemsList().toPromise().then(problems => {
       this.problems = problems;
 
       // Sort the problems into categories

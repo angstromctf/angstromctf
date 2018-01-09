@@ -3,17 +3,14 @@
  * are "provided" globally to all Components.
  */
 
-import { NgModule, Injectable } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule, Title }             from '@angular/platform-browser';
 import { BrowserAnimationsModule }          from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule }                     from '@angular/router';
 import {
-  HttpModule, CookieXSRFStrategy, XSRFStrategy, Request, Response,
-  XHRBackend, ResponseOptions
-}                                           from '@angular/http';
-import { BrowserXhr }                       from '@angular/http';
-import { Observable }                       from 'rxjs/Observable';
+  HttpClientModule, HttpClientXsrfModule
+}                                           from '@angular/common/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 import { environment } from '../environments/environment';
@@ -33,7 +30,7 @@ import { ScoreboardComponent }              from './teams/scoreboard.component';
 import { SponsorsComponent }                from './content/sponsors.component';
 import { SignupComponent }                  from './users/signup.component';
 
-import { ProblemsApi, TeamsApi, UsersApi }  from './api/api/api';
+import { ApiModule }                        from './api/api.module';
 import { StatusService }                    from './utils/status.service';
 import { AlertService }                     from './utils/alert.service';
 import { ModalService }                     from './utils/modal.service';
@@ -44,48 +41,32 @@ import { BASE_PATH }                        from './api/variables';
 /**
  * Override the default HTTP request backend to add error handling using our alert mechanism.
  */
-@Injectable()
-export class ConnectionRefusedBackend extends XHRBackend {
-  constructor(browserXhr: BrowserXhr, responseOptions: ResponseOptions, xsrfStrategy: XSRFStrategy,
-              private alert: AlertService) {
-    super(browserXhr, responseOptions, xsrfStrategy);
-  }
-
-  /**
-   * Handle an HTTP connection.
-   * @param {Request} request - The HTTP request that's being made.
-   * @returns {XHRConnection} - A modified version of the default connection, which catches certain types of errors.
-   */
-  createConnection(request: Request) {
-    // Get the default connection
-    let xhrConnection = super.createConnection(request);
-
-    // Modify its response to catch certain types of errors
-    xhrConnection.response = xhrConnection.response.catch((error: Response) => {
-      if (error.status === 0) this.alert.open("error", "The API server is unreachable.");
-      else if (error.status === 500) this.alert.open("error", "The API server experienced an internal server error.");
-
-      // Throw it, so it gets printed nicely to the console
-      return Observable.throw(error);
-    });
-
-    return xhrConnection;
-  }
-}
-
-/**
- * Simple class that renames Angular's CSRF token to "X-CSRFToken", which is the default used by Django.
- */
-@Injectable()
-export class CSRFStrategy extends CookieXSRFStrategy {
-  constructor() {
-    super('csrftoken', 'X-CSRFToken');
-  }
-
-  configureRequest(req: any): void {
-    super.configureRequest(req);
-  }
-}
+// @Injectable()
+// export class ConnectionRefusedBackend extends HttpXhrBackend {
+//   constructor(private alert: AlertService) {
+//   }
+//
+//   /**
+//    * Handle an HTTP connection.
+//    * @param {HttpRequest} request - The HTTP request that's being made.
+//    * @returns {XHRConnection} - A modified version of the default connection, which catches certain types of errors.
+//    */
+//   createConnection(request: HttpRequest<any>) {
+//     // Get the default connection
+//     let xhrConnection = super.handle(request);
+//
+//     // Modify its response to catch certain types of errors
+//     xhrConnection.response = xhrConnection.response.catch((error: HttpResponse) => {
+//       if (error.status === 0) this.alert.open("error", "The API server is unreachable.");
+//       else if (error.status === 500) this.alert.open("error", "The API server experienced an internal server error.");
+//
+//       // Throw it, so it gets printed nicely to the console
+//       return Observable.throw(error);
+//     });
+//
+//     return xhrConnection;
+//   }
+// }
 
 @NgModule({
   imports: [
@@ -93,7 +74,9 @@ export class CSRFStrategy extends CookieXSRFStrategy {
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule,
+    ApiModule,
+    HttpClientModule,
+    HttpClientXsrfModule.withOptions({ cookieName: "X-CSRFToken" }),
     RouterModule.forRoot([
       { path: '', component: IndexComponent },
       { path: 'account', component: AccountComponent },
@@ -129,16 +112,11 @@ export class CSRFStrategy extends CookieXSRFStrategy {
     ProblemComponent
   ],
   providers: [
-    ProblemsApi,
-    TeamsApi,
-    UsersApi,
     Title,
     StatusService,
     AlertService,
     ModalService,
-    { provide: BASE_PATH, useValue: environment.apiUrl },
-    { provide: XHRBackend, useClass: ConnectionRefusedBackend },
-    { provide: XSRFStrategy, useClass: CSRFStrategy }
+    { provide: BASE_PATH, useValue: environment.apiUrl }
   ],
   bootstrap: [ AppComponent ]
 })

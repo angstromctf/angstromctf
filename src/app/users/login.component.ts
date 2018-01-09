@@ -5,7 +5,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { UsersApi } from '../api/api/api';
+import { UsersService } from '../api/api/api';
 import { StatusService } from '../utils/status.service';
 import { ModalService } from '../utils/modal.service';
 import { AlertService } from '../utils/alert.service';
@@ -21,7 +21,7 @@ export class LoginComponent {
   // Whether the last login failed
   failed: boolean = false;
 
-  constructor(private router: Router, private usersApi: UsersApi, public status: StatusService,
+  constructor(private router: Router, private usersService: UsersService, public status: StatusService,
               private modalService: ModalService, private alert: AlertService, private fb: FormBuilder) {
     this.form = fb.group({
       username: ['', Validators.required],
