@@ -28,9 +28,7 @@ function gaussian(): number {
     templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  constructor(public status: StatusService, private modalService: ModalService, private alert: AlertService, private router: Router) {
-
-  }
+  constructor(public status: StatusService, public modalService: ModalService, private alert: AlertService, private router: Router) { }
 
   /**
    * Log out the user.
