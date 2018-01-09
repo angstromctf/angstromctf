@@ -40,7 +40,12 @@ div#navigation, div#content {
 }
 
 div#content {
-  min-height: calc(100vh - 49px - 4.8rem);
+  min-height: calc(100vh - 49px - 3rem);
+
+
+  @media screen and (min-width: $md) {
+    min-height: calc(100vh - 49px - 4.8rem);
+  }
 }
 
 /* Large desktops. */
