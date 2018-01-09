@@ -1,5 +1,4 @@
 <h1>Signup</h1>
-<br/>
 
 <form [formGroup]="form" (ngSubmit)="submit(form.value)">
   <extended-input [label]="'Username'" [errors]="form.controls['username'].errors" [touched]="form.controls['username'].touched">
