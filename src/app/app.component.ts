@@ -51,7 +51,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   tick(canvas): void {
 
-    var yCons = 1375/canvas.height;
+    var yCons = 1300/canvas.height;
     for (let i = 0; i < this.stars.length; i++) {
       this.stars[i].x += this.stars[i].vx + gaussian() * BASE_SPEED * 2;
       this.stars[i].y += (this.stars[i].vy + gaussian() * BASE_SPEED * 2) * yCons;
