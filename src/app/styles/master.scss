@@ -24,9 +24,13 @@ canvas#background {
   z-index: -1;
 }
 
-div#navigation, div#content {
-  display: block;
+div#wrapper {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
 
+div#navigation, div#content {
   margin: 0.75rem;
   padding: 1rem;
 
@@ -40,12 +44,8 @@ div#navigation, div#content {
 }
 
 div#content {
-  min-height: calc(100vh - 1em - 2rem - 3rem);
-
-
-  @media screen and (min-width: $md) {
-    min-height: calc(100vh - 1em - 2rem - 4.8rem);
-  }
+  margin-top: 0;
+  flex: 1;
 }
 
 /* Large desktops. */
@@ -55,9 +55,7 @@ div#content {
 @media screen and (min-width: $md) and (max-width: $lg - 1px) {}
 
 /* Small mode */
-@media screen and (max-width: $md - 1px) {
-  div#wrapper { display: block; }
-}
+@media screen and (max-width: $md - 1px) { }
 
 /* Tablets. */
 @media screen and (min-width: $sm) and (max-width: $md - 1px) {
