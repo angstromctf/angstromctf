@@ -51,7 +51,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     var yCons = 1300/canvas.height;
     for (let i = 0; i < this.stars.length; i++) {
-      this.stars[i].x += this.stars[i].vx + gaussian() * BASE_SPEED * 2;
+      this.stars[i].x += this.stars[i].vx + gaussian() * BASE_SPEED;
       this.stars[i].y += (this.stars[i].vy + gaussian() * BASE_SPEED * 2) * yCons;
 
       if (this.stars[i].x < 0) this.stars[i].x += 1;
@@ -85,7 +85,6 @@ export class AppComponent implements OnInit, AfterViewInit {
     // Make the canvas full size
     canvas.width = document.body.clientWidth;
     canvas.height = Math.min(document.body.clientHeight, 15000);
-
   }
 
   /** Start rendering the background. */
@@ -95,6 +94,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     window.setInterval(() => { this.tick(canvas); this.resize(canvas); this.repaint(canvas, ctx); this.genStars(canvas.height/1000);}, 50);
   }
 
+  /** Redraw the background. */
   repaint(canvas: any, ctx: any): void {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     for (let i = 0; i < this.stars.length; i++) {
@@ -105,21 +105,21 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
   }
 
-  //Generate the stars/orbs that float on the site
+  /* Generate the star background. */
   genStars(numStars: any) : void {
     var currStarCount = this.stars.length;
-    var newStarCount = Math.min(Math.floor(STARS*numStars),1500);
+    var newStarCount = Math.min(Math.floor(STARS * numStars), 1500);
     if (newStarCount == currStarCount)
       return;
     else if (newStarCount > this.stars.length) {
       for (let i = currStarCount; i < newStarCount; i++) {
-        let sf = Math.abs(gaussian());
+        let d = Math.pow(Math.abs(gaussian()) + 1, 3);
         this.stars[i] = {
           x: Math.random(),
           y: Math.random(),
-          r: 4 / Math.pow(sf + 1, 10),
+          r: 4 / d,
           vx: BASE_SPEED * gaussian(),
-          vy: -BASE_SPEED * (20 * sf + 4),
+          vy: -BASE_SPEED * (4 / d),
           h: 300 + gaussian() * 200
         };
       }
