@@ -1,8 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Candal|Mr+Dafoe');
+@import '../styles/theme';
 
 img#splash {
   display: block;
   margin: 0 auto;
   text-align: center;
-  width: 65vw;
+
+  width: 80vw;
+
+  @media screen and (min-width: $md) {
+    width: 40vw;
+  }
 }

@@ -1,4 +1,6 @@
-$sizes: (sm: 0px, md: 960px, lg: 1420px);
+@import 'theme';
+
+$sizes: (xs: 0px, sm: $sm, md: $md, lg: $lg);
 $gutter: 1rem;
 
 .row {
@@ -26,4 +28,3 @@ $gutter: 1rem;
 .valign-center {
   align-self: center;
 }
-
