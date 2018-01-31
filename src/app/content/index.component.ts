@@ -10,7 +10,8 @@ import { StatusService } from '../utils/status.service';
 
 @Component({
   selector: 'angstrom-index',
-  templateUrl: './index.component.html'
+  templateUrl: './index.component.html',
+  styleUrls: ['./index.component.scss']
 })
 export class IndexComponent implements OnInit, AfterViewInit {
   // The units of time in use by the clock and their durations

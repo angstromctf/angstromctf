@@ -10,7 +10,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 1.5rem 0;
   font-weight: normal;
   text-transform: uppercase;
-  font-family: $font-title, serif !important;
+  font-family: $font-title, serif;
 
   &.center {
     text-align: center;
@@ -19,18 +19,39 @@ h1, h2, h3, h4, h5, h6 {
 
 h1, h2, h3, h4, h5, h6 {
   color: white;
+
   a {
     font-weight: normal;
     color: white;
   }
 }
 
+@mixin glow($size, $color) {
+  $all: ();
+  @for $i from 1 through 5 {
+    $all: append($all, 0 0 ($i*$i*$size) + px $color, comma);
+  }
+  @warn $all;
+  text-shadow: $all;
+}
+
+
 span.primary-accent {
   color: $accent-primary;
+
+  h1 & {
+    color: white;
+    @include glow(4, $accent-primary);
+  }
 }
 
 span.secondary-accent {
   color: $accent-secondary;
+
+  h1 & {
+    color: white;
+    @include glow(4, $accent-secondary);
+  }
 }
 
 a {
@@ -54,10 +75,6 @@ h1 {
   }
 }
 h2 { font-size: 2em; }
-
-h1 span.accent, h2 span.accent, h3 span.accent, h4 span.accent, h5 span.accent, h6 span.accent {
-  color: $accent-secondary;
-}
 
 code {
   color: $accent-secondary;
