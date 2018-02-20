@@ -78,7 +78,7 @@ import { BASE_PATH }                        from './api/variables';
     ReactiveFormsModule,
     ApiModule,
     HttpClientModule,
-    HttpClientXsrfModule.withOptions({ cookieName: "X-CSRFToken" }),
+    HttpClientXsrfModule.withOptions({ cookieName: "csrftoken" }),
     RouterModule.forRoot([
       { path: '', component: IndexComponent },
       { path: 'account', component: AccountComponent },
