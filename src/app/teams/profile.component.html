@@ -3,7 +3,7 @@
 <h3>Members</h3>
 
 <ul>
-  <li *ngFor="let member of team?.members">{{ member.user.username }}</li>
+  <li *ngFor="let member of team?.members">{{ member.username }}</li>
 </ul>
 
 <ng-container *ngIf="status.started">

@@ -46,7 +46,7 @@
         <p>Your team has {{ status.team.members.length }} out of 5 possible members:</p>
 
         <ul>
-            <li *ngFor="let member of status.team.members">{{ member.user.username }}</li>
+            <li *ngFor="let member of status.team.members">{{ member.username }}</li>
         </ul>
 
         <p>Your shell account username and default password are below:</p>
