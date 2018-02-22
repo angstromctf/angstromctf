@@ -74,7 +74,7 @@ export class StatusService {
    * @returns {boolean} - Whether the contest has started.
    */
   get started(): boolean {
-    return Date.now() > this.competition.start;
+    return this.competition ? Date.now() > this.competition.start : false;
   }
 
   /**
@@ -82,6 +82,6 @@ export class StatusService {
    * @returns {boolean} - Whether the contest has ended.
    */
   get ended(): boolean {
-    return Date.now() > this.competition.end;
+    return this.competition ? Date.now() > this.competition.end : false;
   }
 }

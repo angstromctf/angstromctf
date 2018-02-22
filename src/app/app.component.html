@@ -13,7 +13,7 @@
       <a class="item" routerLink="/sponsors">Sponsors</a>
       <a class="item" routerLink="/scoreboard">Scoreboard</a>
       <a class="item" target="_blank" href="http://learn.angstromctf.com">Learn</a>
-      <a class="item" routerLink="/problems" *ngIf="status.started">Problems</a>
+      <a class="item" routerLink="/problems" *ngIf="status?.started">Problems</a>
     </div>
 
     <ng-container *ngIf="!status.user">
@@ -25,7 +25,7 @@
 
     <ng-container *ngIf="status.user">
       <div class="right-nav">
-        <span class="item" *ngIf="status.team"><span class="accent">{{ status.team.name }}<span *ngIf="status.started">: {{ status.team.score }} points</span></span></span>
+        <span class="item" *ngIf="status.team"><span class="accent">{{ status.team.name }}<span *ngIf="status?.started">: {{ status.team.score }} points</span></span></span>
         <a class="item" routerLink="/account">Account</a>
         <a class="item" href="javascript:void(0)" (click)="logout()">Logout</a>
       </div>

@@ -13,12 +13,12 @@
 
 <p>The first &aring;ngstromCTF took place April 8-17, 2016. It was a phenomenal success, with almost 500 teams participating and submitting thousands of problem solutions. The second annual competition took place April 22-29, 2017, and almost 700 teams participated from 79 countries and 36 U.S. states. Now in our third year, our chief goal is to expand our competition to an even wider audience and make our competition <strong>as accessible as possible</strong> to students with <strong>little to no background knowledge in hacking and cybersecurity</strong>.</p>
 
+<h2 class="no-glow center" *ngIf="!status.started">Until Start:</h2>
+<h2 class="no-glow center" *ngIf="status.started && !status.ended">Time Remaining:</h2>
+
 <div id="clock-wrapper" *ngIf="!status.ended">
   <canvas width="1" height="1" id="clock"></canvas>
 </div>
-
-<h2 class="no-glow center" *ngIf="!status.started">Until Start:</h2>
-<h2 class="no-glow center" *ngIf="status.started && !status.ended">Time Remaining:</h2>
 
 <p>Students will compete in <strong>teams of up to five members</strong>. Points are given for answering each question
     (entering the flag). Prizes will be awarded to the top-scoring U.S. high-school teams. &aring;ngstromCTF is intended both for

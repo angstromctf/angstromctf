@@ -35,7 +35,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
       canvas.width = document.getElementById("clock-wrapper").clientWidth;
 
       // Set up the clock when the window loads
-      window.onload = () => this.setup(canvas, ctx);
+      window.addEventListener('load', () => this.setup(canvas, ctx), false);
       if (document.readyState === "complete") this.setup(canvas, ctx);
 
       // Resize the clock when the window is resized
@@ -61,10 +61,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
     if (!this.status.ended) {
       let seconds_remaining: number;
 
-      // Store the current time, split up by units
-      let time: number[] = this.DURATIONS.slice();
-
-      if (Date.now() > this.status.competition.start) {
+      if (Date.now() < this.status.competition.start) {
         // Before the competition, display the time until it starts
         seconds_remaining = Math.floor((this.status.competition.start - Date.now()) / 1000);
       } else {
@@ -72,8 +69,11 @@ export class IndexComponent implements OnInit, AfterViewInit {
         seconds_remaining = Math.floor((this.status.competition.end - Date.now()) / 1000);
       }
 
+      // Store the current time, split up by units
+      let time: number[] = this.DURATIONS.slice();
+
       // Break the time down into the different units
-      for (let i = time.length; i >= 0; i--) {
+      for (let i = time.length-1; i >= 0; i--) {
         time[i] = seconds_remaining % this.DURATIONS[i];
         seconds_remaining = Math.floor(seconds_remaining / this.DURATIONS[i]);
       }

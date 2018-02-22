@@ -41,15 +41,14 @@ export class AppComponent implements OnInit, AfterViewInit {
     });
   }
 
-
   stars: any[] = [];
+
   ngOnInit(): void {
-    this.genStars(document.body.clientHeight/1000);
+    this.genStars(document.body.clientHeight / 1000);
   }
 
   tick(canvas): void {
-
-    var yCons = 1300/canvas.height;
+    var yCons = 1300 / canvas.height;
     for (let i = 0; i < this.stars.length; i++) {
       this.stars[i].x += this.stars[i].vx + gaussian() * BASE_SPEED;
       this.stars[i].y += (this.stars[i].vy + gaussian() * BASE_SPEED * 2) * yCons;
@@ -77,7 +76,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     let ctx: any = canvas.getContext("2d");
 
     // Set up the clock when the window loads
-    window.onload = () => this.setup(canvas, ctx);
+    window.addEventListener('load', () => this.setup(canvas, ctx), false);
     if (document.readyState === "complete") this.setup(canvas, ctx);
   }
 
