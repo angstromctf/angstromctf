@@ -25,7 +25,6 @@ export class ScoreboardComponent implements OnInit {
   ngOnInit(): void {
     this.titleService.setTitle("Scoreboard | ångstromCTF");
 
-    status.
     this.update();
 
     // Update the scoreboard every minute
