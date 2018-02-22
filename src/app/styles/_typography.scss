@@ -39,7 +39,7 @@ h1, h2, h3, h4, h5, h6 {
 span.primary-accent {
   color: $accent-primary;
 
-  h1, .glow & {
+  h1 & {
     color: white;
     @include glow(4, $accent-primary);
   }
@@ -48,7 +48,7 @@ span.primary-accent {
 span.secondary-accent {
   color: $accent-secondary;
 
-  h1, .glow & {
+  h1 & {
     color: white;
     @include glow(4, $accent-secondary);
   }
