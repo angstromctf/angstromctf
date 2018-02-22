@@ -5,12 +5,12 @@
 
 import { Injectable } from "@angular/core";
 import { UsersService } from '../api/api/api';
-import { START_TIME, END_TIME } from '../config';
 
 @Injectable()
 export class StatusService {
   user: any;
   team: any;
+  competition: any;
 
   constructor (private usersService: UsersService) {
     this.reload();
@@ -66,6 +66,7 @@ export class StatusService {
   update(status: any): void {
     this.user = status.user;
     this.team = status.team;
+    this.competition = status.competition;
   }
 
   /**
@@ -73,7 +74,7 @@ export class StatusService {
    * @returns {boolean} - Whether the contest has started.
    */
   get started(): boolean {
-    return Date.now() > START_TIME;
+    return Date.now() > this.competition.start;
   }
 
   /**
@@ -81,6 +82,6 @@ export class StatusService {
    * @returns {boolean} - Whether the contest has ended.
    */
   get ended(): boolean {
-    return Date.now() > END_TIME;
+    return Date.now() > this.competition.end;
   }
 }

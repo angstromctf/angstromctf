@@ -9,8 +9,6 @@ import { StatusService } from '../utils/status.service';
 import { ChartService } from '../utils/chart.service';
 import 'rxjs/add/operator/toPromise';
 
-import { START_TIME, END_TIME } from '../config';
-
 @Component({
   selector: 'angstrom-scoreboard',
   templateUrl: './scoreboard.component.html',
@@ -20,7 +18,8 @@ export class ScoreboardComponent implements OnInit {
   allTeams: any;
   eligibleTeams: any;
   showIneligible: boolean;
-  colors = ["#bf42f4", "#3d23b2", "#2352b2", "#d12792", "#7b0396", "#118adb", "#ff72ee", "#3f0182", "#07248e", "#ad2bd1"]
+  colors = ["#bf42f4", "#3d23b2", "#2352b2", "#d12792", "#7b0396", "#118adb", "#ff72ee", "#3f0182", "#07248e", "#ad2bd1"];
+
   constructor(private teamsService: TeamsService, private titleService: Title, public status: StatusService, private chartService: ChartService) { }
 
   ngOnInit(): void {
@@ -63,7 +62,8 @@ export class ScoreboardComponent implements OnInit {
     let maxY = 0;
     let lines = [];
     let team = 0;
-    let teamColors = {}
+    let teamColors = {};
+
     for (let i = 0; i < (this.teams.length < 10 ? this.teams.length: 10); i++) {
       teamColors[this.teams[i].name] = this.colors[i%this.colors.length];
       this.teamsService.teamsProgress(this.teams[i].id).toPromise().then(data => {
@@ -72,7 +72,7 @@ export class ScoreboardComponent implements OnInit {
         let score = 0;
         for (let j = 0; j < solves.length; j++) {
           score += solves[j].problem.value;
-          let point = [(+new Date(solves[j].time)-START_TIME)/100000, score];
+          let point = [(+new Date(solves[j].time) - this.status.competition.start) / 100000, score];
           if (point[0] < minX) {
             minX = point[0];
           }
@@ -86,6 +86,7 @@ export class ScoreboardComponent implements OnInit {
         }
         lines.push({points: points, color: teamColors[data.name], name: data.name, id: this.teams.filter((x) => {return x.name == data.name})[0].id});
         team += 1;
+
         if (team == 10) {
           lines.sort((function (b, a) { return this.that.teams.filter((x) => { return x.name == a.name })[0].rank-this.that.teams.filter((x) => { return x.name == b.name })[0].rank}).bind({that: this}));
           this.chartService.setBounds(minX, maxX, 0, maxY);

@@ -5,7 +5,6 @@
 
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { START_TIME, END_TIME } from '../config';
 import { StatusService } from '../utils/status.service';
 
 @Component({
@@ -65,12 +64,12 @@ export class IndexComponent implements OnInit, AfterViewInit {
       // Store the current time, split up by units
       let time: number[] = this.DURATIONS.slice();
 
-      if (Date.now() > START_TIME) {
+      if (Date.now() > this.status.competition.start) {
         // Before the competition, display the time until it starts
-        seconds_remaining = Math.floor((END_TIME - Date.now()) / 1000);
+        seconds_remaining = Math.floor((this.status.competition.start - Date.now()) / 1000);
       } else {
         // During the competition, display the time until it ends
-        seconds_remaining = Math.floor((START_TIME - Date.now()) / 1000);
+        seconds_remaining = Math.floor((this.status.competition.end - Date.now()) / 1000);
       }
 
       // Break the time down into the different units
