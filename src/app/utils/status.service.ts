@@ -66,7 +66,7 @@ export class StatusService {
   update(status: any): void {
     this.user = status.user;
     this.team = status.team;
-    this.competition = status.competition;
+    this.competition = { start: new Date(status.competition.start), end: new Date(status.competition.end) };
   }
 
   /**
