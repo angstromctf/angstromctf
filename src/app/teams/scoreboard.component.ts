@@ -54,47 +54,47 @@ export class ScoreboardComponent implements OnInit {
   updateList(): void {
       if (this.showIneligible) this.teams = this.allTeams;
       else this.teams = this.eligibleTeams;
-      this.updateChart();
+      // this.updateChart();
   }
 
-  updateChart(): void {
-    let minX = Infinity;
-    let maxX = 0;
-    let maxY = 0;
-    let lines = [];
-    let team = 0;
-    let teamColors = {};
+  // updateChart(): void {
+  //   let minX = Infinity;
+  //   let maxX = 0;
+  //   let maxY = 0;
+  //   let lines = [];
+  //   let team = 0;
+  //   let teamColors = {};
+  //
+  //   for (let i = 0; i < (this.teams.length < 10 ? this.teams.length: 10); i++) {
+  //     teamColors[this.teams[i].name] = this.colors[i%this.colors.length];
+  //     this.teamsService.teamsProgress(this.teams[i].id).toPromise().then(data => {
+  //       let solves = data["solves"];
+  //       let points = [];
+  //       let score = 0;
+  //       for (let j = 0; j < solves.length; j++) {
+  //         score += solves[j].problem.value;
+  //         let point = [(+new Date(solves[j].time) - this.status.competition.start) / 100000, score];
+  //         if (point[0] < minX) {
+  //           minX = point[0];
+  //         }
+  //         if (point[0] > maxX) {
+  //           maxX = point[0];
+  //         }
+  //         if (point[1] > maxY) {
+  //           maxY = point[1];
+  //         }
+  //         points.push(point);
+  //       }
+  //       lines.push({points: points, color: teamColors[data.name], name: data.name, id: this.teams.filter((x) => {return x.name == data.name})[0].id});
+  //       team += 1;
+  //
+  //       if (team == 10) {
+  //         lines.sort((function (b, a) { return this.that.teams.filter((x) => { return x.name == a.name })[0].rank-this.that.teams.filter((x) => { return x.name == b.name })[0].rank}).bind({that: this}));
+  //         this.chartService.setBounds(minX, maxX, 0, maxY);
+  //         this.chartService.setLines(lines);
+  //       }
+  //     })
+  //   }
 
-    for (let i = 0; i < (this.teams.length < 10 ? this.teams.length: 10); i++) {
-      teamColors[this.teams[i].name] = this.colors[i%this.colors.length];
-      this.teamsService.teamsProgress(this.teams[i].id).toPromise().then(data => {
-        let solves = data["solves"];
-        let points = [];
-        let score = 0;
-        for (let j = 0; j < solves.length; j++) {
-          score += solves[j].problem.value;
-          let point = [(+new Date(solves[j].time) - this.status.competition.start) / 100000, score];
-          if (point[0] < minX) {
-            minX = point[0];
-          }
-          if (point[0] > maxX) {
-            maxX = point[0];
-          }
-          if (point[1] > maxY) {
-            maxY = point[1];
-          }
-          points.push(point);
-        }
-        lines.push({points: points, color: teamColors[data.name], name: data.name, id: this.teams.filter((x) => {return x.name == data.name})[0].id});
-        team += 1;
-
-        if (team == 10) {
-          lines.sort((function (b, a) { return this.that.teams.filter((x) => { return x.name == a.name })[0].rank-this.that.teams.filter((x) => { return x.name == b.name })[0].rank}).bind({that: this}));
-          this.chartService.setBounds(minX, maxX, 0, maxY);
-          this.chartService.setLines(lines);
-        }
-      })
-    }
-
-  }
+  // }
 }
