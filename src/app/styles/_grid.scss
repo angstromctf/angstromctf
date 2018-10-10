@@ -18,7 +18,9 @@ $gutter: 1rem;
 
     @for $i from 1 through 12 {
       .col-#{$size}-#{$i} {
-        @extend .col;
+        float: left;
+        min-height: 1px;
+        margin: 0 ($gutter / 2) 0 ($gutter / 2);
         flex: 0 1 calc(100% * #{$i} / 12 - #{$gutter});
       }
     }
