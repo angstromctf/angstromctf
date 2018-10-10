@@ -13,9 +13,9 @@ import 'rxjs/add/operator/toPromise';
 })
 export class AboutComponent implements OnInit {
   people: any = [
-    {name: 'Ian Rackow', role: 'Problems and outreach', year: 'Senior'},
-    {name: 'William Wang', role: 'Problems, platform developer', year: 'Senior', site: 'https://defund.io'},
-    {name: 'Kevin Higgs', role: 'Problems, platform developer', year: 'Sophomore', site: 'https://kmh.zone'}
+    {name: 'Ian Rackow', role: 'Project lead, problem developer', year: 'Senior'},
+    {name: 'William Wang', role: 'Project lead, problem developer', year: 'Senior', site: 'https://defund.io'},
+    {name: 'Kevin Higgs', role: 'Platform lead, problem developer', year: 'Sophomore', site: 'https://kmh.zone'}
   ];
 
   constructor(private titleService: Title) { }
